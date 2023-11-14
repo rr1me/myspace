@@ -1,10 +1,10 @@
 import s from './page.module.scss';
-import BackgroundInner from '@/app/components/BackgroundInner/BackgroundInner';
+import CryptoDataChecker from '@/app/components/blocks/CryptoDataChecker/CryptoDataChecker';
 
 const page = () => {
 	return (
 		<main className={s.main}>
-			{/*<BackgroundInner/>*/}
+			<CryptoDataChecker/>
 		</main>
 	);
 };

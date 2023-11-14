@@ -1,0 +1,27 @@
+@use '../../../vars.module' as v;
+
+.wrapper{
+  position: absolute;
+  display: flex;
+
+  height: 4px;
+}
+
+.breaker{
+  background-color: v.$c_addition_second;
+
+  width: 25px;
+  height: 100%;
+}
+
+.end{
+  clip-path: polygon(0 0, 100% 100%, 0 100%);
+  background-color: v.$c_addition_second;
+
+  width: 6px;
+  height: 100%;
+}
+
+.mirror{
+  transform: scale(-1, 1);
+}

@@ -1,9 +1,9 @@
 'use client';
 
-import s from './Marquee.module.scss';
-import useRandomCode from '@/app/components/elements/Marquee/useRandomCode';
+import s from './RedMovingCode.module.scss';
+import useRandomCode from '@/app/components/blocks/RedMovingCode/useRandomCode';
 
-const Marquee = () => { //2300
+const RedMovingCode = () => { //2300 width?
 
 	const getCode = useRandomCode();
 
@@ -15,7 +15,7 @@ const Marquee = () => { //2300
 	);
 };
 
-export default Marquee;
+export default RedMovingCode;
 
 const CodeElement = ({ code }: {code: string}) =>
 	(

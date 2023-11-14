@@ -5,6 +5,7 @@ import { ReactNode } from 'react';
 import './reset.css';
 import './layout.scss';
 import './vars.module.scss';
+import Background from '@/app/components/blocks/Background/Background';
 
 const mohave = Mohave({ weight: '500', subsets: ['latin'] });
 
@@ -15,7 +16,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
 	return (
 		<html lang="en">
-			<body className={mohave.className}>{children}</body>
+			<body className={mohave.className}>
+				<Background/>
+				{children}
+			</body>
 		</html>
 	);
 }
