@@ -1,5 +1,5 @@
 import s from './page.module.scss';
-import Background from '@/app/components/Background/Background';
+import Background from '@/app/components/blocks/Background/Background';
 
 const Page = () => {
 

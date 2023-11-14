@@ -9,25 +9,24 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@react-spring/web": "^9.7.3",
-    "highlight.js": "^11.9.0",
-    "next": "14.0.1",
-    "react": "^18",
-    "react-dom": "^18",
-    "sass": "^1.69.5",
-    "scss": "^0.2.4"
+    "@react-spring/web": "latest",
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "sass": "latest",
+    "scss": "latest"
   },
   "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "@typescript-eslint/eslint-plugin": "^6.9.1",
-    "@typescript-eslint/parser": "^6.9.1",
-    "eslint": "^8",
-    "eslint-config-next": "14.0.1",
-    "eslint-config-prettier": "^9.0.0",
-    "eslint-plugin-prettier": "^5.0.1",
-    "prettier": "^3.0.3",
-    "typescript": "^5"
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "@typescript-eslint/eslint-plugin": "latest",
+    "@typescript-eslint/parser": "latest",
+    "eslint": "latest",
+    "eslint-config-next": "latest",
+    "eslint-config-prettier": "latest",
+    "eslint-plugin-prettier": "latest",
+    "prettier": "latest",
+    "typescript": "latest"
   }
 }

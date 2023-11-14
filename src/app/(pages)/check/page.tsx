@@ -4,7 +4,7 @@ import BackgroundInner from '@/app/components/BackgroundInner/BackgroundInner';
 const page = () => {
 	return (
 		<main className={s.main}>
-			<BackgroundInner/>
+			{/*<BackgroundInner/>*/}
 		</main>
 	);
 };
