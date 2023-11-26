@@ -1,10 +1,10 @@
 'use client';
 
 import s from './Background.module.scss';
-import ExtendingLine, { ExtendingLineVariant } from '@/app/components/elements/ExtendingLine/ExtendingLine';
-import RedMovingCode from '@/app/components/blocks/RedMovingCode/RedMovingCode';
+import ExtendingLine, { ExtendingLineVariant } from '@/app/components/atoms/ExtendingLine/ExtendingLine';
 import { useEffect, useState } from 'react';
-import CryptoDataChecker from '@/app/components/blocks/CryptoDataChecker/CryptoDataChecker';
+import RedMovingCode from '@/app/components/organisms/RedMovingCode/RedMovingCode';
+import CryptoDataChecker from '@/app/components/organisms/CryptoDataChecker/CryptoDataChecker';
 
 const Background = () => {
 	const [hydrated, setHydrated] = useState(false);

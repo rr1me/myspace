@@ -10,7 +10,7 @@ export enum ExtendingLineVariant {
 }
 
 const ExtendingLine = ({ variant = ExtendingLineVariant.normal, color = 'c_main_dark' }:
-												 {variant?: ExtendingLineVariant, color?: Colors}) => {
+	{variant?: ExtendingLineVariant, color?: Colors}) => {
 	const direction = (() => {
 		switch (variant){
 		case ExtendingLineVariant.normal:

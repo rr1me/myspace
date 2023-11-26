@@ -5,7 +5,7 @@ import { ReactNode } from 'react';
 import './reset.css';
 import './layout.scss';
 import './vars.module.scss';
-import Background from '@/app/components/blocks/Background/Background';
+import Background from '@/app/components/templates/Background/Background';
 
 const mohave = Mohave({ weight: '500', subsets: ['latin'] });
 

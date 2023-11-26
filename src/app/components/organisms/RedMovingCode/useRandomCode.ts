@@ -18,7 +18,7 @@ const getRandomCode = (used: number[]): string => {
 const cvSkillColumn = `
 import { makeStyle } from '../../shared/utils';
 import { Text, View } from '@react-pdf/renderer';
-import Skill, { SkillType } from '../../elements/Skill';
+import Skill, { SkillType } from '../../atoms/Skill';
 
 const s = makeStyle({
   column: {

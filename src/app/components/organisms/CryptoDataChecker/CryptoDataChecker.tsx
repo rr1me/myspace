@@ -1,6 +1,6 @@
 import s from './CryptoDataChecker.module.scss';
-import Tab from '@/app/components/elements/Tab/Tab';
-import LineBreaker, { LineBreakerVariant } from '@/app/components/elements/LineBreaker/LineBreaker';
+import Tab from '@/app/components/atoms/Tab/Tab';
+import LineBreaker, { LineBreakerVariant } from '@/app/components/atoms/LineBreaker/LineBreaker';
 
 const CryptoDataChecker = () => {
 	return (

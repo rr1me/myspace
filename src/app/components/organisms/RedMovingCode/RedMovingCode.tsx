@@ -1,7 +1,7 @@
 'use client';
 
 import s from './RedMovingCode.module.scss';
-import useRandomCode from '@/app/components/blocks/RedMovingCode/useRandomCode';
+import useRandomCode from '@/app/components/organisms/RedMovingCode/useRandomCode';
 
 const RedMovingCode = () => { //2300 width?
 

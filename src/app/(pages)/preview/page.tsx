@@ -1,5 +1,5 @@
 import s from './page.module.scss';
-import CryptoDataChecker from '@/app/components/blocks/CryptoDataChecker/CryptoDataChecker';
+import CryptoDataChecker from '@/app/components/organisms/CryptoDataChecker/CryptoDataChecker';
 
 const page = () => {
 	return (
