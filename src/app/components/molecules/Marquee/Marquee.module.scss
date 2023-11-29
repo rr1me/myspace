@@ -1,0 +1,69 @@
+.codeElement{
+	height: max-content;
+	line-break: anywhere;
+
+	animation-duration: 30s;
+	animation-timing-function: linear;
+}
+
+.anim{
+	animation-duration: 15s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	animation-delay: 30s;
+}
+
+.codeElementVertical{
+	animation-name: show;
+}
+.codeElementHorizontal{
+	animation-name: showHorizontal;
+	display: flex;
+}
+
+.animVertical{
+	animation-name: an
+}
+.animHorizontal{
+	animation-name: anHorizontal;
+}
+
+/////
+
+@keyframes show {
+	from{
+		transform: translateY(-100%);
+	}
+	to{
+		transform: translateY(0);
+	}
+}
+
+@keyframes an {
+	from{
+		transform: translateY(-100%);
+	}
+	to{
+		transform: translateY(0);
+	}
+}
+
+//
+
+@keyframes showHorizontal {
+	from{
+		transform: translateX(-100%);
+	}
+	to{
+		transform: translateX(0);
+	}
+}
+
+@keyframes anHorizontal {
+	from{
+		transform: translateX(-100%);
+	}
+	to{
+		transform: translateX(0);
+	}
+}

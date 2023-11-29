@@ -15,33 +15,3 @@
   max-height: 700px;
   overflow: hidden;
 }
-
-.codeElement{
-  height: max-content;
-  line-break: anywhere;
-
-  animation: show 30s linear;
-}
-
-@keyframes show {
-  from{
-    transform: translateY(-100%);
-  }
-  to{
-    transform: translateY(0);
-  }
-}
-
-@keyframes an {
-  from{
-    transform: translateY(-100%);
-  }
-  to{
-    transform: translateY(0);
-  }
-}
-
-.anim{
-  animation: an 15s linear infinite;
-  animation-delay: 30s;
-}

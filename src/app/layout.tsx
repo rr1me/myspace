@@ -6,6 +6,7 @@ import './reset.css';
 import './layout.scss';
 import './vars.module.scss';
 import Background from '@/app/components/templates/Background/Background';
+import StyledComponentsRegistry from '@/app/registry';
 
 const mohave = Mohave({ weight: '500', subsets: ['latin'] });
 
@@ -18,7 +19,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 		<html lang="en">
 			<body className={mohave.className}>
 				<Background/>
-				{children}
+				<StyledComponentsRegistry>
+					{children}
+				</StyledComponentsRegistry>
 			</body>
 		</html>
 	);

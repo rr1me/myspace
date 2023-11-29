@@ -16,26 +16,3 @@
   height: 100%;
   position: relative;
 }
-
-.dataMovingParts{
-  margin-bottom: 5px;
-  height: 8px;
-  width: 100%;
-
-  background-color: red;
-}
-
-.lining{
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
-
-.square{
-  position: absolute;
-  top: -4px;
-  left: -4px;
-  width: 4px;
-  height: 4px;
-  background-color: v.$c_addition_second;
-}

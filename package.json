@@ -10,11 +10,13 @@
   },
   "dependencies": {
     "@react-spring/web": "latest",
+    "clsx": "^2.0.0",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",
     "sass": "latest",
-    "scss": "latest"
+    "scss": "latest",
+    "styled-components": "^6.1.1"
   },
   "devDependencies": {
     "@types/node": "latest",

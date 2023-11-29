@@ -1,9 +1,10 @@
 import s from './Tab.module.scss';
-import { CSSProperties } from 'react';
+import { StyledDimensions } from '@/app/components/shared/utils';
+import { StyledTab } from '@/app/components/atoms/Tab/styled';
 
-const Tab = ({ sx }: {sx: CSSProperties}) =>
+const Tab = ({ sx }: {sx: Partial<StyledDimensions>}) =>
 	(
-		<div style={sx} className={s.tab} />
+		<StyledTab {...sx} className={s.tab} />
 	);
 
 export default Tab;

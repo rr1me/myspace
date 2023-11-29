@@ -1,19 +1,33 @@
 import s from './LineBreaker.module.scss';
-import { CSSProperties } from 'react';
+import clsx from 'clsx';
+import { LineBreakerDiv } from './styled';
+import { LineBreakerVariant } from '@/app/components/atoms/LineBreaker/utils';
+import { StyledDimensions } from '@/app/components/shared/utils';
 
-export enum LineBreakerVariant {
-	end,
-	startToEnd
-}
+const LineBreaker = ({ sx, variant = LineBreakerVariant.end, mirrored, vertical }:
+	{sx?: Partial<Omit<StyledDimensions, '$height' | '$width'>>,
+		variant?: LineBreakerVariant, mirrored?: boolean, vertical?: boolean}) => {
+	const className = clsx({
+		[s.wrapper]: true,
+		...(mirrored && vertical ?
+			{
+				[s.doubled]: true
+			}
+			:
+			{
+				[s.mirrorWrapper]: mirrored,
+				[s.vertical]: vertical
+			}
+		)
+	});
 
-const LineBreaker = ({ sx, variant = LineBreakerVariant.end }: {sx?: CSSProperties, variant?: LineBreakerVariant}) => {
 	return (
-		<div className={s.wrapper} style={sx}>
+		<LineBreakerDiv {...sx} className={className}>
 			{variant === LineBreakerVariant.startToEnd && <div className={s.end + ' ' + s.mirror}/>}
 
 			<div className={s.breaker}/>
 			<div className={s.end}/>
-		</div>
+		</LineBreakerDiv>
 	);
 };
 

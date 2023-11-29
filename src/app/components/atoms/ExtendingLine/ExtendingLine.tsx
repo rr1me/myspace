@@ -11,40 +11,7 @@ export enum ExtendingLineVariant {
 
 const ExtendingLine = ({ variant = ExtendingLineVariant.normal, color = 'c_main_dark' }:
 	{variant?: ExtendingLineVariant, color?: Colors}) => {
-	const direction = (() => {
-		switch (variant){
-		case ExtendingLineVariant.normal:
-			return {
-				from: {
-					width: '0'
-				},
-				to: {
-					width: '100%'
-				}
-			};
-		case ExtendingLineVariant.backward:
-			return {
-				from: {
-					left: '100%'
-				},
-				to: {
-					left: '0'
-				}
-			};
-		case ExtendingLineVariant.centered:
-			return {
-				from: {
-					left: '50%',
-					width: '0'
-				},
-				to: {
-					left: '0',
-					width: '100%'
-				}
-			};
-
-		}
-	})();
+	const direction = getVariant(variant);
 
 	const [springs] = useSpring(() => ({
 		...direction,
@@ -69,3 +36,37 @@ const ExtendingLine = ({ variant = ExtendingLineVariant.normal, color = 'c_main_
 };
 
 export default ExtendingLine;
+
+const getVariant = (variant: ExtendingLineVariant) => {
+	switch (variant){
+	case ExtendingLineVariant.normal:
+		return {
+			from: {
+				width: '0'
+			},
+			to: {
+				width: '100%'
+			}
+		};
+	case ExtendingLineVariant.backward:
+		return {
+			from: {
+				left: '100%'
+			},
+			to: {
+				left: '0'
+			}
+		};
+	case ExtendingLineVariant.centered:
+		return {
+			from: {
+				left: '50%',
+				width: '0'
+			},
+			to: {
+				left: '0',
+				width: '100%'
+			}
+		};
+	}
+};
