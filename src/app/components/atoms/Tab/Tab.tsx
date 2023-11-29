@@ -1,10 +1,10 @@
 import s from './Tab.module.scss';
-import { StyledDimensions } from '@/app/components/shared/utils';
-import { StyledTab } from '@/app/components/atoms/Tab/styled';
+import { CSSObject } from 'styled-components';
+import SxStyledComponent from '@/app/components/atoms/SxStyledComponent/SxStyledComponent';
 
-const Tab = ({ sx }: {sx: Partial<StyledDimensions>}) =>
+const Tab = ({ sx }: {sx: CSSObject}) =>
 	(
-		<StyledTab {...sx} className={s.tab} />
+		<SxStyledComponent $sx={sx} className={s.tab} />
 	);
 
 export default Tab;

@@ -1,16 +1,17 @@
-export type StyledDimensions = {
-	$top: number | string;
-	$bottom: number | string;
-	$left: number | string;
-	$right: number | string;
-	$width: number | string;
-	$height: number | string;
-}
+import { css, CSSObject } from 'styled-components';
 
-export const styleProcessor = (field: keyof StyledDimensions) =>
-	(x: Partial<StyledDimensions>) => {
-		const key = x[field];
-		return (key ?
-			`${field.replace('$', '')}: ${typeof key === 'number' ? key + 'px' : key};`
-			: '');
-	};
+export const applyStyles = (styles: CSSObject) => css`
+  ${({ theme }: { theme: any }) => {
+		const appliedStyles: CSSObject = {};
+
+		Object.keys(styles).forEach((key: string) => {
+			if (typeof styles[key] === 'function') {
+				appliedStyles[key] = (styles[key] as any)(theme);
+			} else {
+				appliedStyles[key] = styles[key];
+			}
+		});
+
+		return appliedStyles;
+	}}
+`;

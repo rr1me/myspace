@@ -1,11 +1,11 @@
 import s from './LineBreaker.module.scss';
 import clsx from 'clsx';
-import { LineBreakerDiv } from './styled';
 import { LineBreakerVariant } from '@/app/components/atoms/LineBreaker/utils';
-import { StyledDimensions } from '@/app/components/shared/utils';
+import { CSSObject } from 'styled-components';
+import SxStyledComponent from '@/app/components/atoms/SxStyledComponent/SxStyledComponent';
 
 const LineBreaker = ({ sx, variant = LineBreakerVariant.end, mirrored, vertical }:
-	{sx?: Partial<Omit<StyledDimensions, '$height' | '$width'>>,
+	{sx?: CSSObject,
 		variant?: LineBreakerVariant, mirrored?: boolean, vertical?: boolean}) => {
 	const className = clsx({
 		[s.wrapper]: true,
@@ -22,12 +22,12 @@ const LineBreaker = ({ sx, variant = LineBreakerVariant.end, mirrored, vertical 
 	});
 
 	return (
-		<LineBreakerDiv {...sx} className={className}>
+		<SxStyledComponent $sx={sx} className={className}>
 			{variant === LineBreakerVariant.startToEnd && <div className={s.end + ' ' + s.mirror}/>}
 
 			<div className={s.breaker}/>
 			<div className={s.end}/>
-		</LineBreakerDiv>
+		</SxStyledComponent>
 	);
 };
 
