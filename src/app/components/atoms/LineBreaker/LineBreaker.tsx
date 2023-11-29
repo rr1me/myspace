@@ -1,11 +1,11 @@
 import s from './LineBreaker.module.scss';
 import clsx from 'clsx';
 import { LineBreakerVariant } from '@/app/components/atoms/LineBreaker/utils';
-import { CSSObject } from 'styled-components';
+import { CSSProperties } from 'styled-components';
 import SxStyledComponent from '@/app/components/atoms/SxStyledComponent/SxStyledComponent';
 
 const LineBreaker = ({ sx, variant = LineBreakerVariant.end, mirrored, vertical }:
-	{sx?: CSSObject,
+	{sx?: CSSProperties,
 		variant?: LineBreakerVariant, mirrored?: boolean, vertical?: boolean}) => {
 	const className = clsx({
 		[s.wrapper]: true,
