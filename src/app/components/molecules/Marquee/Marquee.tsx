@@ -1,3 +1,5 @@
+'use client';
+
 import s from './Marquee.module.scss';
 import { ReactNode } from 'react';
 import clsx from 'clsx';

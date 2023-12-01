@@ -1,13 +1,10 @@
+'use client';
+
 import s from './ExtendingLine.module.scss';
 
 import { animated, easings, useSpring } from '@react-spring/web';
 import { Colors, colorVars } from '@/app/theme';
-
-export enum ExtendingLineVariant {
-	normal,
-	backward,
-	centered
-}
+import { ExtendingLineVariant, getVariant } from '@/app/components/atoms/ExtendingLine/utils';
 
 const ExtendingLine = ({ variant = ExtendingLineVariant.normal, color = 'c_main_dark' }:
 	{variant?: ExtendingLineVariant, color?: Colors}) => {
@@ -36,37 +33,3 @@ const ExtendingLine = ({ variant = ExtendingLineVariant.normal, color = 'c_main_
 };
 
 export default ExtendingLine;
-
-const getVariant = (variant: ExtendingLineVariant) => {
-	switch (variant){
-	case ExtendingLineVariant.normal:
-		return {
-			from: {
-				width: '0'
-			},
-			to: {
-				width: '100%'
-			}
-		};
-	case ExtendingLineVariant.backward:
-		return {
-			from: {
-				left: '100%'
-			},
-			to: {
-				left: '0'
-			}
-		};
-	case ExtendingLineVariant.centered:
-		return {
-			from: {
-				left: '50%',
-				width: '0'
-			},
-			to: {
-				left: '0',
-				width: '100%'
-			}
-		};
-	}
-};

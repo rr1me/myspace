@@ -18,8 +18,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 	return (
 		<html lang="en">
 			<body className={mohave.className}>
-				<Background/>
 				<StyledComponentsRegistry>
+					<Background/>
 					{children}
 				</StyledComponentsRegistry>
 			</body>

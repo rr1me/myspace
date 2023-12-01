@@ -1,0 +1,12 @@
+.hardMarquee {
+	//animation: an 5s infinite;
+}
+
+@keyframes an {
+	from{
+		transform: translateY(0);
+	}
+	to{
+		transform: translateY(100%);
+	}
+}
