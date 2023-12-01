@@ -11,7 +11,10 @@ const CryptoDataChecker = () => {
 			<div className={s.inner}>
 				<CryptoDataCheckerLining/>
 
-				<HardMarquee/>
+				{/*<HardMarquee/>*/}
+				<div className={s.innerWrapper}>
+					<HardMarquee/>
+				</div>
 			</div>
 		</div>
 	);
