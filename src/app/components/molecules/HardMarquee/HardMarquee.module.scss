@@ -9,21 +9,11 @@
 }
 
 .movingElement {
-	//animation: an 5s infinite;
 	min-height: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	justify-items: center;
-}
-
-@keyframes an {
-	from{
-		transform: translateY(0);
-	}
-	to{
-		transform: translateY(100%);
-	}
 }
 
 
