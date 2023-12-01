@@ -1,9 +1,9 @@
-.wrapper{
+.hardMarquee{
 	overflow: hidden;
 	height: 100%;
 }
 
-.hardMarquee{
+.inner{
 	height: 100%;
 	transform: translateY(-100%);
 }
