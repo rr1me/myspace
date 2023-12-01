@@ -1,10 +1,23 @@
 import s from './DataMovingParts.module.scss';
-import Tab from '@/app/components/atoms/Tab/Tab';
+import DataPart from '@/app/components/molecules/DataPart/DataPart';
+import DataTab from '@/app/components/atoms/DataTab/DataTab';
+import { colorVars } from '@/app/theme';
+import Marquee from '@/app/components/molecules/Marquee/Marquee';
 
 const DataMovingParts = () => {
 	return (
 		<div className={s.dataMovingParts}>
-			<Tab sx={{ height: '100%', width: 1, position: 'static' }}/>
+			<DataTab sx={{ backgroundColor: colorVars.c_addition_second_80p, width: 1 }}/>
+
+			<div className={s.inner}>
+				<Marquee horizontal sx={{ height: '100%' }} duration={8}>
+					<div className={s.movingBlock}>
+						<DataPart/>
+						<DataPart/>
+						<DataPart/>
+					</div>
+				</Marquee>
+			</div>
 		</div>
 	);
 };

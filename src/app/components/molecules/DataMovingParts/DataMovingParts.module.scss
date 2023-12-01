@@ -3,7 +3,17 @@
 	height: 8px;
 	width: 100%;
 
-	//background-color: red;
+	display: flex;
+}
 
-	//box-shadow: 0 0 65px 10px red;
+.inner{
+	width: 100%;
+	height: 100%;
+
+	overflow-x: clip;
+}
+
+.movingBlock{
+	height: 100%;
+	display: flex;
 }

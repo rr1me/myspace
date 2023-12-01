@@ -12,7 +12,8 @@ export type Colors =
 	'c_addition_second_80p' |
 	'c_addition_second_50p' |
 	'c_accent_gold' |
-	'g_separator'
+	'g_separator' |
+	'e_box_shadow'
 
 export type ColorVars = {
 	[key in Colors]: string;
