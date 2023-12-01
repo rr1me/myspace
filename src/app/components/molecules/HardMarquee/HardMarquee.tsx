@@ -1,20 +1,23 @@
 'use client';
 
 import s from './HardMarquee.module.scss';
-import { useEffect, useRef, useState } from 'react';
+import { ReactElement, useEffect, useRef, useState } from 'react';
 import SxSC from '@/app/components/atoms/SxSC/SxSC';
+import { useHydrated } from '@/app/components/shared/utils';
 
-const HardMarquee = () => {
+const HardMarquee = ({ getElement }: {getElement: () => ReactElement}) => {
+	const hydrated = useHydrated();
+
 	const firstRef = useRef<HTMLDivElement>(null);
 	const secondRef = useRef<HTMLDivElement>(null);
 
 	const [innerTransform, setInnerTransform] = useState(-200);
 	const [first, setFirst] = useState({
-		child: getRandomElement(),
+		child: getElement(),
 		transform: 'translateY(0%)'
 	});
 	const [second, setSecond] = useState({
-		child: getRandomElement(),
+		child: getElement(),
 		transform: 'translateY(0%)'
 	});
 
@@ -43,7 +46,7 @@ const HardMarquee = () => {
 				if (currentTransform + part >= 100){
 					setSecond(() =>
 						({ child: x.child, transform: 'translateY(0%)' }));
-					return { child: getRandomElement(), transform: 'translateY(0%)' };
+					return { child: getElement(), transform: 'translateY(0%)' };
 				}
 
 				const transformValue = `translateY(${currentTransform + part}%)`;
@@ -60,33 +63,24 @@ const HardMarquee = () => {
 
 	return (
 		<div className={s.hardMarquee}>
-			<SxSC $sx={{
-				transform: `translateY(${innerTransform}%)`
-			}}  className={s.inner}>
-				<SxSC ref={firstRef} $sx={{
-					transform: first.transform
-				}} className={s.movingElement}>
-					{first.child}
+			{hydrated &&
+				<SxSC $sx={{
+					transform: `translateY(${innerTransform}%)`
+				}} className={s.inner}>
+					<SxSC ref={firstRef} $sx={{
+						transform: first.transform
+					}} className={s.movingElement}>
+						{first.child}
+					</SxSC>
+					<SxSC ref={secondRef} $sx={{
+						transform: second.transform
+					}} className={s.movingElement}>
+						{second.child}
+					</SxSC>
 				</SxSC>
-				<SxSC ref={secondRef} $sx={{
-					transform: second.transform
-				}} className={s.movingElement}>
-					{second.child}
-				</SxSC>
-			</SxSC>
+			}
 		</div>
 	);
 };
 
 export default HardMarquee;
-
-const getRandomElement = () => (
-	<>
-		{Array(10).fill(0).map((_x, i) =>
-			(<SxSC $sx={{ flexGrow: 1, display: 'flex', alignItems: 'center' }} key={i}>
-				<SxSC $sx={{ height: 11 }}>
-					{Math.random().toFixed(5)}
-				</SxSC>
-			</SxSC>))}
-	</>
-);
