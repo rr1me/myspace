@@ -4,7 +4,7 @@ const Page = () => {
 
 	return (
 		<main className={s.page}>
-			nothing here
+			{/*nothing here*/}
 		</main>
 	);
 };
