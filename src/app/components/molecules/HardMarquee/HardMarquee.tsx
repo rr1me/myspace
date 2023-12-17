@@ -11,8 +11,6 @@ const HardMarquee = ({ getElement }: {getElement: () => ReactElement}) => {
 	const firstRef = useRef<HTMLDivElement>(null);
 	const secondRef = useRef<HTMLDivElement>(null);
 
-	const secondOffset = 0
-
 	const [innerTransform, setInnerTransform] = useState(-200);
 	const [first, setFirst] = useState({
 		child: getElement(),
@@ -20,10 +18,8 @@ const HardMarquee = ({ getElement }: {getElement: () => ReactElement}) => {
 	});
 	const [second, setSecond] = useState({
 		child: getElement(),
-		transform: `translateY(calc(0% - ${secondOffset}px))`
+		transform: 'translateY(0%)'
 	});
-
-	// console.log(/\((\d+)%/g.exec('translateY(calc(50% - 5px));'));
 
 	useEffect(() => {
 		const length = first.child.props.children.length;
@@ -45,8 +41,8 @@ const HardMarquee = ({ getElement }: {getElement: () => ReactElement}) => {
 			}
 
 			setFirst(x => {
-				// const currentTransform = Number(/\((.+)%/g.exec(x.transform)![1]);
-				const currentTransform = Number(/\((\d+)%/g.exec(x.transform)![1]);
+				const currentTransform = Number(/\((.+)%/g.exec(x.transform)![1]);
+				// const currentTransform = Number(/\((\d+)%/g.exec(x.transform)![1]);
 
 				if (currentTransform + part >= 100){
 					setSecond(() =>
@@ -54,14 +50,12 @@ const HardMarquee = ({ getElement }: {getElement: () => ReactElement}) => {
 					return { child: getElement(), transform: 'translateY(0%)' };
 				}
 
-				const transformValue = `translateY(calc(${currentTransform + part}% - 0px))`;
+				const transformValue = `translateY(${currentTransform + part}%)`;
 				setSecond((s) =>
-					({ ...s, transform: `translateY(calc(${currentTransform + part}% - ${secondOffset}px))` }));
+					({ ...s, transform: transformValue }));
 				return { ...x, transform: transformValue };
 			});
 		}, intervalDelay);
-
-		// setTimeout(() => clearInterval(interval), 4000);
 
 		return () => {
 			clearInterval(interval);
