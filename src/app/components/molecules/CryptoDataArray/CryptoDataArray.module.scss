@@ -55,3 +55,9 @@
 	height: 1px;
 	background-color: v.$c_addition_second;
 }
+
+.dataBlocks{
+	flex-grow: 1;
+	display: flex;
+	gap: 10px;
+}

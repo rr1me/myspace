@@ -1,5 +1,6 @@
 import { css, CSSObject, CSSProperties } from 'styled-components';
 import { useEffect, useState } from 'react';
+import { colorVars } from '@/app/theme';
 
 export const applyStyles = (styles: CSSProperties) => css`${styles as CSSObject}`;
 
@@ -32,8 +33,14 @@ export const missingKatakana = [
 	'ﾉ', 'ﾌ', 'ﾔ', 'ﾖ', 'ﾙ', 'ﾚ', 'ﾛ', 'ﾝ',
 ];
 
-export const getRandomInt = (min: number, max: number) => {
-	// min = Math.ceil(min);
-	// max = Math.floor(max);
-	return Math.floor(Math.random() * (max - min + 1)) + min;
-};
+export const dataBlocksStates = [
+	{ str: 'SHATTERED', clr: colorVars.c_main_third },
+	{ str: 'ALTERED', clr: colorVars.c_main_second_2 },
+	{ str: 'CLEAN', clr: colorVars.c_addition_first },
+];
+
+export const getRandomArrayIndex = (length: number) =>
+	getRandomInt(0, length - 1);
+
+export const getRandomInt = (min: number, max: number) =>
+	Math.floor(Math.random() * (max - min + 1)) + min;
