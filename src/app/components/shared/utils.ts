@@ -33,14 +33,12 @@ export const missingKatakana = [
 	'ﾉ', 'ﾌ', 'ﾔ', 'ﾖ', 'ﾙ', 'ﾚ', 'ﾛ', 'ﾝ',
 ];
 
-export const dataBlocksStates = [
-	{ str: 'SHATTERED', clr: colorVars.c_main_third },
-	{ str: 'ALTERED', clr: colorVars.c_main_second_2 },
-	{ str: 'CLEAN', clr: colorVars.c_addition_first },
-];
+export const getRandomInt = (min: number, max: number) =>
+	Math.floor(Math.random() * (max - min + 1)) + min;
 
 export const getRandomArrayIndex = (length: number) =>
 	getRandomInt(0, length - 1);
 
-export const getRandomInt = (min: number, max: number) =>
-	Math.floor(Math.random() * (max - min + 1)) + min;
+//fixme is there any way to intercept arr type?
+export const getRandomArrayElement = (arr: any[]) =>
+	arr[getRandomArrayIndex(arr.length)];

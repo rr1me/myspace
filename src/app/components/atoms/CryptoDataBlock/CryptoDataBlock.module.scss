@@ -1,13 +1,19 @@
 @use '../../../vars.module' as v;
 
-.blockFilled{
+.dataBlock{
 	width: 50px;
 	height: 10px;
 	font-size: 9px;
-	line-height: 12px;
 	text-align: center;
 	border-radius: 1px;
+}
 
+.filled{
+	line-height: 12px;
 	background-color: v.$c_addition_second;
-	//color: v.$c_addition_first;
+}
+
+.unfilled{
+	line-height: 10px;
+	border: 1px solid v.$c_addition_second_80p;
 }
