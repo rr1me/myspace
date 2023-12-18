@@ -29,7 +29,7 @@ const getRandomElement = () => (
 					</span>
 
 					<span className={s.katakana}>
-						{Array(19).fill(0).map((_, i) => (
+						{Array(18).fill(0).map((_, i) => (
 							<p key={i} className={s.katakanaSymbol}>
 								{getRandomArrayElement(katakana)}
 							</p>
@@ -96,7 +96,7 @@ const getUnfilledDataBlock = () => {
 						<div className={s.preview}/>
 						:
 						<div className={s.unlitPreview}>
-							<DataTab sx={{ width: 10 }}/>
+							<DataTab sx={{ width: 14 }}/>
 							<DataTab sx={{ width: 3 }}/>
 							<DataTab sx={{ width: 1 }}/>
 							<DataTab sx={{ width: 1 }}/>
