@@ -1,5 +1,5 @@
 import { css, CSSObject, CSSProperties } from 'styled-components';
-import { useEffect, useState } from 'react';
+import { ReactElement, useEffect, useState } from 'react';
 import { colorVars } from '@/app/theme';
 
 export const applyStyles = (styles: CSSProperties) => css`${styles as CSSObject}`;

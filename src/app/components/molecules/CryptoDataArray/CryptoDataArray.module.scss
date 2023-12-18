@@ -1,63 +1,8 @@
 @use '../../../vars.module' as v;
 
-.DataArray{
+.dataArray{
 	font-size: 15px;
 	padding: 5px 10px;
 	line-height: 0.8;
 	height: 100%;
-}
-
-.dataWrapper{
-	flex-grow: 1;
-}
-
-.data{
-	flex-grow: 1;
-	display: flex;
-	align-items: center;
-	gap: 21px;
-
-	color: v.$c_addition_second;
-}
-
-.id{
-	font-size: 11px;
-	width: 40px;
-
-	display: flex;
-	justify-content: space-between;
-}
-
-.katakana{
-	display: flex;
-	gap: 5px;
-	font-weight: bold;
-	width: 225px;
-}
-
-.katakanaSymbol{
-	width: 8px;
-}
-
-.add1Symbol{
-	position: relative;
-	width: 6px;
-	font-weight: bold;
-	font-size: 12px;
-}
-
-.add1Tab{
-	position: absolute;
-	bottom: 0;
-	left: 0;
-
-	width: 5px;
-	height: 1px;
-	background-color: v.$c_addition_second;
-}
-
-.dataBlocks{
-	flex-grow: 1;
-	display: flex;
-	gap: 10px;
 }
