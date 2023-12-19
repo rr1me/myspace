@@ -1,6 +1,7 @@
 import s from './DataPart.module.scss';
 import DataTab from '@/app/components/atoms/DataTab/DataTab';
 
+//todo should be a few variations of parts
 const DataPart = () => {
 	return <First/>;
 };

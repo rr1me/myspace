@@ -4,6 +4,7 @@ import CryptoDataChecker from '@/app/components/organisms/CryptoDataChecker/Cryp
 import Marquee from '../../molecules/Marquee/Marquee';
 import ExtendingLine from '@/app/components/atoms/ExtendingLine/ExtendingLine';
 import { ExtendingLineVariant } from '@/app/components/atoms/ExtendingLine/utils';
+import CLI from '@/app/components/organisms/CLI/CLI';
 
 const Background = () => //fixme horizontal marquee animation(start but)
 	(
@@ -19,9 +20,10 @@ const Background = () => //fixme horizontal marquee animation(start but)
 
 			<ExtendingLine variant={ExtendingLineVariant.centered} color='g_separator' />
 
-			<div className={s.bottom}>
+			<section className={s.bottom}>
+				<CLI />
 				<CryptoDataChecker />
-			</div>
+			</section>
 		</div>
 	);
 

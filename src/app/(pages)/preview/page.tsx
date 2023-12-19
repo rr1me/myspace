@@ -1,10 +1,10 @@
 import s from './page.module.scss';
-import CryptoDataChecker from '@/app/components/organisms/CryptoDataChecker/CryptoDataChecker';
+import CLI from '@/app/components/organisms/CLI/CLI';
 
 const page = () => {
 	return (
 		<main className={s.main}>
-			<CryptoDataChecker/>
+			<CLI/>
 		</main>
 	);
 };

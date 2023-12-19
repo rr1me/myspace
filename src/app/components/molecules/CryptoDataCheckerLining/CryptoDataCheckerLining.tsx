@@ -2,10 +2,11 @@ import s from './CryptoDataCheckerLining.module.scss';
 import Tab from '@/app/components/atoms/Tab/Tab';
 import LineBreaker from '@/app/components/atoms/LineBreaker/LineBreaker';
 import { LineBreakerVariant } from '@/app/components/atoms/LineBreaker/utils';
+import LiningWrapper from '@/app/components/atoms/LiningWrapper/LiningWrapper';
 
 const CryptoDataCheckerLining = () => {
 	return (
-		<div className={s.lining}>
+		<LiningWrapper>
 			<Tab sx={{ width: 282, height: 1 }}/>
 			<Tab sx={{ width: 308, height: 1, left: 292 }}/>
 
@@ -26,7 +27,7 @@ const CryptoDataCheckerLining = () => {
 			<LineBreaker sx={{ left: 233, top: -4 }} variant={LineBreakerVariant.startToEnd}/>
 
 			<div className={s.square}/>
-		</div>
+		</LiningWrapper>
 	);
 };
 

@@ -1,6 +1,9 @@
 @use '../../../vars.module' as v;
 
 .tab{
-  position: absolute;
   background-color: v.$c_addition_second;
+}
+
+.absolute{
+  position: absolute;
 }

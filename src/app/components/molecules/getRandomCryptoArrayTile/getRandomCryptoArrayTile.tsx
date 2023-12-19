@@ -12,6 +12,10 @@ import Tab from '@/app/components/atoms/Tab/Tab';
 import DataTabToChange from '@/app/components/atoms/DataTab/DataTab';
 import restyle from '@/app/components/shared/restyle';
 
+const DataTab = restyle(DataTabToChange, {
+	borderRadius: 'unset'
+});
+
 // can't just use usual FC because it needs component to be copied in hardMarquee with it's randomized values. or can I?
 const getRandomElement = () => (
 	<>
@@ -76,13 +80,6 @@ const getFilledDataBlock = () => {
 	);
 };
 
-const DataTab = restyle(DataTabToChange, {
-	borderRadius: 'unset'
-});
-
-
-//todo convert all static elements to default divs instead of SxSC.
-// also, its possible to reuse DataPart component for 'X' blocks
 const getUnfilledDataBlock = () => {
 	const state = getRandomInt(0, 2);
 

@@ -12,7 +12,16 @@ export type Colors =
 	'c_addition_second_80p' |
 	'c_addition_second_50p' |
 	'c_accent_gold' |
+
+	/////
+
 	'g_separator' |
+	'g_separator_clr_addition' |
+	'g_separator_nonEnding' |
+	'g_separator_oneway' |
+
+	/////
+
 	'e_box_shadow'
 
 export type ColorVars = {
