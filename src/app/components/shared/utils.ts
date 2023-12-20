@@ -1,17 +1,3 @@
-import { css, CSSObject, CSSProperties } from 'styled-components';
-import { ReactElement, useEffect, useState } from 'react';
-import { colorVars } from '@/app/theme';
-
-export const applyStyles = (styles: CSSProperties) => css`${styles as CSSObject}`;
-
-export const useHydrated = () => {
-	const [hydrated, setHydrated] = useState(false);
-	useEffect(() => {
-		setHydrated(true);
-	}, []);
-	return hydrated;
-};
-
 export const engAlphabet = [
 	'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
 	'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',

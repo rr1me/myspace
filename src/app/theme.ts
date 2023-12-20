@@ -20,6 +20,8 @@ export type Colors =
 	'g_separator_nonEnding' |
 	'g_separator_oneway' |
 
+	'g_cliSHell' |
+
 	/////
 
 	'e_box_shadow'

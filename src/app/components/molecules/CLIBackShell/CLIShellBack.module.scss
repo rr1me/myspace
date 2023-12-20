@@ -1,0 +1,24 @@
+@use '../../../vars.module' as v;
+
+.backShell{
+	width: 20px;
+	padding-left: 5px;
+	height: 100%;
+}
+
+.quadroSymbols{
+	height: 10px;
+	width: 100%;
+	display: flex;
+}
+
+.shellTab{
+	margin-top: 5px;
+	transform-origin: 0 0;
+	rotate: 90deg;
+	width: 105px;
+	height: 2px;
+	background: v.$g_separator_clr_addition;
+	position: relative;
+	left: 15px;
+}

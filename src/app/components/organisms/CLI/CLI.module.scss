@@ -5,51 +5,11 @@
 	height: 180px;
 }
 
-.smallTabArray{
-	width: calc(100% + 4px);
-	height: 8px;
-	display: flex;
-}
-
-.bigTabArray{
-	margin-top: 10px;
-	display: flex;
-	gap: 6px;
-	height: 10px;
-}
-
-.dataTabItem{
-	flex-grow: 1;
-}
-
 .inner{
 	margin-top: 7px;
 	height: 120px;
 
 	display: flex;
-}
-
-.backShell{
-	width: 20px;
-	padding-left: 5px;
-	height: 100%;
-}
-
-.quadroSymbols{
-	height: 10px;
-	width: 100%;
-	background-color: gray;
-}
-
-.shellTab{
-	margin-top: 5px;
-	transform-origin: 0 0;
-	rotate: 90deg;
-	width: 105px;
-	height: 2px;
-	background: v.$g_separator_clr_addition;
-	position: relative;
-	left: 15px;
 }
 
 .nonEndingSeparator{

@@ -3,7 +3,7 @@
 import s from './HardMarquee.module.scss';
 import { ReactElement, useEffect, useRef, useState } from 'react';
 import SxSC from '@/app/components/atoms/SxSC/SxSC';
-import { useHydrated } from '@/app/components/shared/utils';
+import { useHydrated } from '@/app/components/shared/hooks';
 
 const HardMarquee = ({ getElement }: {getElement: () => ReactElement}) => {
 	const hydrated = useHydrated();

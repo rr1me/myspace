@@ -1,0 +1,23 @@
+@use '../../../vars.module' as v;
+
+.circleSymbolPair{
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.circleSymbol{
+	margin-top: 1px;
+	font-size: 6px;
+	transform: scale(-1, 1);
+	font-weight: bolder;
+}
+
+.red{
+	color: v.$c_main_third
+}
+
+.cyan{
+	color: v.$c_addition_second;
+}
