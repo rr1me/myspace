@@ -1,0 +1,6 @@
+@use '../../../vars.module' as v;
+
+.text{
+	color: v.$c_addition_second;
+	display: inline;
+}

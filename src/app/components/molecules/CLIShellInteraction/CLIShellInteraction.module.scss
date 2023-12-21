@@ -1,0 +1,29 @@
+@use '../../../vars.module' as v;
+
+.interaction{
+	padding: 5px 7px;
+	display: flex;
+	height: 100%;
+}
+
+.nixPreCmd{
+	color: v.$c_main_third;
+	margin-right: 5px;
+}
+
+.nixTab{
+	position: relative;
+	top: 5px;
+	height: 2px;
+	width: 5px;
+	background-color: v.$c_addition_second;
+}
+
+.cmdZone{
+	width: 378px;
+}
+
+.codeZone{
+	flex-grow: 1;
+	background-color: #ff6b63;
+}
