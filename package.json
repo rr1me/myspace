@@ -11,6 +11,7 @@
   "dependencies": {
     "@react-spring/web": "latest",
     "clsx": "^2.0.0",
+    "nanoid": "^5.0.4",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",

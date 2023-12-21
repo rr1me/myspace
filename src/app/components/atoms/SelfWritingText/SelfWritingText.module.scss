@@ -1,19 +1,24 @@
 @use '../../../vars.module' as v;
 
+.selfWritingText{
+	display: flex;
+	gap: 5px;
+	height: 22px;
+	line-height: 22px;
+}
+
 .text{
 	color: v.$c_addition_second;
-	display: inline;
 }
 
 .nixPreCmd{
 	color: v.$c_main_third;
-	margin-right: 5px;
 }
 
 .nixTab{
 	position: relative;
-	top: 5px;
+	top: 15px;
 	height: 2px;
-	width: 5px;
-	background-color: v.$c_addition_second;
+	width: 10px;
+	background-color: v.$c_addition_second-50p;
 }
