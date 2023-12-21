@@ -1,10 +1,5 @@
 @use '../../../vars.module' as v;
 
-.text{
-	color: v.$c_addition_second;
-	display: inline;
-}
-
 .nixPreCmd{
 	color: v.$c_main_third;
 	margin-right: 5px;
