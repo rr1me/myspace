@@ -5,8 +5,8 @@
 
 .duoPreWrapper{
 	height: max-content;
-	line-break: anywhere;
-	word-break: break-all;
+	//line-break: anywhere;
+	//word-break: break-all;
 
 	animation-duration: 30s;
 	animation-timing-function: linear;
@@ -93,36 +93,3 @@
 		transform: translateX(0);
 	}
 }
-//
-
-
-
-
-//.duoPreWrapperHorizontalReverse{
-//	animation-name: showHorizontalReverse;
-//	display: flex;
-//	width: 100%;
-//}
-//.preHorizontalReverse{
-//	animation-name: anHorizontalReverse;
-//	min-width: 100%;
-//}
-//
-//
-//@keyframes showHorizontalReverse {
-//	from{
-//		transform: translateX(0);
-//	}
-//	to{
-//		transform: translateX(200%);
-//	}
-//}
-//
-//@keyframes anHorizontalReverse {
-//	from{
-//		transform: translateX(0);
-//	}
-//	to{
-//		transform: translateX(100%);
-//	}
-//}

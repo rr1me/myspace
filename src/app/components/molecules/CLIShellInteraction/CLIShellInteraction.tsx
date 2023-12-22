@@ -39,7 +39,22 @@ const CLIShellInteraction = () => {
 	const [writtenCommands, setWrittenCommands] = useState<{id: string, str: string}[]>([]);
 	const addText = () => setWrittenCommands(x => x.concat({ id: nanoid(), str: getRandomArrayElement(randText) }));
 
+	const [shellReturn, setShellReturn] = useState<null | string>(null);
+
 	const onAnimationEnd = () => {
+		if (!shellReturn)
+			setShellReturn(answers[0]);
+	};
+
+	const isFirstRender = useIsFirstRender();
+
+	useEffect(() => {
+		if (isFirstRender) addText();
+	}, []);
+
+	const onMarqueeAnimationEnd = () => {
+		setShellReturn(null);
+
 		if (writtenCommands.length < 5) addText();
 		else{
 			setWrittenCommands(x => {
@@ -49,12 +64,6 @@ const CLIShellInteraction = () => {
 			});
 		}
 	};
-
-	const isFirstRender = useIsFirstRender();
-
-	useEffect(() => {
-		if (isFirstRender) addText();
-	}, []);
 
 	return (
 		<div className={s.interaction}>
@@ -68,9 +77,11 @@ const CLIShellInteraction = () => {
 			</div>
 
 			<div className={s.codeZone}>
-				<Marquee whitespacePreWrap reverse duration={5} once>
-					{answers[0]}
-				</Marquee>
+				{!!shellReturn &&
+					<Marquee whitespacePreWrap reverse duration={5} once onAnimationEnd={onMarqueeAnimationEnd}>
+						{shellReturn}
+					</Marquee>
+				}
 			</div>
 		</div>
 	);

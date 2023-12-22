@@ -1,7 +1,7 @@
 'use client';
 
 import s from './Marquee.module.scss';
-import { ReactNode } from 'react';
+import { ReactNode, useEffect } from 'react';
 import clsx from 'clsx';
 import SxSC from '@/app/components/atoms/SxSC/SxSC';
 import { CSSProperties } from 'styled-components';
@@ -10,21 +10,25 @@ import { CSSProperties } from 'styled-components';
  * You should use text with height >= marquee container, because it's unable to force minHeight due to background distortion
  */
 const Marquee = ({ children, horizontal = false, sx, duration = 30,
-	whitespacePreWrap = false, reverse = false, once = false }:
+	whitespacePreWrap = false, reverse = false, once = false, onAnimationEnd }:
 	{children: ReactNode, horizontal?: boolean, sx?: CSSProperties,
-		duration?: number, whitespacePreWrap?: boolean, reverse?: boolean, once?: boolean}) => {
+		duration?: number, whitespacePreWrap?: boolean, reverse?: boolean, once?: boolean,
+		onAnimationEnd?: () => void}) => {
 
 	if (reverse && horizontal)
 		throw new Error('Not implemented yet due to non-use');
 
+	const classNamesContinuation =
+		`${reverse ? 'VerticalReverse' : horizontal ? 'Horizontal' : 'Vertical'}`;
+
 	const classNameDuoPreWrapper = clsx({
 		[s.duoPreWrapper]: true,
-		[s[`duoPreWrapper${horizontal ? 'Horizontal' : 'Vertical'}${reverse ? 'Reverse' : ''}`]]: true
+		[s['duoPreWrapper' + classNamesContinuation]]: true
 	});
 
 	const classNamePre = clsx({
 		[s.pre]: true,
-		[s[`pre${horizontal ? 'Horizontal' : 'Vertical'}${reverse ? 'Reverse' : ''}`]]: true
+		[s['pre' + classNamesContinuation]]: true
 	});
 
 	const classNameCode = clsx({
@@ -56,6 +60,14 @@ const Marquee = ({ children, horizontal = false, sx, duration = 30,
 			{pre}
 			{pre}
 		</SxSC>;
+
+	useEffect(() => {
+		if (onAnimationEnd === undefined) return;
+		const endCallbackTimeout = setTimeout(onAnimationEnd, duration * 1000);
+		return () => {
+			clearTimeout(endCallbackTimeout);
+		};
+	}, []);
 
 	return (
 		<div className={s.marqueeWrapper}>
