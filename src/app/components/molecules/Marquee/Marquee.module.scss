@@ -26,10 +26,19 @@
 }
 
 .codeElementVertical{
-	animation-name: show;
+	animation-name: an;
 }
+.codeElementVerticalReverse{
+	animation-name: anReverse;
+}
+//
 .codeElementHorizontal{
 	animation-name: showHorizontal;
+	display: flex;
+	width: 100%;
+}
+.codeElementHorizontalReverse{
+	animation-name: showHorizontalReverse;
 	display: flex;
 	width: 100%;
 }
@@ -37,21 +46,29 @@
 .animVertical{
 	animation-name: an
 }
+.animVerticalReverse{
+	animation-name: anReverse
+}
+//
 .animHorizontal{
 	animation-name: anHorizontal;
+	min-width: 100%;
+}
+.animHorizontalReverse{
+	animation-name: anHorizontalReverse;
 	min-width: 100%;
 }
 
 /////
 
-@keyframes show {
-	from{
-		transform: translateY(-100%);
-	}
-	to{
-		transform: translateY(0);
-	}
-}
+//@keyframes show {
+//	from{
+//		transform: translateY(-100%);
+//	}
+//	to{
+//		transform: translateY(0);
+//	}
+//}
 
 @keyframes an {
 	from{
@@ -61,8 +78,16 @@
 		transform: translateY(0);
 	}
 }
+@keyframes anReverse {
+	from{
+		transform: translateY(100%);
+	}
+	to{
+		transform: translateY(0);
+	}
+}
 
-//
+////
 
 @keyframes showHorizontal {
 	from{
@@ -76,6 +101,24 @@
 @keyframes anHorizontal {
 	from{
 		transform: translateX(-100%);
+	}
+	to{
+		transform: translateX(0);
+	}
+}
+//
+@keyframes showHorizontalReverse {
+	from{
+		transform: translateX(200%);
+	}
+	to{
+		transform: translateX(0);
+	}
+}
+
+@keyframes anHorizontalReverse {
+	from{
+		transform: translateX(100%);
 	}
 	to{
 		transform: translateX(0);

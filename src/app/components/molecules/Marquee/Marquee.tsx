@@ -9,13 +9,14 @@ import { CSSProperties } from 'styled-components';
 /**
  * You should use text with height >= marquee container, because it's unable to force minHeight due to background distortion
  */
-const Marquee = ({ children, horizontal, sx, duration = 30, preWrap = false }:
-	{children: ReactNode, horizontal?: boolean, sx?: CSSProperties, duration?: number, preWrap?: boolean}) => {
+const Marquee = ({ children, horizontal, sx, duration = 30, preWrap = false, reverse = false }:
+	{children: ReactNode, horizontal?: boolean, sx?: CSSProperties,
+		duration?: number, preWrap?: boolean, reverse?: boolean}) => {
 
 	const classNameWrapper = clsx({
 		[s.codeElement]: true,
 		[s.codeElementVertical]: !horizontal,
-		[s.codeElementHorizontal]: horizontal
+		[s.codeElementHorizontal]: horizontal,
 	});
 
 	const classNamePre = clsx({
