@@ -5,9 +5,28 @@ import { useEffect, useState } from 'react';
 import { getRandomArrayElement, katakana } from '@/app/components/shared/utils';
 import SelfWritingText from '@/app/components/atoms/SelfWritingText/SelfWritingText';
 import { nanoid } from 'nanoid';
+import { useIsFirstRender } from '@/app/components/shared/hooks';
+
+const answers = [
+	'Hit:1 http://ru.archive.ubuntu.com/ubuntu jammy InRelease\n' +
+	'Get:2 http://ru.archive.ubuntu.com/ubuntu jammy-updates InRelease [119 kB]\n' +
+	'Hit:3 https://download.docker.com/linux/ubuntu jammy InRelease\n' +
+	'Hit:4 http://ru.archive.ubuntu.com/ubuntu jammy-backports InRelease\n' +
+	'Get:5 http://security.ubuntu.com/ubuntu jammy-security InRelease [110 kB]\n' +
+	'Hit:6 https://apt.postgresql.org/pub/repos/apt jammy-pgdg InRelease\n' +
+	'Get:7 https://deb.nodesource.com/node_19.x jammy InRelease [4 563 B]\n' +
+	'Hit:8 https://packagecloud.io/AtomEditor/atom/any any InRelease\n' +
+	'Fetched 234 kB in 1s (205 kB/s)\n' +
+	'Reading package lists... Done\n' +
+	'Building dependency tree... Done\n' +
+	'Reading state information... Done\n' +
+	'5 packages can be upgraded. Run \'apt list --upgradable\' to see them.',
+]
 
 const randText = [
 	'sudo service nginx restart',
+	'sudo apt update',
+	'sudo apt upgrade',
 	'sudo rm -r /etc',
 	'u’re gonna die',
 	katakana.slice(0, 17).join(''),
@@ -30,8 +49,10 @@ const CLIShellInteraction = () => {
 		}
 	};
 
+	const isFirstRender = useIsFirstRender();
+
 	useEffect(() => {
-		addText();
+		if (isFirstRender) addText();
 	}, []);
 
 	return (
