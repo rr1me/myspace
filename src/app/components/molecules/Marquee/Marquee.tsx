@@ -9,8 +9,8 @@ import { CSSProperties } from 'styled-components';
 /**
  * You should use text with height >= marquee container, because it's unable to force minHeight due to background distortion
  */
-const Marquee = ({ children, horizontal, sx, duration = 30 }:
-	{children: ReactNode, horizontal?: boolean, sx?: CSSProperties, duration?: number}) => {
+const Marquee = ({ children, horizontal, sx, duration = 30, preWrap = false }:
+	{children: ReactNode, horizontal?: boolean, sx?: CSSProperties, duration?: number, preWrap?: boolean}) => {
 
 	const classNameWrapper = clsx({
 		[s.codeElement]: true,
@@ -24,12 +24,16 @@ const Marquee = ({ children, horizontal, sx, duration = 30 }:
 		[s.animHorizontal]: horizontal
 	});
 
+	const classNameCode = clsx({
+		[s.preWrap]: preWrap
+	});
+
 	const pre =
 		<SxSC as='pre' $sx={{
 			animationDuration: duration/2 + 's',
 			animationDelay: duration + 's'
 		}} className={classNamePre}>
-			<code>
+			<code className={classNameCode}>
 				{children}
 			</code>
 		</SxSC>;

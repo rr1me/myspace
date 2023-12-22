@@ -6,9 +6,16 @@
 .codeElement{
 	height: max-content;
 	line-break: anywhere;
+	word-break: break-all;
 
 	animation-duration: 30s;
 	animation-timing-function: linear;
+}
+
+.preWrap{
+	display: block;
+	width: inherit;
+	white-space: pre-wrap;
 }
 
 .anim{

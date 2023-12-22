@@ -8,9 +8,11 @@
 
 .cmdZone{
 	width: 378px;
+	min-width: 378px;
 }
 
 .codeZone{
+	height: 100%;
 	flex-grow: 1;
 	//background-color: #ff6b63;
 }

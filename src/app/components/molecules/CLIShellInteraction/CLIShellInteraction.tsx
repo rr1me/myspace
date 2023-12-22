@@ -68,7 +68,7 @@ const CLIShellInteraction = () => {
 			</div>
 
 			<div className={s.codeZone}>
-				<Marquee>
+				<Marquee preWrap>
 					{answers[0]}
 				</Marquee>
 			</div>
