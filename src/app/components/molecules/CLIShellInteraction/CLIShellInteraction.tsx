@@ -6,6 +6,7 @@ import { getRandomArrayElement, katakana } from '@/app/components/shared/utils';
 import SelfWritingText from '@/app/components/atoms/SelfWritingText/SelfWritingText';
 import { nanoid } from 'nanoid';
 import { useIsFirstRender } from '@/app/components/shared/hooks';
+import Marquee from '@/app/components/molecules/Marquee/Marquee';
 
 const answers = [
 	'Hit:1 http://ru.archive.ubuntu.com/ubuntu jammy InRelease\n' +
@@ -21,7 +22,7 @@ const answers = [
 	'Building dependency tree... Done\n' +
 	'Reading state information... Done\n' +
 	'5 packages can be upgraded. Run \'apt list --upgradable\' to see them.',
-]
+];
 
 const randText = [
 	'sudo service nginx restart',
@@ -67,7 +68,9 @@ const CLIShellInteraction = () => {
 			</div>
 
 			<div className={s.codeZone}>
-
+				<Marquee>
+					{answers[0]}
+				</Marquee>
 			</div>
 		</div>
 	);
