@@ -9,20 +9,22 @@ import { CSSProperties } from 'styled-components';
 /**
  * You should use text with height >= marquee container, because it's unable to force minHeight due to background distortion
  */
-const Marquee = ({ children, horizontal, sx, duration = 30, preWrap = false, reverse = false }:
+const Marquee = ({ children, horizontal = false, sx, duration = 30, preWrap = false, reverse = false }:
 	{children: ReactNode, horizontal?: boolean, sx?: CSSProperties,
 		duration?: number, preWrap?: boolean, reverse?: boolean}) => {
 
 	const classNameWrapper = clsx({
 		[s.codeElement]: true,
-		[s.codeElementVertical]: !horizontal,
-		[s.codeElementHorizontal]: horizontal,
+		// [s.codeElementVertical]: !horizontal,
+		// [s.codeElementHorizontal]: horizontal,
+		[s[`codeElement${horizontal ? 'Horizontal' : 'Vertical'}${reverse ? 'Reverse' : ''}`]]: true
 	});
 
 	const classNamePre = clsx({
 		[s.anim]: true,
-		[s.animVertical]: !horizontal,
-		[s.animHorizontal]: horizontal
+		// [s.animVertical]: !horizontal,
+		// [s.animHorizontal]: horizontal,
+		[s[`anim${horizontal ? 'Horizontal' : 'Vertical'}${reverse ? 'Reverse' : ''}`]]: true
 	});
 
 	const classNameCode = clsx({
@@ -39,15 +41,24 @@ const Marquee = ({ children, horizontal, sx, duration = 30, preWrap = false, rev
 			</code>
 		</SxSC>;
 
+	const codeElement =
+		<SxSC $sx={{
+			animationDuration: duration + 's',
+			...sx
+		}} className={classNameWrapper}>
+			{pre}
+			{pre}
+		</SxSC>;
+
 	return (
 		<div className={s.marqueeWrapper}>
-			<SxSC $sx={{
-				animationDuration: duration + 's',
-				...sx
-			}} className={classNameWrapper}>
-				{pre}
-				{pre}
-			</SxSC>
+			{reverse ?
+				<div className={s.reverseWrapper}>
+					{codeElement}
+				</div>
+				:
+				codeElement
+			}
 		</div>
 	);
 };

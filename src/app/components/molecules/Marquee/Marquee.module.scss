@@ -12,6 +12,11 @@
 	animation-timing-function: linear;
 }
 
+.reverseWrapper{
+	height: inherit;
+	transform: translateY(100%);
+}
+
 .preWrap{
 	display: block;
 	width: inherit;
@@ -29,6 +34,7 @@
 	animation-name: an;
 }
 .codeElementVerticalReverse{
+	transform: translateY(-50%);
 	animation-name: anReverse;
 }
 //
@@ -61,15 +67,6 @@
 
 /////
 
-//@keyframes show {
-//	from{
-//		transform: translateY(-100%);
-//	}
-//	to{
-//		transform: translateY(0);
-//	}
-//}
-
 @keyframes an {
 	from{
 		transform: translateY(-100%);
@@ -80,10 +77,10 @@
 }
 @keyframes anReverse {
 	from{
-		transform: translateY(100%);
+		transform: translateY(0);
 	}
 	to{
-		transform: translateY(0);
+		transform: translateY(-100%);
 	}
 }
 
@@ -109,18 +106,18 @@
 //
 @keyframes showHorizontalReverse {
 	from{
-		transform: translateX(200%);
+		transform: translateX(0);
 	}
 	to{
-		transform: translateX(0);
+		transform: translateX(200%);
 	}
 }
 
 @keyframes anHorizontalReverse {
 	from{
-		transform: translateX(100%);
+		transform: translateX(0);
 	}
 	to{
-		transform: translateX(0);
+		transform: translateX(100%);
 	}
 }
