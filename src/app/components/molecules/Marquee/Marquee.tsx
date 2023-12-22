@@ -9,43 +9,50 @@ import { CSSProperties } from 'styled-components';
 /**
  * You should use text with height >= marquee container, because it's unable to force minHeight due to background distortion
  */
-const Marquee = ({ children, horizontal = false, sx, duration = 30, preWrap = false, reverse = false }:
+const Marquee = ({ children, horizontal = false, sx, duration = 30,
+	whitespacePreWrap = false, reverse = false, once = false }:
 	{children: ReactNode, horizontal?: boolean, sx?: CSSProperties,
-		duration?: number, preWrap?: boolean, reverse?: boolean}) => {
+		duration?: number, whitespacePreWrap?: boolean, reverse?: boolean, once?: boolean}) => {
 
-	const classNameWrapper = clsx({
-		[s.codeElement]: true,
-		// [s.codeElementVertical]: !horizontal,
-		// [s.codeElementHorizontal]: horizontal,
-		[s[`codeElement${horizontal ? 'Horizontal' : 'Vertical'}${reverse ? 'Reverse' : ''}`]]: true
+	if (reverse && horizontal)
+		throw new Error('Not implemented yet due to non-use');
+
+	const classNameDuoPreWrapper = clsx({
+		[s.duoPreWrapper]: true,
+		[s[`duoPreWrapper${horizontal ? 'Horizontal' : 'Vertical'}${reverse ? 'Reverse' : ''}`]]: true
 	});
 
 	const classNamePre = clsx({
-		[s.anim]: true,
-		// [s.animVertical]: !horizontal,
-		// [s.animHorizontal]: horizontal,
-		[s[`anim${horizontal ? 'Horizontal' : 'Vertical'}${reverse ? 'Reverse' : ''}`]]: true
+		[s.pre]: true,
+		[s[`pre${horizontal ? 'Horizontal' : 'Vertical'}${reverse ? 'Reverse' : ''}`]]: true
 	});
 
 	const classNameCode = clsx({
-		[s.preWrap]: preWrap
+		[s.codeWrap]: whitespacePreWrap
 	});
 
 	const pre =
-		<SxSC as='pre' $sx={{
-			animationDuration: duration/2 + 's',
-			animationDelay: duration + 's'
-		}} className={classNamePre}>
+		<SxSC as='pre' $sx={once ?
+			{
+				animationDuration: duration + 's',
+			}
+			:
+			{
+				animationDuration: duration/2 + 's',
+				animationDelay: duration + 's',
+				animationIterationCount: 'infinite'
+			}
+		} className={classNamePre}>
 			<code className={classNameCode}>
 				{children}
 			</code>
 		</SxSC>;
 
-	const codeElement =
+	const duoPreWrapper = once ? pre :
 		<SxSC $sx={{
 			animationDuration: duration + 's',
 			...sx
-		}} className={classNameWrapper}>
+		}} className={classNameDuoPreWrapper}>
 			{pre}
 			{pre}
 		</SxSC>;
@@ -54,10 +61,10 @@ const Marquee = ({ children, horizontal = false, sx, duration = 30, preWrap = fa
 		<div className={s.marqueeWrapper}>
 			{reverse ?
 				<div className={s.reverseWrapper}>
-					{codeElement}
+					{duoPreWrapper}
 				</div>
 				:
-				codeElement
+				duoPreWrapper
 			}
 		</div>
 	);

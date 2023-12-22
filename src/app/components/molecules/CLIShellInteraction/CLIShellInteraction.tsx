@@ -68,7 +68,7 @@ const CLIShellInteraction = () => {
 			</div>
 
 			<div className={s.codeZone}>
-				<Marquee preWrap reverse duration={5}>
+				<Marquee whitespacePreWrap reverse duration={5} once>
 					{answers[0]}
 				</Marquee>
 			</div>

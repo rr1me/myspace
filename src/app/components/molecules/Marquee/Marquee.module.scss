@@ -3,7 +3,7 @@
 	overflow: hidden;
 }
 
-.codeElement{
+.duoPreWrapper{
 	height: max-content;
 	line-break: anywhere;
 	word-break: break-all;
@@ -17,57 +17,47 @@
 	transform: translateY(100%);
 }
 
-.preWrap{
+.codeWrap{
 	display: block;
 	width: inherit;
 	white-space: pre-wrap;
 }
 
-.anim{
-	animation-duration: 15s;
-	animation-iteration-count: infinite;
+.pre{
 	animation-timing-function: linear;
-	animation-delay: 30s;
 }
 
-.codeElementVertical{
-	animation-name: an;
+////////
+
+.duoPreWrapperVertical{
+	animation-name: preAnim;
 }
-.codeElementVerticalReverse{
+.duoPreWrapperVerticalReverse{
 	transform: translateY(-50%);
-	animation-name: anReverse;
+	animation-name: preAnimReverse;
 }
 //
-.codeElementHorizontal{
-	animation-name: showHorizontal;
-	display: flex;
-	width: 100%;
-}
-.codeElementHorizontalReverse{
-	animation-name: showHorizontalReverse;
+.duoPreWrapperHorizontal{
+	animation-name: duoPreWrapperAnim;
 	display: flex;
 	width: 100%;
 }
 
-.animVertical{
-	animation-name: an
+.preVertical{
+	animation-name: preAnim
 }
-.animVerticalReverse{
-	animation-name: anReverse
+.preVerticalReverse{
+	animation-name: preAnimReverse
 }
 //
-.animHorizontal{
-	animation-name: anHorizontal;
-	min-width: 100%;
-}
-.animHorizontalReverse{
-	animation-name: anHorizontalReverse;
+.preHorizontal{
+	animation-name: preAnimHorizontal;
 	min-width: 100%;
 }
 
 /////
 
-@keyframes an {
+@keyframes preAnim {
 	from{
 		transform: translateY(-100%);
 	}
@@ -75,18 +65,18 @@
 		transform: translateY(0);
 	}
 }
-@keyframes anReverse {
+@keyframes preAnimReverse {
 	from{
 		transform: translateY(0);
 	}
 	to{
-		transform: translateY(-100%);
+		transform: translateY(-150%);
 	}
 }
 
 ////
 
-@keyframes showHorizontal {
+@keyframes duoPreWrapperAnim {
 	from{
 		transform: translateX(-200%);
 	}
@@ -95,7 +85,7 @@
 	}
 }
 
-@keyframes anHorizontal {
+@keyframes preAnimHorizontal {
 	from{
 		transform: translateX(-100%);
 	}
@@ -104,20 +94,35 @@
 	}
 }
 //
-@keyframes showHorizontalReverse {
-	from{
-		transform: translateX(0);
-	}
-	to{
-		transform: translateX(200%);
-	}
-}
 
-@keyframes anHorizontalReverse {
-	from{
-		transform: translateX(0);
-	}
-	to{
-		transform: translateX(100%);
-	}
-}
+
+
+
+//.duoPreWrapperHorizontalReverse{
+//	animation-name: showHorizontalReverse;
+//	display: flex;
+//	width: 100%;
+//}
+//.preHorizontalReverse{
+//	animation-name: anHorizontalReverse;
+//	min-width: 100%;
+//}
+//
+//
+//@keyframes showHorizontalReverse {
+//	from{
+//		transform: translateX(0);
+//	}
+//	to{
+//		transform: translateX(200%);
+//	}
+//}
+//
+//@keyframes anHorizontalReverse {
+//	from{
+//		transform: translateX(0);
+//	}
+//	to{
+//		transform: translateX(100%);
+//	}
+//}
