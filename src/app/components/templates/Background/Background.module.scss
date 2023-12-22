@@ -3,8 +3,9 @@
 .background{
   //transform: perspective(500px) rotateX(9deg) rotateY(356deg)
   //rotateZ(9deg) translate3d(-823px, -122px, 37px);
-  transform: perspective(500px) rotateX(9deg) rotateY(356deg)
-  rotateZ(9deg) translate3d(-800px, -122px, 37px);
+
+  //transform: perspective(500px) rotateX(9deg) rotateY(356deg)
+  //rotateZ(9deg) translate3d(-800px, -122px, 37px);
 
   //width: 2750px;
   width: 2700px;
@@ -21,6 +22,10 @@
 
 .text{
   color: v.$c_main_third;
+}
+
+.topCodeLine{
+  height: min-content;
 }
 
 // reference
