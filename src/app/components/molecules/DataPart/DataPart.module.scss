@@ -1,11 +1,22 @@
+@use '../../../vars.module' as v;
+
 .part{
 	display: flex;
 	gap: 3px;
 	height: 100%;
 	flex-grow: 1;
+
+	font-size: 11px;
+	line-height: 10px;
+	font-weight: bolder;
+	color: v.$c_addition_second;
 }
 
 .triple{
 	display: flex;
 	gap: 1px;
+}
+
+.mirrorX{
+	transform: scale(-1, 1);
 }

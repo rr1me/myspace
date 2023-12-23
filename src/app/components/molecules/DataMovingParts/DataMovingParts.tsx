@@ -13,8 +13,8 @@ const DataMovingParts = () => {
 				<Marquee horizontal sx={{ height: '100%' }} duration={8} noOverflow>
 					<div className={s.movingBlock}>
 						<DataPart/>
-						<DataPart/>
-						<DataPart/>
+						<DataPart i={1}/>
+						<DataPart i={2}/>
 					</div>
 				</Marquee>
 			</div>

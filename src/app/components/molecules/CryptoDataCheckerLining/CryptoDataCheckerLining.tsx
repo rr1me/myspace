@@ -21,10 +21,11 @@ const CryptoDataCheckerLining = () => {
 			<LineBreaker mirrored vertical sx={{ left: -4, top: 60 }}
 									 variant={LineBreakerVariant.startToEnd}/>
 
-			<LineBreaker mirrored vertical sx={{ left: 55.9, top: 20 }}
+			<LineBreaker mirrored vertical sx={{ left: 56, top: 20 }}
 									 variant={LineBreakerVariant.startToEnd}/>
 
-			<LineBreaker sx={{ left: 233, top: -4 }} variant={LineBreakerVariant.startToEnd}/>
+			<LineBreaker sx={{ left: 233, top: -4 }}
+									 variant={LineBreakerVariant.startToEnd}/>
 
 			<div className={s.square}/>
 		</LiningWrapper>
