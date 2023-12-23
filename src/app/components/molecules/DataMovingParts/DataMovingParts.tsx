@@ -10,7 +10,7 @@ const DataMovingParts = () => {
 			<DataTab sx={{ backgroundColor: colorVars.c_addition_second_80p, width: 1 }}/>
 
 			<div className={s.inner}>
-				<Marquee horizontal sx={{ height: '100%' }} duration={8}>
+				<Marquee horizontal sx={{ height: '100%' }} duration={8} noOverflow>
 					<div className={s.movingBlock}>
 						<DataPart/>
 						<DataPart/>

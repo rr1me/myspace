@@ -10,10 +10,10 @@ import { CSSProperties } from 'styled-components';
  * You should use text with height >= marquee container, because it's unable to force minHeight due to background distortion
  */
 const Marquee = ({ children, horizontal = false, sx, duration = 30,
-	whitespacePreWrap = false, reverse = false, once = false, onAnimationEnd }:
+	whitespacePreWrap = false, reverse = false, once = false, onAnimationEnd, noOverflow = false }:
 	{children: ReactNode, horizontal?: boolean, sx?: CSSProperties,
 		duration?: number, whitespacePreWrap?: boolean, reverse?: boolean, once?: boolean,
-		onAnimationEnd?: () => void}) => {
+		onAnimationEnd?: () => void, noOverflow?: boolean}) => {
 
 	if (reverse && horizontal)
 		throw new Error('Not implemented yet due to non-use');
@@ -33,6 +33,11 @@ const Marquee = ({ children, horizontal = false, sx, duration = 30,
 
 	const classNameCode = clsx({
 		[s.codeWrap]: whitespacePreWrap
+	});
+
+	const classNameMarquee = clsx({
+		[s.marqueeWrapper]: true,
+		[s.overflow]: !noOverflow
 	});
 
 	const pre =
@@ -70,7 +75,7 @@ const Marquee = ({ children, horizontal = false, sx, duration = 30,
 	}, []);
 
 	return (
-		<div className={s.marqueeWrapper}>
+		<div className={classNameMarquee}>
 			{reverse ?
 				<div className={s.reverseWrapper}>
 					{duoPreWrapper}
