@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Mohave } from 'next/font/google';
 import { ReactNode } from 'react';
 
@@ -12,6 +12,10 @@ const mohave = Mohave({ weight: '500', subsets: ['latin'] });
 
 export const metadata: Metadata = {
 	title: 'rr1me\'s space',
+};
+
+export const viewport: Viewport = {
+	userScalable: false
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
