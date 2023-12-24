@@ -14,27 +14,22 @@ const Marquee = ({ children, horizontal = false, sx, duration = 30,
 	{children: ReactNode, horizontal?: boolean, sx?: CSSProperties,
 		duration?: number, whitespacePreWrap?: boolean, reverse?: boolean, once?: boolean,
 		onAnimationEnd?: () => void, noOverflow?: boolean}) => {
-
 	if (reverse && horizontal)
 		throw new Error('Not implemented yet due to non-use');
 
 	const classNamesContinuation =
 		`${reverse ? 'VerticalReverse' : horizontal ? 'Horizontal' : 'Vertical'}`;
-
 	const classNameDuoPreWrapper = clsx({
 		[s.duoPreWrapper]: true,
 		[s['duoPreWrapper' + classNamesContinuation]]: true
 	});
-
 	const classNamePre = clsx({
 		[s.pre]: true,
 		[s['pre' + classNamesContinuation]]: true
 	});
-
 	const classNameCode = clsx({
 		[s.codeWrap]: whitespacePreWrap
 	});
-
 	const classNameMarquee = clsx({
 		[s.marqueeWrapper]: true,
 		[s.overflow]: !noOverflow

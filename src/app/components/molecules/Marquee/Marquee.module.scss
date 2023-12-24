@@ -55,6 +55,7 @@
 .preHorizontal{
 	animation-name: preAnimHorizontal;
 	min-width: 100%;
+	flex-shrink: 0;
 }
 
 /////

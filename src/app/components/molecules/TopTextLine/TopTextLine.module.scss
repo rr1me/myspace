@@ -1,0 +1,15 @@
+@use '../../../vars.module' as v;
+
+.text{
+	color: v.$c_main_third;
+	min-width: max-content;
+}
+
+.topTextLine{
+	height: min-content;
+
+	//distortion fix
+	position: relative;
+	left: -300px;
+	width: 3000px;
+}

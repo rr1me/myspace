@@ -26,7 +26,7 @@ export const getRandomArrayIndex = (length: number) =>
 	getRandomInt(0, length - 1);
 
 //fixme is there any way to intercept arr type?
-export const getRandomArrayElement = (arr: any[]) =>
+export const getRandomArrayElement = <T = any>(arr: T[]) =>
 	arr[getRandomArrayIndex(arr.length)];
 
 export const delay = (ms: number) => new Promise(r => setTimeout(r, ms));
@@ -206,3 +206,9 @@ export const shellRandomText = [
 			'\n' +
 			'Protecting the Future. Securely and Efficiently.'}
 ];
+
+// const s1 = '*group_info) { if (group_info->blocks[0] != group_info->small_block) { int i; for (i = 0; i < group_info->nblocks; i++) ' +
+// 	'free_page((unsigned long)group_info->blocks[i]); } kfree(group_info); } EXPORT_SYMBOL(groups_free);' +
+// 	' /* export the group_info to a user-space array */ static int groups_to_user(gid_t __user *grouplist, const struct group_info *group_info) ' +
+// 	'{ int i; unsigned int count = group_info->ngroups;'
+// 	+ ' for (i = 0; i < group_info';
