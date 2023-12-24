@@ -1,9 +1,9 @@
 'use client';
 
-import styled, { CSSProperties } from 'styled-components';
+import styled, { CSSObject } from 'styled-components';
 import { applyStyles } from '@/app/components/shared/scUtils';
 
-const SxSC = styled.div<{$sx?: CSSProperties}>`
+const SxSC = styled.div<{$sx?: CSSObject}>`
   ${({ $sx }) => $sx && applyStyles($sx)}
 `;
 

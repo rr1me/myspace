@@ -1,3 +1,3 @@
-import { css, CSSObject, CSSProperties } from 'styled-components';
+import { css, CSSObject } from 'styled-components';
 
-export const applyStyles = (styles: CSSProperties) => css`${styles as CSSObject}`;
+export const applyStyles = (styles: CSSObject) => css`${styles}`;

@@ -1,8 +1,7 @@
 @use '../../../vars.module' as v;
 
 .shell{
-	flex-grow: 1;
-	height: 100%;
 	background: v.$g_cliShell;
 	position: relative;
+	width: 10px;
 }

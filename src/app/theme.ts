@@ -17,8 +17,10 @@ export type Colors =
 
 	'g_separator' |
 	'g_separator_clr_addition' |
+	'g_separator_clr_addition_vertical' |
 	'g_separator_nonEnding' |
 	'g_separator_oneway' |
+	'g_separator_oneway_vertical' |
 
 	'g_cliSHell' |
 

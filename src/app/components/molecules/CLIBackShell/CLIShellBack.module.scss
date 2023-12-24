@@ -1,9 +1,14 @@
 @use '../../../vars.module' as v;
 
+.wrapper{
+	overflow: hidden;
+}
+
 .backShell{
 	width: 20px;
 	padding-left: 5px;
 	height: 100%;
+	position: relative;
 }
 
 .quadroSymbols{
@@ -12,13 +17,16 @@
 	display: flex;
 }
 
-.shellTab{
+.shellTabWrapper{
 	margin-top: 5px;
-	transform-origin: 0 0;
-	rotate: 90deg;
-	width: 105px;
-	height: 2px;
-	background: v.$g_separator_clr_addition;
 	position: relative;
-	left: 15px;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+.shellTab{
+	background: v.$g_separator_clr_addition_vertical;
+	width: 2px;
 }
