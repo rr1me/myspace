@@ -17,7 +17,7 @@ const TopTextLine = () =>
 		<>
 			<ExtendingLine />
 			<div className={s.topTextLine}>
-				<Marquee horizontal>
+				<Marquee horizontal delay={2}>
 					<p className={s.text}>{randStr}</p>
 				</Marquee>
 			</div>

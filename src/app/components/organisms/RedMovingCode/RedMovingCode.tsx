@@ -8,7 +8,7 @@ const RedMovingCode = () => { //2300 width?
 	return (
 		<div className={s.movingCode}>
 			{Array(6).fill(0).map((_x, i) =>
-				<Marquee key={i}>{getCode()}</Marquee>
+				<Marquee key={i} delay={2}>{getCode()}</Marquee>
 			)}
 		</div>
 	);

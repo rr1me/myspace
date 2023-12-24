@@ -10,10 +10,12 @@ import { CSSProperties } from 'styled-components';
  * You should use text with height >= marquee container, because it's unable to force minHeight due to background distortion
  */
 const Marquee = ({ children, horizontal = false, sx, duration = 30,
-	whitespacePreWrap = false, reverse = false, once = false, onAnimationEnd, noOverflow = false }:
+	whitespacePreWrap = false, reverse = false, once = false,
+	onAnimationEnd, noOverflow = false, delay = 0, }:
 	{children: ReactNode, horizontal?: boolean, sx?: CSSProperties,
 		duration?: number, whitespacePreWrap?: boolean, reverse?: boolean, once?: boolean,
-		onAnimationEnd?: () => void, noOverflow?: boolean}) => {
+		onAnimationEnd?: () => void, noOverflow?: boolean, delay?: number}) => {
+
 	if (reverse && horizontal)
 		throw new Error('Not implemented yet due to non-use');
 
@@ -39,11 +41,12 @@ const Marquee = ({ children, horizontal = false, sx, duration = 30,
 		<SxSC as='pre' $sx={once ?
 			{
 				animationDuration: duration + 's',
+				animationDelay: delay !== 0 ? delay + 's' : undefined
 			}
 			:
 			{
 				animationDuration: duration/2 + 's',
-				animationDelay: duration + 's',
+				animationDelay: (delay !== 0 ? delay + duration : duration) + 's',
 				animationIterationCount: 'infinite'
 			}
 		} className={classNamePre}>
@@ -55,6 +58,7 @@ const Marquee = ({ children, horizontal = false, sx, duration = 30,
 	const duoPreWrapper = once ? pre :
 		<SxSC $sx={{
 			animationDuration: duration + 's',
+			animationDelay: delay !== 0 ? delay + 's' : undefined,
 			...sx
 		}} className={classNameDuoPreWrapper}>
 			{pre}

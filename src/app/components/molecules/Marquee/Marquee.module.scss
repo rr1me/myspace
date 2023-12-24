@@ -32,6 +32,8 @@
 
 .duoPreWrapperVertical{
 	animation-name: preAnim;
+	animation-fill-mode:forwards;
+	transform: translateY(-100%);
 }
 .duoPreWrapperVerticalReverse{
 	transform: translateY(-50%);
@@ -40,6 +42,9 @@
 //
 .duoPreWrapperHorizontal{
 	animation-name: duoPreWrapperAnim;
+	animation-fill-mode:forwards;
+	transform: translateX(-200%);
+
 	display: flex;
 	width: 100%;
 }
