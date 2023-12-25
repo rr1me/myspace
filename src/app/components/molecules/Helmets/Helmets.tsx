@@ -9,6 +9,7 @@ import SxSC from '@/app/components/atoms/SxSC/SxSC';
 const cfg = {
 	config: {
 		easing: easings.easeInOutExpo,
+		// duration: 3000
 	}
 };
 
@@ -46,7 +47,7 @@ const Helmets = ({ width }: {width: number}) => {
 	}));
 	const [centerSprings] = useSpring(() => ({
 		from: {
-			y: '100%'
+			y: '200%'
 		},
 		to: {
 			y: '0'
