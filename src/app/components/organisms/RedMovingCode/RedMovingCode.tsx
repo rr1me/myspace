@@ -19,9 +19,6 @@ const RedMovingCode = () => { //2300 width?
 
 	return (
 		<div className={s.movingCode}>
-			{/*{Array(6).fill(0).map((_x, i) =>*/}
-			{/*	<Marquee key={i} delay={2.5}>{getCode()}</Marquee>*/}
-			{/*)}*/}
 			{
 				hydrated &&
 				codeArray.map((x, i) =>

@@ -1,19 +1,11 @@
 'use client';
 
 import s from './Helmets.module.scss';
-import { CSSObject } from 'styled-components';
-import { colorVars } from '@/app/theme';
 import { animated, easings, useSpring } from '@react-spring/web';
 import { useState } from 'react';
 import clsx from 'clsx';
 import SxSC from '@/app/components/atoms/SxSC/SxSC';
 
-// const baseStyle: CSSObject = {
-// 	height: '100%',
-// 	position: 'absolute',
-// 	backgroundColor: colorVars.c_main_first,
-// 	borderRadius: 2
-// };
 const cfg = {
 	config: {
 		easing: easings.easeInOutExpo,
