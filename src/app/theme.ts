@@ -26,7 +26,8 @@ export type Colors =
 
 	/////
 
-	'e_box_shadow'
+	'e_box_shadow' |
+	'main_box_shadow'
 
 export type ColorVars = {
 	[key in Colors]: string;

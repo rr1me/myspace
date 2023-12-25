@@ -6,13 +6,13 @@ const useRandomCode = () => {
 
 export default useRandomCode;
 
-const getRandomCode = (used: number[]): string => {
+const getRandomCode = (used: number[]): { code: string; i: number } => {
 	const rand = Math.floor(Math.random() * availableCode.length);
-	if (used.length === availableCode.length) return 'no';
+	if (used.length === availableCode.length) throw new Error('Out of bounds');
 	if (used.some(x=> x === rand)) return getRandomCode(used);
 
 	used.push(rand);
-	return availableCode[rand];
+	return { code: availableCode[rand], i: rand };
 };
 
 const cvSkillColumn = `

@@ -11,6 +11,7 @@ import Marquee from '@/app/components/molecules/Marquee/Marquee';
 const getCommandItem = (index: number) => ({ id: nanoid(), str: shellRandomText[index].req });
 const getRandTextIndex = () => getRandomArrayIndex(shellRandomText.length);
 
+//fixme problems in onAnimationEnd(?), some texts disappear before it completely pass overflow border
 const CLIShellInteraction = () => {
 	const [writtenCommands, setWrittenCommands] = useState<{id: string, str: string}[]>([]);
 

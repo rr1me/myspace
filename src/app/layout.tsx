@@ -7,6 +7,7 @@ import './layout.scss';
 import './vars.module.scss';
 import Background from '@/app/components/templates/Background/Background';
 import StyledComponentsRegistry from '@/app/registry';
+import { AnimationProvider } from '@/app/components/shared/AnimationContext';
 
 const mohave = Mohave({ weight: '500', subsets: ['latin'] });
 
@@ -15,7 +16,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-	userScalable: false
+	userScalable: false,
+	initialScale: 0.7 //smaller scale reduces stutters on mobiles
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -23,8 +25,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 		<html lang="en">
 			<body className={mohave.className}>
 				<StyledComponentsRegistry>
-					<Background/>
-					{children}
+					<AnimationProvider>
+						<Background/>
+						{children}
+					</AnimationProvider>
 				</StyledComponentsRegistry>
 			</body>
 		</html>
