@@ -1,0 +1,18 @@
+@use '../../../vars.module' as v;
+
+$size: 40px;
+
+.wrapper{
+	height: $size;
+	width: $size;
+	position: relative;
+	display: grid;
+}
+
+.cross{
+	background-color: v.$c_addition_second;
+	position: absolute;
+	justify-self: center;
+	align-self: center;
+	border-radius: 2px;
+}

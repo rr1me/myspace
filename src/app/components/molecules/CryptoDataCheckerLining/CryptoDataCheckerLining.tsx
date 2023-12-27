@@ -36,7 +36,7 @@ const CryptoDataCheckerLining = () => {
 				height: '100%'
 			}
 		],
-		delay: 2000,
+		delay: 1700,
 		...cfg,
 		onRest: () => {
 			api.resume();

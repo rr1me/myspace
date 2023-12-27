@@ -1,11 +1,60 @@
 .wrapper{
-	margin-left: 350px;
+	margin-left: 40vw;
 	overflow: hidden;
+}
+
+@media (max-width: 1000px){
+	.wrapper{
+		margin-left: 100vw;
+		scale: 110%;
+		margin-top: 20px;
+	}
+	//.bottom{
+	//	flex-direction: column;
+	//}
+	.crosses{
+		width: 1500px;
+		margin-top: 50px;
+	}
+}
+
+@media (max-width: 800px){
+	.wrapper{
+		margin-left: calc(39vw + 18%);
+	}
 }
 
 .bottom {
 	display: flex;
+	flex-direction: column;
+	//flex-wrap: wrap;
 	justify-content: center;
 	gap: 100px;
+	row-gap: 50px;
 	margin-top: 50px;
+}
+
+.innerBottom{
+	display: flex;
+	gap: 50px;
+	width: 100%;
+	height: 210px;
+}
+
+.whereami{
+	background-color: red;
+	width: 1420px;
+	height: 3000px;
+	//margin-left: 500px;
+}
+
+.crosses{
+	flex-grow: 1;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, 100px);
+	grid-row-gap: 30px;
+}
+
+.lowestCrosses{
+	width: 1420px;
 }

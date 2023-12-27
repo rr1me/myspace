@@ -19,7 +19,7 @@ const DataMovingParts = () => {
 		to: {
 			y: '0'
 		},
-		delay: 3000,
+		delay: 2000,
 		onRest: () => {
 			setPartsMount(true);
 		}

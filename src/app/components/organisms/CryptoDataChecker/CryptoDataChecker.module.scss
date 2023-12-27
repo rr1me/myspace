@@ -7,6 +7,20 @@
   position: relative;
 }
 
+@media (max-width: 1000px){
+  .data{
+    margin-left: 200px;
+    scale: 110%;
+    transform: translateY(15%);
+  }
+}
+
+@media (max-width: 800px){
+  .data{
+    margin-left: 210px;
+  }
+}
+
 .inner{
   position: relative;
   height: calc(100% - 18px); //fixme try get rid of cals and 18px
