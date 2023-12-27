@@ -2,6 +2,7 @@
 
 .data{
   width: 600px;
+  min-width: 600px;
   height: 200px;
 
   position: relative;
@@ -9,15 +10,9 @@
 
 @media (max-width: 1000px){
   .data{
-    margin-left: 200px;
+    //margin-left: 240px;
     scale: 110%;
     transform: translateY(15%);
-  }
-}
-
-@media (max-width: 800px){
-  .data{
-    margin-left: 210px;
   }
 }
 

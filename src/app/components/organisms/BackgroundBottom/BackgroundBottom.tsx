@@ -31,19 +31,22 @@ const BackgroundBottom = () => {
 					...springs
 				}}
 			>
+				<div className={s.crosses + ' ' + s.leftCrosses}>
+					{Array(25).fill(<BlueCross delay={2000}/>)}
+				</div>
 				<div className={s.innerBottom}>
 					<CLI />
-					<CryptoDataChecker />
-					<div className={s.crosses}>
-						{Array(50).fill(<BlueCross delay={2000}/>)}
+					<div className={s.middle}>
+						<div className={s.crosses + ' ' + s.midCrosses}>
+							{Array(6).fill(<BlueCross delay={2000}/>)}
+						</div>
+						<CryptoDataChecker />
+					</div>
+					<div className={s.crosses + ' ' + s.rightCrosses}>
+						{Array(20).fill(<BlueCross delay={2000}/>)}
 					</div>
 				</div>
-				{/*<div className={s.whereami}/>*/}
-				{/*<div className={s.crosses}>*/}
-				{/*	{Array(10).fill(<BlueCross delay={2000}/>)}*/}
-				{/*</div>*/}
 			</animated.div>
-			{/*<div className={s.whereami}/>*/}
 			<div className={s.crosses + ' ' + s.lowestCrosses}>
 				{Array(50).fill(<BlueCross delay={2000}/>)}
 			</div>
