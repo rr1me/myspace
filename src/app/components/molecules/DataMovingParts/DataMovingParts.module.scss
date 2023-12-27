@@ -1,8 +1,13 @@
 .dataMovingParts{
-	height: 8px;
+	height: 18px;
 	width: 100%;
+}
 
+.anim{
+	height: 100%;
 	display: flex;
+	position: relative;
+	padding-bottom: 10px;
 }
 
 .inner{

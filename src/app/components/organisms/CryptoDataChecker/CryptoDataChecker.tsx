@@ -3,16 +3,15 @@ import CryptoDataCheckerLining from '@/app/components/molecules/CryptoDataChecke
 import DataMovingParts from '@/app/components/molecules/DataMovingParts/DataMovingParts';
 import CryptoDataArray from '@/app/components/molecules/CryptoDataArray/CryptoDataArray';
 
-const CryptoDataChecker = () => {
-	return (
+const CryptoDataChecker = () =>
+	(
 		<div className={s.data}>
-			<DataMovingParts/>
+			<DataMovingParts />
 			<div className={s.inner}>
-				<CryptoDataCheckerLining/>
-				<CryptoDataArray/>
+				<CryptoDataCheckerLining />
+				<CryptoDataArray />
 			</div>
 		</div>
 	);
-};
 
 export default CryptoDataChecker;

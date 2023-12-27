@@ -3,10 +3,10 @@
 import s from './HardMarquee.module.scss';
 import { ReactElement, useEffect, useRef, useState } from 'react';
 import SxSC from '@/app/components/atoms/SxSC/SxSC';
-import { useHydrated } from '@/app/components/shared/hooks';
+import { delay } from '@/app/components/shared/utils';
 
-const HardMarquee = ({ getElement }: {getElement: () => ReactElement}) => {
-	const hydrated = useHydrated();
+const HardMarquee = ({ getElement, delay: delayMs }: {getElement: () => ReactElement, delay?: number}) => {
+	const [mount, setMount] = useState(false);
 
 	const firstRef = useRef<HTMLDivElement>(null);
 	const secondRef = useRef<HTMLDivElement>(null);
@@ -27,35 +27,44 @@ const HardMarquee = ({ getElement }: {getElement: () => ReactElement}) => {
 		const intervalDelay = 300;
 		let initialized = false;
 
-		const interval = setInterval(() => {
-			if (!initialized){
-				setInnerTransform(x => {
-					const sum = x + part;
-					if (sum >= -100){
-						initialized = true;
-						return -100;
-					}
-					return sum;
-				});
-				return;
-			}
+		let interval: NodeJS.Timeout;
 
-			setFirst(x => {
-				const currentTransform = Number(/\((.+)%/g.exec(x.transform)![1]);
-				// const currentTransform = Number(/\((\d+)%/g.exec(x.transform)![1]);
+		(async () => {
+			if (delayMs !== undefined)
+				await delay(delayMs);
 
-				if (currentTransform + part >= 100){
-					setSecond(() =>
-						({ child: x.child, transform: 'translateY(0%)' }));
-					return { child: getElement(), transform: 'translateY(0%)' };
+			setMount(true);
+
+			interval = setInterval(() => {
+				if (!initialized){
+					setInnerTransform(x => {
+						const sum = x + part;
+						if (sum >= -100){
+							initialized = true;
+							return -100;
+						}
+						return sum;
+					});
+					return;
 				}
 
-				const transformValue = `translateY(${currentTransform + part}%)`;
-				setSecond((s) =>
-					({ ...s, transform: transformValue }));
-				return { ...x, transform: transformValue };
-			});
-		}, intervalDelay);
+				setFirst(x => {
+					const currentTransform = Number(/\((.+)%/g.exec(x.transform)![1]);
+					// const currentTransform = Number(/\((\d+)%/g.exec(x.transform)![1]);
+
+					if (currentTransform + part >= 100){
+						setSecond(() =>
+							({ child: x.child, transform: 'translateY(0%)' }));
+						return { child: getElement(), transform: 'translateY(0%)' };
+					}
+
+					const transformValue = `translateY(${currentTransform + part}%)`;
+					setSecond((s) =>
+						({ ...s, transform: transformValue }));
+					return { ...x, transform: transformValue };
+				});
+			}, intervalDelay);
+		})();
 
 		return () => {
 			clearInterval(interval);
@@ -64,7 +73,7 @@ const HardMarquee = ({ getElement }: {getElement: () => ReactElement}) => {
 
 	return (
 		<div className={s.hardMarquee}>
-			{hydrated &&
+			{mount &&
 				<SxSC $sx={{
 					transform: `translateY(${innerTransform}%)`
 				}} className={s.inner}>

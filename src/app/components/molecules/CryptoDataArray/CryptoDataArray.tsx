@@ -7,7 +7,7 @@ import getRandomCryptoArrayTile from '@/app/components/molecules/getRandomCrypto
 const CryptoDataArray = () => {
 	return (
 		<div className={s.dataArray}>
-			<HardMarquee getElement={getRandomCryptoArrayTile}/>
+			<HardMarquee getElement={getRandomCryptoArrayTile} delay={3300}/>
 		</div>
 	);
 };
