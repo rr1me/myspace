@@ -5,6 +5,8 @@ import CLI from '@/app/components/organisms/CLI/CLI';
 import CryptoDataChecker from '@/app/components/organisms/CryptoDataChecker/CryptoDataChecker';
 import { animated, easings, useSpring } from '@react-spring/web';
 import BlueCross from '@/app/components/atoms/BlueCross/BlueCross';
+import clsx from 'clsx';
+import BlueCrossArray from '@/app/components/atoms/BlueCrossArray/BlueCrossArray';
 
 const BackgroundBottom = () => {
 
@@ -31,25 +33,17 @@ const BackgroundBottom = () => {
 					...springs
 				}}
 			>
-				<div className={s.crosses + ' ' + s.leftCrosses}>
-					{Array(25).fill(<BlueCross delay={2000}/>)}
-				</div>
+				<BlueCrossArray quantity={25} additionalClassName={s.leftCrosses}/>
 				<div className={s.innerBottom}>
 					<CLI />
 					<div className={s.middle}>
-						<div className={s.crosses + ' ' + s.midCrosses}>
-							{Array(6).fill(<BlueCross delay={2000}/>)}
-						</div>
+						<BlueCrossArray quantity={6} additionalClassName={s.midCrosses}/>
 						<CryptoDataChecker />
 					</div>
-					<div className={s.crosses + ' ' + s.rightCrosses}>
-						{Array(20).fill(<BlueCross delay={2000}/>)}
-					</div>
+					<BlueCrossArray quantity={20} additionalClassName={s.rightCrosses}/>
 				</div>
 			</animated.div>
-			<div className={s.crosses + ' ' + s.lowestCrosses}>
-				{Array(50).fill(<BlueCross delay={2000}/>)}
-			</div>
+			<BlueCrossArray quantity={50} additionalClassName={s.lowestCrosses}/>
 		</section>
 	);
 };

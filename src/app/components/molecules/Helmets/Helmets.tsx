@@ -46,7 +46,7 @@ const Helmets = ({ width }: {width: number}) => {
 	}));
 	const [centerSprings] = useSpring(() => ({
 		from: {
-			y: '200%'
+			y: '220%'
 		},
 		to: {
 			y: '0'

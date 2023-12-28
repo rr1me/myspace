@@ -4,16 +4,13 @@ import ExtendingLine from '@/app/components/atoms/ExtendingLine/ExtendingLine';
 import { ExtendingLineVariant } from '@/app/components/atoms/ExtendingLine/utils';
 import TopTextLine from '@/app/components/molecules/TopTextLine/TopTextLine';
 import BackgroundBottom from '@/app/components/organisms/BackgroundBottom/BackgroundBottom';
-import RedCodeTopHelmets from '@/app/components/organisms/RedCodeTopBorders/RedCodeTopHelmets';
-import BlueCross from '@/app/components/atoms/BlueCross/BlueCross';
+import RedCodeTopHelmets from '@/app/components/organisms/RedCodeTopHelmets/RedCodeTopHelmets';
+import BlueCrossArray from '@/app/components/atoms/BlueCrossArray/BlueCrossArray';
 
 const Background = () => //fixme horizontal marquee animation(start but)
 	(
 		<div className={s.background}>
-			{/*<div className={s.justToSeeIt} />*/}
-			<div className={s.topCrossArea}>
-				{Array(22).fill(<BlueCross/>)}
-			</div>
+			<BlueCrossArray quantity={22} customClassName={s.topCrossArea} delay={1300}/>
 
 			<RedCodeTopHelmets/>
 

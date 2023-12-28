@@ -1,9 +1,6 @@
 'use client';
 
 import s from './BlueCross.module.scss';
-import SxSC from '@/app/components/atoms/SxSC/SxSC';
-import LineBreaker from '@/app/components/atoms/LineBreaker/LineBreaker';
-import { LineBreakerVariant } from '@/app/components/atoms/LineBreaker/utils';
 import { animated, easings, useSpring } from '@react-spring/web';
 
 const size = 40;
