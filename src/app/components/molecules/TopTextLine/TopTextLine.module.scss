@@ -13,3 +13,9 @@
 	left: -200px;
 	width: 3000px;
 }
+
+@media (max-width: 800px){
+	.topTextLine {
+		left: -600px;
+	}
+}

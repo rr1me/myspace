@@ -3,35 +3,6 @@
 	overflow: hidden;
 }
 
-@media (max-width: 1000px){
-	.wrapper{
-		margin-left: 46vw;
-		scale: 110%;
-		margin-top: 20px;
-	}
-	.innerBottom{
-		flex-direction: column;
-	}
-
-	body .rightCrosses{
-		display: none;
-	}
-	body .lowestCrosses{
-		margin-left: 100px;
-		margin-top: 100px;
-	}
-	body .leftCrosses{
-		width: 200px
-	}
-	body .midCrosses{
-		display: grid;
-	}
-
-	.middle{
-		width: 500px;
-	}
-}
-
 .bottom {
 	display: flex;
 	justify-content: center;
@@ -68,4 +39,54 @@
 .middle{
 	display: flex;
 	gap: 30px;
+}
+
+@media (max-width: 1000px){
+	.wrapper{
+		margin-left: 46vw;
+		scale: 110%;
+		margin-top: 70px;
+	}
+
+	.bottom{
+		margin-top: 0;
+	}
+
+	.innerBottom{
+		flex-direction: column;
+	}
+
+	.rightCrosses{
+		display: none;
+	}
+	.lowestCrosses{
+		margin-left: 100px;
+		margin-top: 100px;
+	}
+	.leftCrosses{
+		width: 200px
+	}
+	.midCrosses{
+		display: grid;
+	}
+
+	.middle{
+		width: 500px;
+	}
+}
+
+@media (max-width: 700px){
+	.wrapper{
+		margin-left: 30vw;
+		margin-top: -20px;
+		scale: 85%;
+	}
+}
+
+@media (max-width: 500px){
+	.wrapper{
+		margin-left: 15vw;
+		margin-top: -40px;
+		scale: 80%;
+	}
 }
