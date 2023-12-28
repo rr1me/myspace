@@ -4,8 +4,6 @@ import s from './BackgroundBottom.module.scss';
 import CLI from '@/app/components/organisms/CLI/CLI';
 import CryptoDataChecker from '@/app/components/organisms/CryptoDataChecker/CryptoDataChecker';
 import { animated, easings, useSpring } from '@react-spring/web';
-import BlueCross from '@/app/components/atoms/BlueCross/BlueCross';
-import clsx from 'clsx';
 import BlueCrossArray from '@/app/components/atoms/BlueCrossArray/BlueCrossArray';
 
 const BackgroundBottom = () => {
