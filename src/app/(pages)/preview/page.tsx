@@ -1,11 +1,13 @@
 import s from './page.module.scss';
-import BlueCross from '@/app/components/atoms/BlueCross/BlueCross';
+import Lamp from '@/app/components/atoms/Lamp/Lamp';
 
 const page = () => {
 	return (
 		<main className={s.main}>
-			{/*preview*/}
-			<BlueCross/>
+			{/*<Lamp color={'rgba(154, 40, 73, 0.3)'} sx={{*/}
+			{/*	height: 500,*/}
+			{/*	width: 500*/}
+			{/*}}/>*/}
 		</main>
 	);
 };

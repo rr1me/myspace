@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
 	userScalable: false,
-	initialScale: 0.7 //smaller scale reduces stutters on mobiles
+	initialScale: 0.6 //smaller scale reduces stutters on mobiles
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
