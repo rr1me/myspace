@@ -5,18 +5,28 @@ import { createContext, Dispatch, ReactNode, SetStateAction, useState } from 're
 const AnimationContext = createContext<{
 	redCodeQueue: number[]
 	setRedCodeQueue: Dispatch<SetStateAction<number[]>>
+
+	preloaderVisibility: boolean
+	setPreloaderVisibility: Dispatch<SetStateAction<boolean>>
 }>({
 	redCodeQueue: [],
 	setRedCodeQueue: () => {},
+
+	preloaderVisibility: true,
+	setPreloaderVisibility: () => false,
 });
 
 export default AnimationContext;
 
 export const AnimationProvider = ({ children }: {children: ReactNode}) => {
 	const [redCodeQueue, setRedCodeQueue] = useState<number[]>([]);
+	const [preloaderVisibility, setPreloaderVisibility] = useState(true);
 
 	return (
-		<AnimationContext.Provider value={{ redCodeQueue, setRedCodeQueue }}>
+		<AnimationContext.Provider value={{
+			redCodeQueue, setRedCodeQueue,
+			preloaderVisibility, setPreloaderVisibility
+		}}>
 			{children}
 		</AnimationContext.Provider>
 	);

@@ -1,12 +1,11 @@
 import s from './page.module.scss';
+import Preloader from '@/app/components/templates/Preloader/Preloader';
 
-const Page = () => {
-
-	return (
+const Page = () =>
+	(
 		<main className={s.page}>
-			{/*nothing here*/}
+			<Preloader />
 		</main>
 	);
-};
 
 export default Page;

@@ -1,0 +1,39 @@
+@use '../../../vars.module' as v;
+
+.protocolWrapper{
+	//height: 45px;
+	display: flex;
+}
+
+.protocol{
+	//height: 15px;
+	height: 100%;
+	width: 60px;
+	//background-color: red;
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	line-height: 7px;
+}
+
+.protocolPreview{
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+}
+
+.protocolElement{
+	height: 3px;
+	width: 15px;
+	background-color: v.$c_main_second;
+}
+
+.warning{
+	margin-left: 8px;
+	height: 100%;
+	width: 120px;
+
+	color: v.$c_main_third;
+	font-size: 7px;
+	line-height: 11px;
+	text-transform: uppercase;
+}
