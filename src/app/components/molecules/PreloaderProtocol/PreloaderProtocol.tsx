@@ -1,6 +1,7 @@
 import s from './PreloaderProtocol.module.scss';
 import SxSC from '@/app/components/atoms/SxSC/SxSC';
 import { CSSObject } from 'styled-components';
+import SelfWritingText from '@/app/components/atoms/SelfWritingText/SelfWritingText';
 
 const Tab = ({ width }: {width: CSSObject['width']}) => <SxSC $sx={{ width }} className={s.tab}/>;
 
@@ -26,11 +27,11 @@ const PreloaderProtocol = () => {
 					<p>PROTOCOL</p>
 					<p>6520-A44</p>
 				</div>
-				<p className={s.warning}>
-				only cc35 and dhsf -5
-				certified tech officers
-				may access, operate or disable this dev&apos;
-				</p>
+				<SelfWritingText nixWrapped={false} className={s.warning} duration={10}>
+					only cc35 and dhsf -5
+					certified tech officers
+					may access, operate or disable this dev&apos;
+				</SelfWritingText>
 			</span>
 			<span>
 				<div className={s.signPreviewWrapper}>
@@ -42,7 +43,9 @@ const PreloaderProtocol = () => {
 						<Tab width={1}/>
 					</div>
 				</div>
-				<p className={s.signDigits}>485151 590787090001&nbsp;&nbsp;20JG8W4&nbsp;&nbsp;NC</p>
+				<SelfWritingText nixWrapped={false} className={s.signDigits}>
+					485151 590787090001&nbsp;&nbsp;20JG8W4&nbsp;&nbsp;NC
+				</SelfWritingText>
 			</span>
 		</>
 	);

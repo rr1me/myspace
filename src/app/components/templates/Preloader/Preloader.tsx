@@ -5,9 +5,23 @@ import { useContext } from 'react';
 import AnimationContext from '@/app/components/shared/AnimationContext';
 import PreloaderProtocol from '@/app/components/molecules/PreloaderProtocol/PreloaderProtocol';
 import Lamp from '@/app/components/atoms/Lamp/Lamp';
+import { useSpring, animated, easings } from '@react-spring/web';
 
 const Preloader = () => {
 	const { setPreloaderVisibility } = useContext(AnimationContext);
+
+	const [springs] = useSpring(() => ({
+		from: {
+			width: '30%'
+		},
+		to: {
+			width: '100%'
+		},
+		config: {
+			duration: 2000,
+			easing: easings.easeInOutQuart
+		}
+	}));
 
 	return (
 		<section className={s.preloader}>
@@ -27,7 +41,7 @@ const Preloader = () => {
 
 			<div className={s.inner}>
 				<div className={s.loader}>
-					<div className={s.loadingElement}/>
+					<animated.div style={springs} className={s.loadingElement}/>
 				</div>
 
 				<div className={s.bottom}>

@@ -51,7 +51,9 @@ const CLIShellInteraction = () => {
 			<div className={s.cmdZone}>
 				{writtenCommands.map(x =>
 					(
-						<SelfWritingText key={x.id} onAnimationEnd={onAnimationEnd} duration={70}>
+						<SelfWritingText
+							key={x.id} onAnimationEnd={onAnimationEnd}
+							duration={70} className={s.command}>
 							{x.str}
 						</SelfWritingText>
 					))}
