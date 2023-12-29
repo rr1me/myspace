@@ -1,0 +1,30 @@
+@use '../../../vars.module' as v;
+
+.button{
+	min-width: 100px;
+	min-height: 25px;
+
+	padding: 5px 15px;
+
+	border-radius: 2px;
+
+	border: 0.5px solid v.$c_main_third;
+	background: v.$g_redGradButton;
+	color: v.$c_main_third;
+
+	transition: 100ms ease-out;
+}
+
+.button:hover{
+	border-color: v.$c_addition_second;
+	background: v.$g_blueGradButton;
+	color: v.$c_addition_second;
+}
+
+.button:active{
+	border-color: v.$c_accent_gold;
+	background: v.$g_goldGradButton;
+	color: v.$c_accent_gold;
+
+	transform: scale(101%);
+}

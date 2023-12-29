@@ -24,6 +24,10 @@ export type Colors =
 
 	'g_cliSHell' |
 
+	'g_blueGradButton' |
+	'g_redGradButton' |
+	'g_goldGradButton' |
+
 	/////
 
 	'e_box_shadow' |
