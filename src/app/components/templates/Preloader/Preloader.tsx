@@ -84,7 +84,6 @@ const Preloader = () => {
 					</div>
 				</animated.div>
 
-
 				<animated.div style={innerSprings} className={s.animatedInner}>
 					<div className={s.loadingZone}>
 						<div className={s.loader}>

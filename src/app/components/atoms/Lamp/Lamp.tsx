@@ -7,10 +7,13 @@ import { animated, easings, useSpring } from '@react-spring/web';
 
 type Lamp = { sx?: CSSObject, color?: string, delay?: number, duration?: number };
 
-const Lamp = ({ sx, color = '#ffffff', delay = 0, duration, nonAnimated }: Lamp & {nonAnimated?: boolean}) => {
+const Lamp = ({ sx, color = '#ffffff', delay = 0, duration, nonAnimated, falloff }: Lamp & {nonAnimated?: boolean, falloff?: number}) => {
 	const style: CSSObject = {
 		zIndex: -1,
-		background: `radial-gradient(50% 50%, ${color}, transparent)`,
+		background: falloff ?
+			`radial-gradient(circle, ${color} 0%, ${color} ${falloff}%, transparent 70%)`
+			:
+			`radial-gradient(50% 50%, ${color}, transparent)`,
 		...sx,
 	};
 
