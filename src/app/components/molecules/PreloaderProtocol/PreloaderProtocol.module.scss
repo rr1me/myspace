@@ -1,15 +1,12 @@
 @use '../../../vars.module' as v;
 
 .protocolWrapper{
-	//height: 45px;
 	display: flex;
 }
 
 .protocol{
-	//height: 15px;
 	height: 100%;
 	width: 60px;
-	//background-color: red;
 	display: flex;
 	flex-direction: column;
 	gap: 5px;
@@ -36,4 +33,32 @@
 	font-size: 7px;
 	line-height: 11px;
 	text-transform: uppercase;
+}
+
+.signPreviewWrapper{
+	height: 35px;
+	display: flex;
+	gap: 4px;
+}
+
+.signPreview{
+	width: 180px;
+	background-color: v.$c_main_second;
+	mask-image: url("../../../../../public/signMask.png");
+	mask-size: 180px 100%;
+	mask-repeat: no-repeat;
+}
+
+.tabs{
+	display: flex;
+	height: 100%;
+	gap: 3px;
+}
+
+.tab{
+	background-color: v.$c_main_second;
+}
+
+.signDigits{
+	margin-top: 4px;
 }

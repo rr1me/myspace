@@ -1,9 +1,9 @@
 import { FunctionComponent } from 'react';
-import { CSSProperties } from 'styled-components';
+import { CSSObject } from 'styled-components';
 
-type innerFC = FunctionComponent<{ sx: CSSProperties }>;
-const restyle = (Component: innerFC, oldSx: CSSProperties) =>
+type innerFC = FunctionComponent<{ sx: CSSObject }>;
+const restyle = (Component: innerFC, oldSx: CSSObject) =>
 	// eslint-disable-next-line react/display-name
-	({ sx }:{ sx: CSSProperties }) => <Component sx={{ ...oldSx, ...sx }}/>;
+	({ sx }:{ sx: CSSObject }) => <Component sx={{ ...oldSx, ...sx }}/>;
 
 export default restyle;

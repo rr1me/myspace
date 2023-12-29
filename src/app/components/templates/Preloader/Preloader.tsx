@@ -4,12 +4,19 @@ import s from './Preloader.module.scss';
 import { useContext } from 'react';
 import AnimationContext from '@/app/components/shared/AnimationContext';
 import PreloaderProtocol from '@/app/components/molecules/PreloaderProtocol/PreloaderProtocol';
+import Lamp from '@/app/components/atoms/Lamp/Lamp';
 
 const Preloader = () => {
 	const { setPreloaderVisibility } = useContext(AnimationContext);
 
 	return (
 		<section className={s.preloader}>
+			<Lamp nonAnimated color={'rgba(255,0,0,0.09)'} sx={{
+				height: 3500,
+				width: 3500,
+				position: 'fixed',
+			}}/>
+
 			<button onClick={() => {
 				setPreloaderVisibility(false);
 			}}>ale</button>
@@ -25,7 +32,6 @@ const Preloader = () => {
 
 				<div className={s.bottom}>
 					<PreloaderProtocol/>
-					<span>sign</span>
 				</div>
 			</div>
 		</section>
