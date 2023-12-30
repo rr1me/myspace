@@ -1,15 +1,13 @@
 import Lamp from '@/app/components/atoms/Lamp/Lamp';
 
-const clr = 'rgba(154,40,73,0.11)'
-
 const BackgroundLighting = () =>
 	(
 		<>
-			<Lamp color={'rgba(40, 134, 154, .2)'} falloff={50} sx={{
+			<Lamp color={'rgba(40, 134, 154, .2)'} falloff={55} sx={{
 				height: 1000,
 				width: 1000,
 				left: '60vw',
-				top: -600,
+				top: -550,
 				transform: 'scale(10, 0.5)',
 			}} delay={600} duration={3000} />
 
@@ -17,7 +15,7 @@ const BackgroundLighting = () =>
 				height: 500,
 				width: 500,
 				left: '60vw',
-				top: -80,
+				top: -90,
 				transform: 'scale(8, .3)',
 			}} delay={200} duration={3000} />
 
@@ -29,12 +27,19 @@ const BackgroundLighting = () =>
 				transform: 'scale(15, 2)'
 			}} delay={1500} duration={3000} />
 
-			<Lamp color={'rgba(40, 134, 154, .06)'} falloff={40} sx={{
+			{/*<Lamp color={'rgba(40, 134, 154, .06)'} falloff={40} sx={{*/}
+			{/*	height: 500,*/}
+			{/*	width: 500,*/}
+			{/*	left: '63vw',*/}
+			{/*	top: 770,*/}
+			{/*	transform: 'scale(8, 0.7)',*/}
+			{/*}} delay={2000} duration={3000} />*/}
+			<Lamp color={'rgba(40, 134, 154, .06)'} falloff={55} sx={{
 				height: 500,
 				width: 500,
 				left: '63vw',
-				top: 770,
-				transform: 'scale(8, 0.7)',
+				top: 1080,
+				transform: 'scale(18, 1.8)',
 			}} delay={2000} duration={3000} />
 
 			<Lamp color={'rgba(40, 134, 154, .035)'} falloff={55} sx={{
