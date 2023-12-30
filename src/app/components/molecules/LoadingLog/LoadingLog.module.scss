@@ -4,16 +4,64 @@
 	width: 500px;
 	height: 50px;
 	align-self: flex-end;
-	margin-left: 10px;
 	display: flex;
 	gap: 10px;
+	overflow: hidden;
 }
 
-.square{
-	height: 100%;
-	width: 50px;
-	background-color: blue;
+.inner{
+	display: flex;
+	gap: 10px;
+	width: 100%;
 }
+
+///
+
+.square {
+	$s: 10px;
+	$s-: calc(100% - $s);
+
+	position: relative;
+	border: solid 2px transparent;
+
+	&::before {
+		position: absolute;
+		z-index: -1;
+		inset: -2px;
+		border: inherit;
+		background-color: v.$c_main_second;
+
+		mask: conic-gradient(from -90deg at $s $s, red 25%, transparent 0)
+			0 0 / $s- $s- border-box subtract,
+			conic-gradient(red 0 0) padding-box;
+		content: ''
+	}
+}
+
+.bound{
+	width: 46px;
+	height: 100%;
+	padding: 5px;
+}
+
+.innerBound{
+	border: 3px solid v.$c_main_darker;
+	border-radius: 1px;
+	height: 100%;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.boundLine{
+	background-color: v.$c_main_darker;
+	height: 3px;
+	width: 40%;
+	border-radius: 1px;
+}
+
+///
 
 .protocol{
 	color: v.$c_main_second;
@@ -44,6 +92,17 @@
 	align-self: end;
 }
 
+.wideNumber{
+	width: 146px;
+}
+.wideNumber:nth-child(1){
+	width: 123px;
+}
+
 .digits{
 	margin-left: 10px;
+}
+
+.text{
+	white-space: pre-wrap;
 }
