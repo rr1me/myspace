@@ -1,3 +1,5 @@
+import clsx from 'clsx';
+
 export const engAlphabet = [
 	'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
 	'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
@@ -30,6 +32,20 @@ export const getRandomArrayElement = <T = any>(arr: T[]) =>
 	arr[getRandomArrayIndex(arr.length)];
 
 export const delay = (ms: number) => new Promise(r => setTimeout(r, ms));
+
+export const assembleClassNames = (classNames: string[]) => {
+	const obj = classNames.reduce((obj, key) => {
+		(obj[key as never] as boolean) = true;
+		return obj;
+	}, {});
+
+	return clsx(obj);
+};
+
+export const createClassName = (...classNames: string[]) => assembleClassNames(classNames);
+
+export const addToClassName = (definedClassName: string, ...classNames: string[]) =>
+	definedClassName + ' ' + assembleClassNames(classNames);
 
 export const shellRandomText = [
 	{ req: 'sudo service nginx restart', res:

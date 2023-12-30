@@ -19,11 +19,12 @@ const BackgroundLighting = () =>
 				transform: 'scale(8, .3)',
 			}} delay={200} duration={3000} />
 
-			<Lamp color={'rgba(154,40,73, 0.11)'} falloff={50} sx={{
+			<Lamp color={'rgba(154,40,73, .11)'} falloff={50} sx={{
 				height: 500,
 				width: 500,
 				left: '65vw',
-				top: 250,
+				// top: 250,
+				top: 280,
 				transform: 'scale(15, 2)'
 			}} delay={1500} duration={3000} />
 

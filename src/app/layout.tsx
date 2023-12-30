@@ -8,10 +8,11 @@ import './vars.module.scss';
 import Background from '@/app/components/templates/Background/Background';
 import StyledComponentsRegistry from '@/app/registry';
 import { AnimationProvider } from '@/app/components/shared/AnimationContext';
+import { orbitron } from '@/app/theme';
 
 // const mohave = Mohave({ weight: '500', subsets: ['latin'] });
 
-const orbitron = Orbitron({ subsets: ['latin'] });
+// const orbitron = Orbitron({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
 	title: 'rr1me\'s space',

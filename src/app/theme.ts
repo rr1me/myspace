@@ -1,4 +1,5 @@
 import s from './vars.module.scss';
+import { Mohave, Orbitron } from 'next/font/google';
 
 export type Colors =
 	'c_main_first' |
@@ -39,3 +40,6 @@ export type ColorVars = {
 export const colorVars = {
 	...s
 } as ColorVars;
+
+export const orbitron = Orbitron({ subsets: ['latin'] });
+export const mohave = Mohave({ weight: '500', subsets: ['latin'] });
