@@ -2,6 +2,13 @@
 	display: flex;
 	padding-bottom: 40px;
 	gap: 60px;
+	margin-left: calc(-1900px + 100vw);
+}
+
+@media (max-width: 1200px){
+	.topElement{
+		margin-left: calc(-2300px + 135vw);
+	}
 }
 
 .topCrossArea{
