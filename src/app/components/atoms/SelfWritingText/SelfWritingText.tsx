@@ -32,13 +32,17 @@ const SelfWritingText = ({ children, onAnimationEnd, nixWrapped = true,
 					else
 						currentText += char;
 
-					element.textContent = currentText;
+					requestAnimationFrame(() => {
+						element.textContent = currentText;
+					});
 					await delay(duration);
 				}
 				else{
 					for (const symbol of (char as string)) {
 						currentText += symbol;
-						element.textContent = currentText;
+						requestAnimationFrame(() => {
+							element.textContent = currentText;
+						});
 						await delay(duration);
 					}
 				}

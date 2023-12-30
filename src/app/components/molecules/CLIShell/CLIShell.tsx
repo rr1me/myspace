@@ -8,6 +8,7 @@ import { colorVars } from '@/app/theme';
 import CLIShellInteraction from '@/app/components/molecules/CLIShellInteraction/CLIShellInteraction';
 import { animated, easings, useSpring } from '@react-spring/web';
 import { useState } from 'react';
+import { delay } from '@/app/components/shared/utils';
 
 const Tab = restyle(TabToChange, {
 	background: colorVars.g_separator_oneway,
@@ -37,7 +38,8 @@ const CLIShell = () => {
 			easing: easings.easeInOutExpo,
 			duration: 1000 //todo with or without?
 		},
-		onRest: () => {
+		onRest: async () => {
+			await delay(250);
 			setInteractionMount(true);
 		}
 	}));
@@ -51,9 +53,7 @@ const CLIShell = () => {
 				<Tab sx={{ width: '50%', height: 1, bottom: 0, right: 0, rotate: '180deg' }} />
 			</LiningWrapper>
 
-			{interactionMount &&
-				<CLIShellInteraction/>
-			}
+			<CLIShellInteraction start={interactionMount}/>
 		</animated.div>
 	);
 };

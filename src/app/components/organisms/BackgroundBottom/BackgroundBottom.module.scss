@@ -1,3 +1,5 @@
+@use '../../../vars.module' as v;
+
 .wrapper{
 	margin-left: 23vw;
 	overflow: hidden;
@@ -88,4 +90,19 @@
 		margin-top: -40px;
 		scale: 80%;
 	}
+}
+
+//
+
+.staticText{
+	height: 10px;
+	width: 100%;
+	padding-left: 150px;
+	font-size: 10px;
+	color: v.$c_main_second;
+	opacity: 0.7;
+	letter-spacing: 0.7px;
+
+	display: flex;
+	gap: 50px;
 }

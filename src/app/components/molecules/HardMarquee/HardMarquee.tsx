@@ -48,20 +48,22 @@ const HardMarquee = ({ getElement, delay: delayMs }: {getElement: () => ReactEle
 					return;
 				}
 
-				setFirst(x => {
-					const currentTransform = Number(/\((.+)%/g.exec(x.transform)![1]);
-					// const currentTransform = Number(/\((\d+)%/g.exec(x.transform)![1]);
+				requestAnimationFrame(() => {
+					setFirst(x => {
+						const currentTransform = Number(/\((.+)%/g.exec(x.transform)![1]);
+						// const currentTransform = Number(/\((\d+)%/g.exec(x.transform)![1]);
 
-					if (currentTransform + part >= 100){
-						setSecond(() =>
-							({ child: x.child, transform: 'translateY(0%)' }));
-						return { child: getElement(), transform: 'translateY(0%)' };
-					}
+						if (currentTransform + part >= 100){
+							setSecond(() =>
+								({ child: x.child, transform: 'translateY(0%)' }));
+							return { child: getElement(), transform: 'translateY(0%)' };
+						}
 
-					const transformValue = `translateY(${currentTransform + part}%)`;
-					setSecond((s) =>
-						({ ...s, transform: transformValue }));
-					return { ...x, transform: transformValue };
+						const transformValue = `translateY(${currentTransform + part}%)`;
+						setSecond((s) =>
+							({ ...s, transform: transformValue }));
+						return { ...x, transform: transformValue };
+					});
 				});
 			}, intervalDelay);
 		})();
