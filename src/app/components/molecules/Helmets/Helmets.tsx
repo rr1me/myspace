@@ -18,18 +18,20 @@ const Helmets = ({ width }: {width: number}) => {
 
 	const [shadow, setShadow] = useState(false);
 
-	const [leftSprings, api] = useSpring(() => ({
+	const [leftSprings, apiLeft] = useSpring(() => ({
 		from: {
 			opacity: 0,
 			width: '50px',
 			left: centering + 'px'
 		},
-		to: {
-			width: remainSpace + 'px',
-			left: '0'
+		to: async (next) => {
+			await next({
+				width: remainSpace + 'px',
+				left: '0'
+			});
 		},
-		...cfg,
-		pause: true
+		pause: true,
+		...cfg
 	}));
 	const [rightSprings, apiRight] = useSpring(() => ({
 		from: {
@@ -37,12 +39,14 @@ const Helmets = ({ width }: {width: number}) => {
 			width: '50px',
 			left: centering + 'px'
 		},
-		to: {
-			width: remainSpace + 'px',
-			left: centering + 60 + 'px'
+		to: async (next) => {
+			await next({
+				width: remainSpace + 'px',
+				left: centering + 60 + 'px'
+			});
 		},
-		...cfg,
-		pause: true
+		pause: true,
+		...cfg
 	}));
 	const [centerSprings] = useSpring(() => ({
 		from: {
@@ -53,10 +57,10 @@ const Helmets = ({ width }: {width: number}) => {
 		},
 		...cfg,
 		delay: 1000,
-		onRest: () => {
-			api.set({ opacity: 1 });
-			api.resume();
+		onRest: async () => {
+			apiLeft.set({ opacity: 1 });
 			apiRight.set({ opacity: 1 });
+			apiLeft.resume();
 			apiRight.resume();
 			setShadow(true);
 		}

@@ -3,7 +3,7 @@ import Tab from '@/app/components/atoms/Tab/Tab';
 import LineBreaker from '@/app/components/atoms/LineBreaker/LineBreaker';
 import { LineBreakerVariant } from '@/app/components/atoms/LineBreaker/utils';
 import LiningWrapper from '@/app/components/atoms/LiningWrapper/LiningWrapper';
-import { animated, easings, useSpring } from '@react-spring/web';
+import { animated, easings, useChain, useSpring, useSpringRef } from '@react-spring/web';
 
 const cfg = {
 	config: {
@@ -12,18 +12,20 @@ const cfg = {
 };
 
 const CryptoDataCheckerLining = () => {
-	const [breakerSprings, api] = useSpring(() => ({
+	const breakerSpringsRef = useSpringRef();
+	const [breakerSprings] = useSpring(() => ({
+		ref: breakerSpringsRef,
 		from: {
 			opacity: '0'
 		},
 		to: {
 			opacity: '1'
 		},
-		pause: true,
 		...cfg
 	}));
-
+	const springsRef = useSpringRef();
 	const [springs] = useSpring(() => ({
+		ref: springsRef,
 		from: {
 			width: '0',
 			height: '0.8%'
@@ -37,11 +39,9 @@ const CryptoDataCheckerLining = () => {
 			}
 		],
 		delay: 1700,
-		...cfg,
-		onRest: () => {
-			api.resume();
-		}
+		...cfg
 	}));
+	useChain([springsRef, breakerSpringsRef]);
 
 	return (
 		<LiningWrapper>

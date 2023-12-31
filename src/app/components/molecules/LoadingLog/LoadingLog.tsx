@@ -4,11 +4,13 @@ import s from './LoadingLog.module.scss';
 import { orbitron } from '@/app/theme';
 import { createClassName } from '@/app/components/shared/utils';
 import SelfWritingText from '@/app/components/atoms/SelfWritingText/SelfWritingText';
-import { animated, easings, useSpring } from '@react-spring/web';
+import { animated, easings, useChain, useSpring, useSpringRef } from '@react-spring/web';
 import { useState } from 'react';
 
 const LoadingLog = ({ delay }: {delay?: number}) => {
-	const [springs, api] = useSpring(() => ({
+	const springsRef = useSpringRef();
+	const [springs] = useSpring(() => ({
+		ref: springsRef,
 		from: {
 			opacity: 0
 		},
@@ -21,7 +23,9 @@ const LoadingLog = ({ delay }: {delay?: number}) => {
 		pause: true
 	}));
 	const [startWriting, setStartWriting] = useState(false);
+	const innerSpringsRef = useSpringRef();
 	const [innerSprings] = useSpring(() => ({
+		ref: innerSpringsRef,
 		from: {
 			y: '-100%'
 		},
@@ -33,10 +37,10 @@ const LoadingLog = ({ delay }: {delay?: number}) => {
 			easing: easings.easeInOutExpo
 		},
 		onRest: () => {
-			api.resume();
 			setStartWriting(true);
 		}
 	}));
+	useChain([innerSpringsRef, springsRef]);
 
 	const timingClassName = createClassName(s.timing, s.wideNumber);
 	return (

@@ -1,6 +1,7 @@
 import s from './page.module.scss';
 import Lamp from '@/app/components/atoms/Lamp/Lamp';
 import LoadingLog from '@/app/components/molecules/LoadingLog/LoadingLog';
+import CLIShell from '@/app/components/molecules/CLIShell/CLIShell';
 
 const page = () => {
 	return (
@@ -9,7 +10,12 @@ const page = () => {
 			{/*	height: 500,*/}
 			{/*	width: 500*/}
 			{/*}}/>*/}
-			<LoadingLog/>
+			{/*<LoadingLog/>*/}
+			<div style={{
+				height: 200
+			}}>
+				<CLIShell/>
+			</div>
 		</main>
 	);
 };

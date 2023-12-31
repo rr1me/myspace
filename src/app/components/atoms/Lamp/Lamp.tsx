@@ -4,6 +4,7 @@ import s from './Lamp.module.scss';
 import SxSC from '@/app/components/atoms/SxSC/SxSC';
 import { CSSObject, CSSProperties } from 'styled-components';
 import { animated, easings, useSpring } from '@react-spring/web';
+import { useEffect, useRef } from 'react';
 
 type Lamp = { sx?: CSSObject, color?: string, delay?: number, duration?: number };
 
@@ -40,11 +41,28 @@ const Animated = ({ style, delay = 0, duration }:
 			duration
 		}
 	}));
+	const elemRef = useRef<HTMLDivElement>(null);
+
+	useEffect(() => {
+		const ref = elemRef.current;
+		if (!ref) return;
+		ref.style.animationDelay = delay + 'ms';
+		ref.style.animationDuration = duration + 'ms';
+		ref.style.animationPlayState = 'running';
+	}, []);
 
 	return (
 		<animated.div style={{
 			...style,
 			...springs
 		}} className={s.lamp}/>
+		// <SxSC
+		// 	ref={elemRef}
+		// 	$sx={{
+		// 		...style
+		// 		// animationDelay: delay + 'ms',
+		// 		// animationDuration: duration + 'ms'
+		// 	}}
+		// 	className={s.lamp}/>
 	);
 };
