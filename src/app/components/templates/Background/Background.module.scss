@@ -20,15 +20,26 @@
   //
   //transform: perspective(500px) rotateX(7deg) rotateY(356deg)
   //rotateZ(11deg) translate3d(-803px, -6vw, 65px);
-  transform: perspective(500px) rotateX(7deg) rotateY(356deg)
-  rotateZ(11deg) translate3d(-773px, -5vw, 73px);
+  //transform: perspective(500px) rotateX(7deg) rotateY(356deg)
+  //rotateZ(11deg) translate3d(-773px, -5vw, 73px);
+
+
+
+
+  transform: perspective(507px) rotateX(7deg) rotateY(356.3deg)
+  rotateZ(11.1deg) translate3d(-803px, -6vw, 80px);
+
+
 
   //width: 2750px;
   width: 2700px;
 
   //height: 1200px;
   //height: 1500px;
-  height: 1728px;
+
+  //height: 1728px;
+  height: 1910px;
+
   color: white;
 
   position: fixed;
@@ -41,4 +52,10 @@
 
 .justToSeeIt{
   //margin-top: 500px;
+}
+
+@media (max-width: 1000px){
+  .background {
+    translate: 0 -2vw;
+  }
 }
