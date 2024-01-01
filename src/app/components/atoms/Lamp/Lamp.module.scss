@@ -1,18 +1,18 @@
 .lamp{
 	height: 100px;
 	width: 100px;
-	//transform: scaleX(5);
 	position: absolute;
-	//animation-name: show;
-	//animation-fill-mode: forwards;
-	//opacity: 0;
+
+	opacity: 0;
+	animation-play-state: paused;
+	animation-name: show;
 }
 
-//@keyframes show {
-//	from{
-//		opacity: 0;
-//	}
-//	to{
-//		opacity: 1;
-//	}
-//}
+@keyframes show {
+	from{
+		opacity: 0;
+	}
+	to{
+		opacity: 1;
+	}
+}

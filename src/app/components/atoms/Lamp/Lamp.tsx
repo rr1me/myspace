@@ -3,16 +3,18 @@
 import s from './Lamp.module.scss';
 import SxSC from '@/app/components/atoms/SxSC/SxSC';
 import { CSSObject, CSSProperties } from 'styled-components';
-import { animated, easings, useSpring } from '@react-spring/web';
 import { useEffect, useRef } from 'react';
 
-type Lamp = { sx?: CSSObject, color?: string, delay?: number, duration?: number };
+type Lamp = { sx?: CSSObject, color?: string,
+	delay?: number, duration?: number, start?: boolean };
 
-const Lamp = ({ sx, color = '#ffffff', delay = 0, duration, nonAnimated, falloff }: Lamp & {nonAnimated?: boolean, falloff?: number}) => {
+const Lamp = ({ sx, color = '#ffffff', delay = 0, duration, nonAnimated,
+	falloff, ascent = 10, start }:
+	Lamp & {nonAnimated?: boolean, falloff?: number, ascent?: number}) => {
 	const style: CSSObject = {
 		zIndex: -1,
 		background: falloff ?
-			`radial-gradient(circle, ${color} 0%, ${color} ${falloff}%, transparent 70%)`
+			`linear-gradient(transparent 0% ${ascent}%, ${color} ${falloff}% ${100 - falloff}%, transparent ${100 - ascent}%)`
 			:
 			`radial-gradient(50% 50%, ${color}, transparent)`,
 		...sx,
@@ -21,26 +23,13 @@ const Lamp = ({ sx, color = '#ffffff', delay = 0, duration, nonAnimated, falloff
 	return nonAnimated ?
 		<SxSC $sx={style} className={s.lamp}/>
 		:
-		<Animated style={style} delay={delay} duration={duration}/>;
+		<Animated style={style} delay={delay} duration={duration} start={start}/>;
 };
 
 export default Lamp;
 
-const Animated = ({ style, delay = 0, duration }:
-	Pick<Lamp, 'delay' | 'duration'> & {style: CSSProperties}) => {
-	const [springs] = useSpring(() => ({
-		from: {
-			opacity: 0
-		},
-		to: {
-			opacity: 1
-		},
-		delay,
-		config: {
-			easing: easings.easeInOutExpo,
-			duration
-		}
-	}));
+const Animated = ({ style, delay = 0, duration, start }:
+	Pick<Lamp, 'delay' | 'duration' | 'start'> & {style: CSSProperties}) => {
 	const elemRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
@@ -48,21 +37,18 @@ const Animated = ({ style, delay = 0, duration }:
 		if (!ref) return;
 		ref.style.animationDelay = delay + 'ms';
 		ref.style.animationDuration = duration + 'ms';
-		ref.style.animationPlayState = 'running';
 	}, []);
 
+	useEffect(() => {
+		const ref = elemRef.current;
+		if (!start || !ref) return;
+		ref.style.animationPlayState = 'running';
+		ref.style.animationFillMode = 'forwards';
+	}, [start]);
+
 	return (
-		<animated.div style={{
-			...style,
-			...springs
+		<div ref={elemRef} style={{
+			...style
 		}} className={s.lamp}/>
-		// <SxSC
-		// 	ref={elemRef}
-		// 	$sx={{
-		// 		...style
-		// 		// animationDelay: delay + 'ms',
-		// 		// animationDuration: duration + 'ms'
-		// 	}}
-		// 	className={s.lamp}/>
 	);
 };

@@ -65,11 +65,11 @@ const BackgroundBottom = () => {
 							additionalClassName={createClassName(s.undisplayedCrosses, s.middleCrosses)}/>
 						<CryptoDataChecker />
 					</div>
-					{/*<div className={createClassName(s.middle, s.reversed)}>*/}
-					{/*	<BlueCrossArray quantity={18}*/}
-					{/*		additionalClassName={createClassName(s.middleCrosses, s.lowestCrosses)}/>*/}
-					{/*	<Status/>*/}
-					{/*</div>*/}
+					<div className={createClassName(s.middle, s.reversed)}>
+						<BlueCrossArray quantity={18}
+							additionalClassName={createClassName(s.middleCrosses, s.lowestCrosses)}/>
+						<Status/>
+					</div>
 				</div>
 				<BlueCrossArray quantity={27} additionalClassName={s.rightCrosses}/>
 			</animated.div>

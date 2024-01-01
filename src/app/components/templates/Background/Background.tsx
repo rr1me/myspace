@@ -18,26 +18,31 @@ import { createClassName } from '@/app/components/shared/utils';
 const Background = () => {  //fixme horizontal marquee animation(start but)
 	const { preloaderVisibility } = useContext(AnimationContext);
 
-	return !preloaderVisibility &&
+	return (
 		<div className={createClassName(s.background, mohave.className)}>
-			{/*/!*<BackgroundLighting />*!/
-			//fixme: optimize. try work with mounting stage, opacity and keyframes.
-		    potential lighting implementation: div with background color and mask for edges*/}
+			<BackgroundLighting start={!preloaderVisibility} />
+			{/*fixme: optimize. try work with mounting stage, opacity and keyframes.*/}
+			{/*potential lighting implementation: div with background color and mask for edges*/}
 
 			{/*<div className={s.justToSeeIt}/>*/}
 
-			<TopElement />
+			{!preloaderVisibility &&
+			<>
+				<TopElement />
 
-			<RedCodeTopHelmets />
+				<RedCodeTopHelmets />
 
-			<TopTextLine />
+				<TopTextLine />
 
-			<RedMovingCode />
+				<RedMovingCode />
 
-			<ExtendingLine variant={ExtendingLineVariant.centered} color='g_separator' />
+				<ExtendingLine variant={ExtendingLineVariant.centered} color='g_separator' />
 
-			<BackgroundBottom />
-		</div>;
+				<BackgroundBottom />
+			</>
+			}
+		</div>
+	);
 };
 
 export default Background;
