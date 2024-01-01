@@ -4,6 +4,7 @@ import s from './Lamp.module.scss';
 import SxSC from '@/app/components/atoms/SxSC/SxSC';
 import { CSSObject, CSSProperties } from 'styled-components';
 import { useEffect, useRef } from 'react';
+import { createClassName } from '@/app/components/shared/utils';
 
 type Lamp = { sx?: CSSObject, color?: string,
 	delay?: number, duration?: number, start?: boolean };
@@ -49,6 +50,6 @@ const Animated = ({ style, delay = 0, duration, start }:
 	return (
 		<div ref={elemRef} style={{
 			...style
-		}} className={s.lamp}/>
+		}} className={createClassName(s.lamp, s.animated)}/>
 	);
 };
