@@ -8,6 +8,8 @@ import BlueCrossArray from '@/app/components/atoms/BlueCrossArray/BlueCrossArray
 import { createClassName } from '@/app/components/shared/utils';
 import { orbitron } from '@/app/theme';
 import SelfWritingText from '@/app/components/atoms/SelfWritingText/SelfWritingText';
+import Status from '@/app/components/organisms/Status/Status';
+import { create } from 'node:domain';
 
 const BackgroundBottom = () => {
 
@@ -54,17 +56,25 @@ const BackgroundBottom = () => {
 					...springs
 				}}
 			>
-				<BlueCrossArray quantity={25} additionalClassName={s.leftCrosses}/>
+				<BlueCrossArray quantity={24}
+					additionalClassName={s.leftCrosses}/>
 				<div className={s.innerBottom}>
 					<CLI />
 					<div className={s.middle}>
-						<BlueCrossArray quantity={6} additionalClassName={s.midCrosses}/>
+						<BlueCrossArray quantity={9}
+							additionalClassName={createClassName(s.undisplayedCrosses, s.middleCrosses)}/>
 						<CryptoDataChecker />
 					</div>
-					<BlueCrossArray quantity={20} additionalClassName={s.rightCrosses}/>
+					{/*<div className={createClassName(s.middle, s.reversed)}>*/}
+					{/*	<BlueCrossArray quantity={18}*/}
+					{/*		additionalClassName={createClassName(s.middleCrosses, s.lowestCrosses)}/>*/}
+					{/*	<Status/>*/}
+					{/*</div>*/}
 				</div>
+				<BlueCrossArray quantity={27} additionalClassName={s.rightCrosses}/>
 			</animated.div>
-			<BlueCrossArray quantity={50} additionalClassName={s.lowestCrosses}/>
+			{/*<BlueCrossArray quantity={50} additionalClassName={s.lowestCrosses}/>*/}
+			{/*<Status/>*/}
 		</section>
 	);
 };

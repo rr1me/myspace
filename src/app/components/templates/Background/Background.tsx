@@ -20,7 +20,9 @@ const Background = () => {  //fixme horizontal marquee animation(start but)
 
 	return !preloaderVisibility &&
 		<div className={createClassName(s.background, mohave.className)}>
-			<BackgroundLighting />
+			{/*/!*<BackgroundLighting />*!/
+			//fixme: optimize. try work with mounting stage, opacity and keyframes.
+		    potential lighting implementation: div with background color and mask for edges*/}
 
 			{/*<div className={s.justToSeeIt}/>*/}
 

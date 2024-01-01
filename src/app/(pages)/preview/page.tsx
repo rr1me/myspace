@@ -2,6 +2,7 @@ import s from './page.module.scss';
 import Lamp from '@/app/components/atoms/Lamp/Lamp';
 import LoadingLog from '@/app/components/molecules/LoadingLog/LoadingLog';
 import CLIShell from '@/app/components/molecules/CLIShell/CLIShell';
+import BackgroundBottom from '@/app/components/organisms/BackgroundBottom/BackgroundBottom';
 
 const page = () => {
 	return (
@@ -11,10 +12,15 @@ const page = () => {
 			{/*	width: 500*/}
 			{/*}}/>*/}
 			{/*<LoadingLog/>*/}
+			{/*<div style={{*!/*/}
+			{/*	height: 200*/}
+			{/*}}>*/}
+			{/*	<CLIShell/>*/}
+			{/*/!*</div>*/}
 			<div style={{
-				height: 200
+				width: '1000px'
 			}}>
-				<CLIShell/>
+				<BackgroundBottom/>
 			</div>
 		</main>
 	);

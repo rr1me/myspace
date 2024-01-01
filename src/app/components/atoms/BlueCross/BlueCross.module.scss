@@ -10,9 +10,27 @@ $size: 40px;
 }
 
 .cross{
+
 	background-color: v.$c_addition_second;
 	position: absolute;
 	justify-self: center;
 	align-self: center;
 	border-radius: 2px;
+
+	opacity: 0;
+	animation-name: animation;
+	animation-duration: 500ms;
+	animation-fill-mode: forwards;
+	animation-timing-function: linear;
+	//animation: 1s animationn linear;
 }
+
+@keyframes animation {
+	from{
+		opacity: 0;
+	}
+	to{
+		opacity: 1;
+	}
+}
+
