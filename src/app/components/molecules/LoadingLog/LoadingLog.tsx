@@ -19,8 +19,7 @@ const LoadingLog = ({ delay }: {delay?: number}) => {
 		},
 		config: {
 			duration: 1000
-		},
-		pause: true
+		}
 	}));
 	const [startWriting, setStartWriting] = useState(false);
 	const innerSpringsRef = useSpringRef();

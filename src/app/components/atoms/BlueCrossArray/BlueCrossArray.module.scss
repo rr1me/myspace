@@ -1,14 +1,7 @@
 .crosses{
-	//flex-grow: 1;
 	display: grid;
 	grid-template-columns: repeat(auto-fit, 40px);
 	grid-template-rows: repeat(auto-fit, 40px);
 	grid-gap: 26px;
 	width: 400px;
 }
-
-//@media (max-width: 1000px){
-//	.crosses{
-//		width: 1500px;
-//	}
-//}
