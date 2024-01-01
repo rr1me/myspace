@@ -5,6 +5,7 @@ export type Colors =
 	'c_main_first' |
 	'c_main_second' |
 	'c_main_second_2' |
+	'c_main_second_as_background' |
 	'c_main_third' |
 
 	'c_main_dark' |
@@ -17,6 +18,8 @@ export type Colors =
 	'c_addition_second_50p' |
 
 	'c_accent_gold' |
+
+	'c_fourth_dark' |
 
 	/////
 

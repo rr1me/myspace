@@ -1,5 +1,5 @@
 import s from './TopElement.module.scss';
-import BlueCrossArray from '@/app/components/atoms/BlueCrossArray/BlueCrossArray';
+import BlueCrossArray from '@/app/components/molecules/BlueCrossArray/BlueCrossArray';
 import LoadingLog from '@/app/components/molecules/LoadingLog/LoadingLog';
 
 const TopElement = () => {

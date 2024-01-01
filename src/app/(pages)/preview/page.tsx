@@ -1,5 +1,6 @@
 import s from './page.module.scss';
 import BackgroundBottom from '@/app/components/organisms/BackgroundBottom/BackgroundBottom';
+import Status from '@/app/components/organisms/Status/Status';
 
 const page = () => {
 	return (
@@ -7,7 +8,7 @@ const page = () => {
 			<div style={{
 				width: '1000px'
 			}}>
-				<BackgroundBottom/>
+				<Status/>
 			</div>
 		</main>
 	);

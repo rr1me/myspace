@@ -4,7 +4,7 @@ import s from './BackgroundBottom.module.scss';
 import CLI from '@/app/components/organisms/CLI/CLI';
 import CryptoDataChecker from '@/app/components/organisms/CryptoDataChecker/CryptoDataChecker';
 import { animated, easings, useSpring } from '@react-spring/web';
-import BlueCrossArray from '@/app/components/atoms/BlueCrossArray/BlueCrossArray';
+import BlueCrossArray from '@/app/components/molecules/BlueCrossArray/BlueCrossArray';
 import { createClassName } from '@/app/components/shared/utils';
 import { orbitron } from '@/app/theme';
 import SelfWritingText from '@/app/components/atoms/SelfWritingText/SelfWritingText';

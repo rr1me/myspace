@@ -1,0 +1,22 @@
+@use '../../../vars.module' as v;
+
+.pipeline{
+	margin-left: 10px;
+	flex-grow: 1;
+}
+
+.breach{
+	margin-top: 3px;
+	border: 1px solid v.$c_main_second_as_background;
+	background-color: v.$c_fourth_dark;
+	padding: 3px;
+}
+
+.breachPipeline{
+	margin-top: 5px;
+	line-height: 8px;
+
+	display: flex;
+	flex-direction: column;
+	gap: 4.1px;
+}
