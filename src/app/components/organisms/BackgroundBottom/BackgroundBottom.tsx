@@ -9,7 +9,6 @@ import { createClassName } from '@/app/components/shared/utils';
 import { orbitron } from '@/app/theme';
 import SelfWritingText from '@/app/components/atoms/SelfWritingText/SelfWritingText';
 import Status from '@/app/components/organisms/Status/Status';
-import { create } from 'node:domain';
 
 const BackgroundBottom = () => {
 
@@ -73,8 +72,6 @@ const BackgroundBottom = () => {
 				</div>
 				<BlueCrossArray quantity={27} additionalClassName={s.rightCrosses}/>
 			</animated.div>
-			{/*<BlueCrossArray quantity={50} additionalClassName={s.lowestCrosses}/>*/}
-			{/*<Status/>*/}
 		</section>
 	);
 };

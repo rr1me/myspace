@@ -11,6 +11,7 @@
 .top{
 	display: flex;
 	justify-content: space-between;
+	height: 10px;
 }
 
 .topRight{
@@ -41,13 +42,74 @@
 }
 
 .listnTag{
-	width: 100%;
+	width: 130px;
 	height: 20px;
 	font-size: 12px;
 }
 
+.listnTagWrapper{
+	height: 20px;
+	flex-shrink: 0;
+}
+
+.listnTagInner{
+	height: 1px;
+	width: 0;
+	animation-fill-mode: forwards;
+	animation-name: showTextBox;
+	animation-delay: 1s;
+	animation-duration: 1s;
+	animation-timing-function: ease-in-out;
+	overflow: hidden;
+}
+
+@keyframes showTextBox{
+	from{
+		height: 1px;
+		width: 0;
+	}
+	50%{
+		height: 1px;
+		width: 100%;
+	}
+	to{
+		height: 100%;
+		width: 100%;
+	}
+}
+
+.listnStateWrapper{
+	height: 1px;
+	width: 0;
+
+	animation-fill-mode: forwards;
+	animation-name: flexShow;
+	animation-delay: 2s;
+	animation-duration: 1s;
+	animation-timing-function: ease-in-out;
+	overflow: hidden;
+}
+
+@keyframes flexShow {
+	from{
+		flex-grow: 0;
+		height: 1px;
+		width: 0;
+	}
+	50%{
+		flex-grow: 0;
+		height: 1px;
+		width: 130px;
+	}
+	to{
+		height: auto;
+		flex-grow: 1;
+		width: 130px;
+	}
+}
+
 .listnState{
-	flex-grow: 1;
+	height: 100%;
 	background-color: v.$c_main_second_as_background;
 	border: 1px solid v.$c_main_second;
 	padding: 5px;
@@ -55,7 +117,6 @@
 	display: flex;
 	flex-wrap: wrap;
 	align-content: space-between;
-	height: 100%;
 }
 
 .volts{
@@ -69,10 +130,17 @@
 	height: 8px;
 }
 
+.separatorWrapper{
+	width: 25px;
+	height: 100%;
+}
+
 .clippedSeparator{
 	height: 100%;
-	width: 25px;
+	width: 0;
 	background-color: v.$c_main_second;
+
+	animation: 200ms separatorShow linear forwards 1s;
 
 	//clip-path: polygon(25% 0, 0 3%, 0 97%, 25% 100%, 100% 100%, 75% 97%, 75% 3%, 100% 0);
 	clip-path: polygon(
@@ -85,6 +153,16 @@
 			55% 0, 45% 1%
 	);
 }
+
+@keyframes separatorShow{
+	from{
+		width: 0;
+	}
+	to{
+		width: 25px;
+	}
+}
+
 
 .stream{
 	width: 190px;
@@ -111,6 +189,24 @@
 	height: 2px;
 	width: 100%;
 	background-color: v.$c_main_second;
+
+	animation-name: lTabAnimation;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite;
+	animation-duration: 1s;
+	animation-fill-mode: both;
+}
+
+@keyframes lTabAnimation{
+	from{
+		opacity: 0
+	}
+	50%{
+		opacity: 1;
+	}
+	to{
+		opacity: 0;
+	}
 }
 
 .bitArr{
@@ -119,4 +215,9 @@
 	grid-template-columns: repeat(18, 4px);
 	grid-gap: 7.8px;
 	grid-column-gap: 6.9px;
+}
+
+.bitArrMarquee{
+	margin-top: 5px;
+	height: 170px;
 }
