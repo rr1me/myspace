@@ -7,7 +7,7 @@ import PreloaderProtocol from '@/app/components/molecules/PreloaderProtocol/Prel
 import Lamp from '@/app/components/atoms/Lamp/Lamp';
 import { animated, easings, useSpring } from '@react-spring/web';
 import Button from '@/app/components/atoms/Button/Button';
-import { delay } from '@/app/components/shared/utils';
+import { createClassName, delay } from '@/app/components/shared/utils';
 
 const Preloader = () => {
 	const { setPreloaderVisibility } = useContext(AnimationContext);
@@ -78,11 +78,11 @@ const Preloader = () => {
 
 			<div className={s.inner}>
 
-				<animated.div style={innerSpringsButton} className={s.animatedInner}>
-					<div className={s.buttonZone}>
+				<div className={s.buttonZone}>
+					<animated.div style={innerSpringsButton} className={s.animatedButton}>
 						<Button onClick={onConnectClick} className={s.button}>CONNECT</Button>
-					</div>
-				</animated.div>
+					</animated.div>
+				</div>
 
 				<animated.div style={innerSprings} className={s.animatedInner}>
 					<div className={s.loadingZone}>

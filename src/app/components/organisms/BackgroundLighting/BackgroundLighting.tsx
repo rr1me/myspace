@@ -16,7 +16,7 @@ const BackgroundLighting = ({start}: {start: boolean}) => {
 			}} delay={200} duration={3000} start={start}/>
 
 			<Lamp color={'rgba(154,40,73, .11)'} falloff={16} sx={{
-				height: 1030,
+				height: 1020,
 				width: '100%',
 				top: 20,
 			}} delay={1500} duration={3000} start={start}/>
