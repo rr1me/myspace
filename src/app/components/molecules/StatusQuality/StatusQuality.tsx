@@ -3,11 +3,9 @@ import clsx from 'clsx';
 
 const StatusQuality = () => {
 	return (
-		<div className={s.wrapper}>
-			<div className={s.quality}>
-				<Box strings={[['HD', 'LQ']]} short />
-				<Box strings={[['45', '32'], ['35', '35'], ['36', 'XX'], ['98', '11'], ['4', '1']]} />
-			</div>
+		<div className={s.quality}>
+			<Box strings={[['HD', 'LQ']]} short />
+			<Box strings={[['45', '32'], ['35', '35'], ['36', 'XX'], ['98', '11'], ['4', '1']]} />
 		</div>
 	);
 };

@@ -6,27 +6,33 @@ import SelfWritingText from '@/app/components/atoms/SelfWritingText/SelfWritingT
 import Marquee from '@/app/components/molecules/Marquee/Marquee';
 import SxSC from '@/app/components/atoms/SxSC/SxSC';
 
+const elementDelay = 2500;
+
 const Status = () => {
 	return (
 		<div className={createClassName(s.status, orbitron.className)}>
 			<article className={s.top}>
-				<SelfWritingText nixWrapped={false} delay={2000}>0.000000@D&ensp;&ensp;PPMGRO(HIGH)&ensp;&ensp;
+				<SelfWritingText nixWrapped={false} delay={elementDelay + 1000}>0.000000@D&ensp;&ensp;PPMGRO(HIGH)&ensp;&ensp;
 					:0X7ADD00D0 - 0X7DDD00D0 (998 MiB)</SelfWritingText>
-				<SelfWritingText nixWrapped={false} className={s.topRight} delay={2000}>
+				<SelfWritingText nixWrapped={false} className={s.topRight} delay={elementDelay + 3800}>
 					34 25&emsp;DT MNS&emsp;82.1&emsp;MLZ.X&emsp;&emsp;1.27</SelfWritingText>
 			</article>
 			<div className={s.trio}>
 				<div className={s.listn}>
 
 					<div className={s.listnTagWrapper}>
-						<div className={s.listnTagInner}>
+						<SxSC $sx={{
+							animationDelay: elementDelay + 1600 + 'ms'
+						}} className={s.listnTagInner}>
 							<article className={createClassName(s.listnTag, s.textBox)}>
 								<p>LISTn_INST_666</p>
 							</article>
-						</div>
+						</SxSC>
 					</div>
 
-					<div className={s.listnStateWrapper}>
+					<SxSC $sx={{
+						animationDelay: elementDelay + 1800 + 'ms'
+					}} className={s.listnStateWrapper}>
 						<div className={s.listnState}>
 							<div className={s.volts}>
 								<div className={createClassName(s.cm3, s.textBox)}>CM3+</div>
@@ -37,37 +43,39 @@ const Status = () => {
 								<div>0+60.66 MS</div>
 							</div>
 						</div>
-					</div>
+					</SxSC>
 
 				</div>
 				<div className={s.separatorWrapper}>
-					<div className={s.clippedSeparator} />
+					<SxSC $sx={{
+						animationDelay: elementDelay + 1000 + 'ms'
+					}} className={s.clippedSeparator} />
 				</div>
 				<div className={s.stream}>
 					<div className={s.streamTag}>
-						<SelfWritingText nixWrapped={false}>DATA STREAM</SelfWritingText>
+						<SelfWritingText nixWrapped={false} delay={elementDelay + 2200}>DATA STREAM</SelfWritingText>
 						<div className={s.loadingWrapper}>
 							<SxSC $sx={{
-								animationDelay: '200ms'
+								animationDelay: elementDelay + 100 + 'ms'
 							}} className={s.loadingTab}/>
 							<SxSC $sx={{
-								animationDelay: '400ms'
+								animationDelay: elementDelay + 300 + 'ms'
 							}} className={s.loadingTab}/>
 							<SxSC $sx={{
-								animationDelay: '600ms'
+								animationDelay: elementDelay + 500 + 'ms'
 							}} className={s.loadingTab}/>
 						</div>
 					</div>
 
 					<div className={s.bitArrMarquee}>
-						<Marquee duration={5}>
+						<Marquee duration={6} delay={elementDelay / 1000 + 3}>
 							<div className={s.bitArr}>
 								{Array(180).fill(0).map((_, i) => <p key={i}>{getRandomInt(0, 1)}</p>)}
 							</div>
 						</Marquee>
 					</div>
 				</div>
-				<StatusPipeline />
+				<StatusPipeline elementDelay={elementDelay}/>
 			</div>
 		</div>
 	);
