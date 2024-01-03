@@ -8,15 +8,12 @@
 }
 
 .breaker{
-  background-color: v.$c_addition_second;
-
   width: 25px;
   height: 100%;
 }
 
 .end{
   clip-path: polygon(0 0, 100% 110%, 0 110%);
-  background-color: v.$c_addition_second;
 
   width: 6px;
   height: 100%;

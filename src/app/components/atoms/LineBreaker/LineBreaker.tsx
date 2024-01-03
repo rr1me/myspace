@@ -3,9 +3,13 @@ import clsx from 'clsx';
 import { LineBreakerVariant } from '@/app/components/atoms/LineBreaker/utils';
 import { CSSObject } from 'styled-components';
 import SxSC from '@/app/components/atoms/SxSC/SxSC';
+import { colorVars } from '@/app/theme';
+import { HTMLAttributes } from 'react';
 
-const LineBreaker = ({ sx, variant = LineBreakerVariant.end, mirrored, vertical }:
-	{sx?: CSSObject, variant?: LineBreakerVariant, mirrored?: boolean, vertical?: boolean}) => {
+const LineBreaker = ({ sx, variant = LineBreakerVariant.end, mirrored,
+	vertical, color = colorVars.c_addition_second, ...props }:
+	{sx?: CSSObject, variant?: LineBreakerVariant, mirrored?: boolean,
+		vertical?: boolean, color?: string} & Omit<HTMLAttributes<HTMLDivElement>, 'className'>) => {
 	const className = clsx({
 		[s.wrapper]: true,
 		...(mirrored && vertical ?
@@ -21,11 +25,15 @@ const LineBreaker = ({ sx, variant = LineBreakerVariant.end, mirrored, vertical 
 	});
 
 	return (
-		<SxSC $sx={sx} className={className}>
+		<SxSC $sx={sx} className={className} {...props}>
 			{variant === LineBreakerVariant.startToEnd && <div className={s.end + ' ' + s.mirror}/>}
 
-			<div className={s.breaker}/>
-			<div className={s.end}/>
+			<SxSC $sx={{
+				backgroundColor: color
+			}} className={s.breaker}/>
+			<SxSC $sx={{
+				backgroundColor: color
+			}} className={s.end}/>
 		</SxSC>
 	);
 };

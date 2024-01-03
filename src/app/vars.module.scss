@@ -92,3 +92,29 @@ $main_box_shadow: 0px 0px 25px 2px rgba(243, 38, 38, 0.5);
   e_box_shadow: $e_box_shadow;
   main_box_shadow: $main_box_shadow;
 }
+
+@mixin gradient_border($size, $gradient, $radius: 0, $position: relative){
+  position: $position;
+  border: $size solid transparent;
+  @if $radius != 0 {
+    border-radius: $radius;
+  }
+
+  &::before{
+    content: '';
+    position: absolute;
+    z-index: -1;
+    inset: calc(-1 * $size);
+    border: inherit;
+
+    @if $radius != 0 {
+      border-radius: $radius;
+    }
+
+    background: $gradient;
+
+    mask: conic-gradient(from 90deg at $size $size, red 25%, red 0)
+    0 0 / calc(100% - $size) calc(100% - $size) border-box subtract,
+    conic-gradient(red 0 0) padding-box;
+  }
+}
