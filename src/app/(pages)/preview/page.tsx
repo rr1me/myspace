@@ -1,16 +1,10 @@
-import s from './page.module.scss';
-import BackgroundBottom from '@/app/components/organisms/BackgroundBottom/BackgroundBottom';
-import Status from '@/app/components/organisms/Status/Status';
+import Menu from '@/app/components/templates/Menu/Menu';
 
 const page = () => {
 	return (
-		<main className={s.main}>
-			<div style={{
-				width: '1000px'
-			}}>
-				<Status/>
-			</div>
-		</main>
+		<Menu>
+			helo
+		</Menu>
 	);
 };
 

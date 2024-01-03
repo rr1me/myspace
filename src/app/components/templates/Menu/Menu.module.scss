@@ -1,0 +1,76 @@
+//$borderMenuSize: 2px;
+
+@mixin gradient_border($size, $gradient, $radius: 0){
+	position: relative;
+	border: $size solid transparent;
+	@if $radius != 0 {
+		border-radius: $radius;
+	}
+
+	&::before{
+		content: '';
+		position: absolute;
+		z-index: -1;
+		inset: calc(-1 * $size);
+		border: inherit;
+
+		@if $radius != 0 {
+			border-radius: $radius;
+		}
+
+		background: $gradient;
+
+		mask: conic-gradient(from 90deg at $size $size, red 25%, red 0)
+		0 0 / calc(100% - $size) calc(100% - $size) border-box subtract,
+		conic-gradient(red 0 0) padding-box;
+	}
+}
+
+.menu{
+	width: 100%;
+	height: 800px;
+	//border: $borderMenuSize solid transparent;
+	//position: relative;
+
+	//todo decide do i need bg gradient here. probably i need for mobile version
+	background: linear-gradient(253deg, rgba(189, 45, 45, 0.05) 0%, rgba(21, 215, 180, 0.03) 100%), rgba(0, 0, 0, 0.25);
+	backdrop-filter: blur(4px);
+	//border-radius: 10px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	$borderMenuSize: 2px;
+	@include gradient_border(
+			$borderMenuSize,
+			linear-gradient(rgba(209, 0, 67, 1), rgba(0, 207, 214, 1))
+			0 calc(-1 * $borderMenuSize) / 100% calc(100% + $borderMenuSize * 2),
+			10px
+	)
+}
+
+//.menu::before{
+//	content: '';
+//	position: absolute;
+//	z-index: -1;
+//
+//	inset: calc(-1 * $borderMenuSize);
+//	border-radius: 10px;
+//	border: inherit;
+//	background: linear-gradient(rgba(209, 0, 67, 1), rgba(0, 207, 214, 1))
+//	0 calc(-1 * $borderMenuSize) / 100% calc(100% + $borderMenuSize * 2);
+//
+//	mask: conic-gradient(from 90deg at $borderMenuSize $borderMenuSize, red 25%, red 0)
+//	0 0 / calc(100% - $borderMenuSize) calc(100% - $borderMenuSize) border-box subtract,
+//	conic-gradient(red 0 0) padding-box;
+//}
+
+.nav{
+	position: absolute;
+	top: 50px;
+	left: 0;
+	width: 120px;
+	height: 150px;
+	background-color: wheat;
+}

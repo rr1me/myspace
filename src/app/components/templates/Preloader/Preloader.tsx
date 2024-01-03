@@ -7,7 +7,7 @@ import PreloaderProtocol from '@/app/components/molecules/PreloaderProtocol/Prel
 import Lamp from '@/app/components/atoms/Lamp/Lamp';
 import { animated, easings, useSpring } from '@react-spring/web';
 import Button from '@/app/components/atoms/Button/Button';
-import { createClassName, delay } from '@/app/components/shared/utils';
+import { delay } from '@/app/components/shared/utils';
 
 const Preloader = () => {
 	const { setPreloaderVisibility } = useContext(AnimationContext);

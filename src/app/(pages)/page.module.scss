@@ -1,6 +1,82 @@
-.page{
-  color: white;
-  height: 100vh;
-  max-width: 1440px;
-  margin-inline: auto;
+@use '../vars.module' as v;
+
+//.page{
+//  color: white;
+//  height: 100vh;
+//  max-width: 1440px;
+//  margin-inline: auto;
+//}
+
+.intro{
+  height: 250px;
+  width: 966px;
+
+  color: v.$c_main_first;
+
+  font-weight: 500;
+
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+}
+
+.who{
+  position: relative;
+  height: 150px;
+}
+
+.innerWho{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 15px;
+}
+
+.me{
+  font-size: 36px;
+}
+
+.desc{
+  font-size: 20px;
+  text-align: right;
+}
+
+.links{
+  width: 140px;
+  height: 33px;
+  align-self: center;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.link{
+  width: 33px;
+  height: 33px;
+  display: block;
+
+  background-color: rgba(166, 28, 67, 1);
+
+  mask-size: 33px;
+  transition: 200ms;
+}
+
+.link:hover{
+  scale: 120%;
+}
+
+.telegram{
+  mask-image: url('../../../public/telegram-logo-white.png');
+}
+.github{
+  mask-image: url('../../../public/github-mark-white.png');
+}
+.linkedin{
+  mask-image: url('../../../public/linkedin-logo-white.png');
+}
+
+.button{
+  align-self: center;
+  font-size: 14px;
+  font-weight: bolder;
 }
