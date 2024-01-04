@@ -6,6 +6,7 @@ import { createClassName } from '@/app/components/shared/utils';
 import { colorVars, mohave } from '@/app/theme';
 import LineBreaker from '@/app/components/atoms/LineBreaker/LineBreaker';
 import { animated, easings, useSpring } from '@react-spring/web';
+import { useRouter } from 'next/navigation';
 
 const btnClassName = createClassName(s.button, mohave.className);
 
@@ -23,6 +24,11 @@ const NavigationMenu = () => {
 		api.start({
 			x: springs.x.get() === '-100%' ? '0' : '-100%'
 		});
+	};
+
+	const router = useRouter();
+	const onButtonClick = (to: string) => () => {
+		router.push(to);
 	};
 
 	return (
@@ -44,10 +50,10 @@ const NavigationMenu = () => {
 					}
 				}} color={colorVars.c_accent_gold} vertical />
 
-				<Button className={btnClassName}>about me</Button>
-				<Button className={btnClassName}>skills</Button>
-				<Button className={btnClassName}>projects</Button>
-				<Button className={btnClassName}>experience</Button>
+				<Button className={btnClassName} onClick={onButtonClick('/')}>about me</Button>
+				<Button className={btnClassName} onClick={onButtonClick('/preview')}>skills</Button>
+				<Button className={btnClassName} onClick={onButtonClick('/')}>projects</Button>
+				<Button className={btnClassName} onClick={onButtonClick('/')}>experience</Button>
 			</animated.nav>
 		</div>
 	);

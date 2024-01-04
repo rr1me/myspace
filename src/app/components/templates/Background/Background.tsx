@@ -16,7 +16,7 @@ import { createClassName } from '@/app/components/shared/utils';
 
 
 const Background = () => {  //fixme horizontal marquee animation(start but)
-	const preloaderVisibility = !useContext(AnimationContext).preloaderVisibility;
+	const preloaderVisibility = useContext(AnimationContext).preloaderVisibility;
 
 	return (
 		<div className={createClassName(s.background, mohave.className)}>

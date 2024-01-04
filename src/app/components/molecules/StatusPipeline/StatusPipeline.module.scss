@@ -7,7 +7,7 @@
 .pipeline{
 	margin-left: 10px;
 	height: 0;
-	overflow: hidden;
+	overflow: hidden; //fixme this makes marquee invisible for initial render, but it needs to be hidden for show animation. need to dig into it. probable fix – overflow: visible on marquee wrapper/element
 
 	animation-name: show;
 	animation-duration: 1s;
@@ -38,6 +38,7 @@
 
 .breach{
 	flex-grow: 1;
+	height: 152px;
 	padding: 3px;
 	@include lining;
 }
@@ -60,4 +61,5 @@
 .breachPipelineWrapper{
 	margin-top: 5px;
 	height: 129px;
+	position: absolute; //fixing invisibility due to overflow hidden on .pipeline
 }

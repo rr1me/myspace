@@ -8,6 +8,7 @@ import Button from '@/app/components/atoms/Button/Button';
 
 import Link from 'next/link';
 import { createClassName } from '@/app/components/shared/utils';
+import Preloader from '@/app/components/templates/Preloader/Preloader';
 
 const Tab = restyle(TabToChange, {
 	background: colorVars.g_separator_oneway_main,
@@ -23,7 +24,7 @@ const TabVert = restyle(TabToChange, {
 const Page = () =>
 	(
 		<>
-			{/*<Preloader/>*/}
+			<Preloader/>
 			<Menu>
 				<div className={s.intro}>
 
