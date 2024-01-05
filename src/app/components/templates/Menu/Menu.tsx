@@ -12,6 +12,10 @@ const Menu = ({ children }: {children: ReactNode}) => {
 	const springsRef = useSpringRef();
 	const springs = useSpring({
 		ref: springsRef,
+		from: {
+			opacity: 0,
+			scale: 0
+		},
 		to: {
 			opacity: 1,
 			scale: 1
@@ -22,19 +26,14 @@ const Menu = ({ children }: {children: ReactNode}) => {
 		},
 		delay: 4000
 	});
-
-	const init = useRef(false);
 	useEffect(() => {
-		if (preloaderVisibility || init.current) return;
-
-		springsRef.start();
-		init.current = true;
+		if (!preloaderVisibility) springsRef.start();
 	}, [preloaderVisibility]);
 
 	return (
 		<animated.section style={springs} className={clsx({
 			[s.menu]: true,
-			// [s.invisible]: preloaderVisibility
+			[s.invisible]: preloaderVisibility
 		})}>
 			<NavigationMenu/>
 			{children}

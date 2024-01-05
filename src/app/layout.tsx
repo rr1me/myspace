@@ -8,6 +8,7 @@ import Background from '@/app/components/templates/Background/Background';
 import StyledComponentsRegistry from '@/app/registry';
 import { orbitron } from '@/app/theme';
 import Preloader from '@/app/components/templates/Preloader/Preloader';
+import Menu from '@/app/components/templates/Menu/Menu';
 
 export const metadata: Metadata = {
 	title: 'rr1me\'s space',
@@ -26,7 +27,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 					<Background/>
 					<main className='main'>
 						<Preloader/>
-						{children}
+						<Menu>
+							{children}
+						</Menu>
 					</main>
 				</StyledComponentsRegistry>
 			</body>
