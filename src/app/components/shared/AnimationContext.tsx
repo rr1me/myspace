@@ -8,12 +8,18 @@ const AnimationContext = createContext<{
 
 	preloaderVisibility: boolean
 	setPreloaderVisibility: Dispatch<SetStateAction<boolean>>
+
+	navMenuOpen: boolean
+	setNavMenuOpen: Dispatch<SetStateAction<boolean>>
 }>({
 	redCodeQueue: [],
 	setRedCodeQueue: () => {},
 
 	preloaderVisibility: true,
 	setPreloaderVisibility: () => false,
+
+	navMenuOpen: true,
+	setNavMenuOpen: () => false,
 });
 
 export default AnimationContext;
@@ -21,11 +27,13 @@ export default AnimationContext;
 export const AnimationProvider = ({ children }: {children: ReactNode}) => {
 	const [redCodeQueue, setRedCodeQueue] = useState<number[]>([]);
 	const [preloaderVisibility, setPreloaderVisibility] = useState(true);
+	const [navMenuOpen, setNavMenuOpen] = useState(false);
 
 	return (
 		<AnimationContext.Provider value={{
 			redCodeQueue, setRedCodeQueue,
-			preloaderVisibility, setPreloaderVisibility
+			preloaderVisibility, setPreloaderVisibility,
+			navMenuOpen, setNavMenuOpen
 		}}>
 			{children}
 		</AnimationContext.Provider>

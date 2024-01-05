@@ -15,16 +15,12 @@ import TopElement from '@/app/components/organisms/TopElement/TopElement';
 import { createClassName } from '@/app/components/shared/utils';
 
 
-const Background = () => {  //fixme horizontal marquee animation(start but)
+const Background = () => {
 	const preloaderVisibility = useContext(AnimationContext).preloaderVisibility;
 
 	return (
 		<div className={createClassName(s.background, mohave.className)}>
 			<BackgroundLighting start={!preloaderVisibility} />
-			{/*fixme: optimize. try work with mounting stage, opacity and keyframes.*/}
-			{/*potential lighting implementation: div with background color and mask for edges*/}
-
-			{/*<div className={s.justToSeeIt}/>*/}
 
 			{!preloaderVisibility &&
 			<>

@@ -7,29 +7,23 @@ import { colorVars, mohave } from '@/app/theme';
 import LineBreaker from '@/app/components/atoms/LineBreaker/LineBreaker';
 import { animated, easings, useSpring } from '@react-spring/web';
 import { useRouter } from 'next/navigation';
+import { useContext } from 'react';
+import AnimationContext from '@/app/components/shared/AnimationContext';
 
 const btnClassName = createClassName(s.button, mohave.className);
 
 const NavigationMenu = () => {
-	const [springs, api] = useSpring(() => ({
-		from: {
-			x: '-100%',
-		},
+	const { navMenuOpen, setNavMenuOpen } = useContext(AnimationContext);
+	const springs = useSpring({
+		x: navMenuOpen ? '0' : '-100%',
 		config: {
 			easing: easings.easeInOutExpo
 		}
-	}));
+	});
 
-	const onBreakerClick = () => {
-		api.start({
-			x: springs.x.get() === '-100%' ? '0' : '-100%'
-		});
-	};
-
+	const onBreakerClick = () => setNavMenuOpen(x => !x);
 	const router = useRouter();
-	const onButtonClick = (to: string) => () => {
-		router.push(to);
-	};
+	const onButtonClick = (to: string) => () => router.push(to);
 
 	return (
 		<div className={s.wrapper}>

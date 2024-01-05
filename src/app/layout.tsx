@@ -8,6 +8,7 @@ import Background from '@/app/components/templates/Background/Background';
 import StyledComponentsRegistry from '@/app/registry';
 import { AnimationProvider } from '@/app/components/shared/AnimationContext';
 import { orbitron } from '@/app/theme';
+import Preloader from '@/app/components/templates/Preloader/Preloader';
 
 export const metadata: Metadata = {
 	title: 'rr1me\'s space',
@@ -26,6 +27,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 					<AnimationProvider>
 						<Background/>
 						<main className='main'>
+							<Preloader/>
 							{children}
 						</main>
 					</AnimationProvider>

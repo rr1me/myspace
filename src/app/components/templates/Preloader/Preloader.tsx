@@ -1,16 +1,15 @@
 'use client';
 
 import s from './Preloader.module.scss';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import AnimationContext from '@/app/components/shared/AnimationContext';
 import PreloaderProtocol from '@/app/components/molecules/PreloaderProtocol/PreloaderProtocol';
 import Lamp from '@/app/components/atoms/Lamp/Lamp';
 import { animated, easings, useSpring } from '@react-spring/web';
 import Button from '@/app/components/atoms/Button/Button';
-import { delay } from '@/app/components/shared/utils';
 
 const Preloader = () => {
-	const { setPreloaderVisibility } = useContext(AnimationContext);
+	const { setPreloaderVisibility, preloaderVisibility } = useContext(AnimationContext);
 
 	const [innerSprings, api] = useSpring(() => ({
 		from: {
@@ -46,7 +45,6 @@ const Preloader = () => {
 			apiButton.resume();
 		}
 	}));
-	const [mount, setMount] = useState(true);
 	const [preloaderSprings, apiPreloader] = useSpring(() => ({
 		from: {
 			opacity: 1
@@ -56,15 +54,13 @@ const Preloader = () => {
 		},
 		pause: true,
 		onRest: async () => {
-			setMount(false);
-			await delay(250);
 			setPreloaderVisibility(false);
 		}
 	}));
 
 	const onConnectClick = () => apiPreloader.resume();
 
-	return mount &&
+	return preloaderVisibility &&
 		<animated.section style={preloaderSprings} className={s.preloader}>
 			<Lamp nonAnimated color={'rgba(255,0,0,0.09)'} sx={{
 				height: 3500,
