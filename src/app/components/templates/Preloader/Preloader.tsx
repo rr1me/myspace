@@ -1,15 +1,14 @@
 'use client';
 
 import s from './Preloader.module.scss';
-import { useContext } from 'react';
-import AnimationContext from '@/app/components/shared/AnimationContext';
 import PreloaderProtocol from '@/app/components/molecules/PreloaderProtocol/PreloaderProtocol';
 import Lamp from '@/app/components/atoms/Lamp/Lamp';
 import { animated, easings, useSpring } from '@react-spring/web';
 import Button from '@/app/components/atoms/Button/Button';
+import { animationStore, useAnimationStore } from '@/app/components/shared/syncStore';
 
 const Preloader = () => {
-	const { setPreloaderVisibility, preloaderVisibility } = useContext(AnimationContext);
+	const preloaderVisibility = useAnimationStore(s => s.preloaderVisibility);
 
 	const [innerSprings, api] = useSpring(() => ({
 		from: {
@@ -54,7 +53,7 @@ const Preloader = () => {
 		},
 		pause: true,
 		onRest: async () => {
-			setPreloaderVisibility(false);
+			animationStore.setState(s => ({ ...s, preloaderVisibility: false }));
 		}
 	}));
 

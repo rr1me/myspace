@@ -6,7 +6,6 @@ import './layout.scss';
 import './vars.module.scss';
 import Background from '@/app/components/templates/Background/Background';
 import StyledComponentsRegistry from '@/app/registry';
-import { AnimationProvider } from '@/app/components/shared/AnimationContext';
 import { orbitron } from '@/app/theme';
 import Preloader from '@/app/components/templates/Preloader/Preloader';
 
@@ -24,13 +23,11 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 		<html lang="en">
 			<body className={orbitron.className}>
 				<StyledComponentsRegistry>
-					<AnimationProvider>
-						<Background/>
-						<main className='main'>
-							<Preloader/>
-							{children}
-						</main>
-					</AnimationProvider>
+					<Background/>
+					<main className='main'>
+						<Preloader/>
+						{children}
+					</main>
 				</StyledComponentsRegistry>
 			</body>
 		</html>
