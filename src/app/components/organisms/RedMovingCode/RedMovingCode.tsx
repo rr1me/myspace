@@ -17,14 +17,14 @@ const RedMovingCode = () => { //2300 width?
 	const hydrated = useHydrated();
 
 	return (
-		<div className={s.movingCode}>
+		<section className={s.movingCode}>
 			{
 				hydrated &&
 				codeArray.map((x, i) =>
 					<Marquee key={i} delay={2.5}>{x.code}</Marquee>
 				)
 			}
-		</div>
+		</section>
 	);
 };
 

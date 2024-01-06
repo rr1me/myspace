@@ -1,7 +1,7 @@
 'use client';
 
 import s from './Menu.module.scss';
-import { ReactNode, useEffect, useRef } from 'react';
+import { ReactNode, useEffect } from 'react';
 import NavigationMenu from '@/app/components/organisms/NavigationMenu/NavigationMenu';
 import { animated, easings, useSpring, useSpringRef } from '@react-spring/web';
 import clsx from 'clsx';
@@ -31,13 +31,13 @@ const Menu = ({ children }: {children: ReactNode}) => {
 	}, [preloaderVisibility]);
 
 	return (
-		<animated.section style={springs} className={clsx({
+		<animated.div style={springs} className={clsx({
 			[s.menu]: true,
-			[s.invisible]: preloaderVisibility
+			[s.invisible]: !preloaderVisibility
 		})}>
 			<NavigationMenu/>
 			{children}
-		</animated.section>
+		</animated.div>
 	);
 };
 

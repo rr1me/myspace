@@ -39,6 +39,15 @@ const NavigationMenu = () => {
 						scale: '95%'
 					}
 				}} color={colorVars.c_accent_gold} vertical />
+
+				<LineBreaker sx={{
+					top: -5, left: -1
+				}} color={colorVars.c_main_third}/>
+				<LineBreaker sx={{
+					bottom: -5, right: -1,
+					scale: '-1 -1'
+				}}/>
+
 				<Link href='/' className={btnClassName}>about me</Link>
 				<Link href='/skills' className={btnClassName}>skills</Link>
 				<Link href='/projects' className={btnClassName}>projects</Link>

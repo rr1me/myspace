@@ -42,5 +42,6 @@ export const animationStore = createStore<AnimationStore>({
 export const useAnimationStore = <Callback extends (s: AnimationStore) => ReturnType<Callback>>(selector: Callback): ReturnType<Callback> =>
 	useSyncExternalStore<ReturnType<Callback>>(
 		animationStore.subscribe,
-		useCallback(() => selector(animationStore.getState()), [animationStore, selector])
+		useCallback(() => selector(animationStore.getState()), [animationStore, selector]),
+		() => selector(animationStore.getState())
 	);

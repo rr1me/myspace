@@ -20,7 +20,7 @@ const TabVert = restyle(TabToChange, {
 
 const Page = () =>
 	(
-		<div className={s.intro}>
+		<article className={s.intro}>
 
 			<div className={s.who}>
 				<LiningWrapper>
@@ -63,7 +63,7 @@ const Page = () =>
 			<button className={s.button}>
 				DOWNLOAD CV
 			</button>
-		</div>
+		</article>
 	);
 
 export default Page;

@@ -4,10 +4,10 @@ import LoadingLog from '@/app/components/molecules/LoadingLog/LoadingLog';
 
 const TopElement = () => {
 	return (
-		<div className={s.topElement}>
+		<section className={s.topElement}>
 			<BlueCrossArray quantity={17} customClassName={s.topCrossArea} delay={1300}/>
 			<LoadingLog delay={2500}/>
-		</div>
+		</section>
 	);
 };
 
