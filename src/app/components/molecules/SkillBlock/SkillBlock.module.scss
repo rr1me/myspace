@@ -23,3 +23,13 @@
 	flex-direction: column;
 	gap: 8px;
 }
+
+@media (max-width: 963px){
+	.contentWrapper{
+		margin-top: 6px;
+		gap: 10px;
+	}
+	.inner{
+		gap: 10px;
+	}
+}

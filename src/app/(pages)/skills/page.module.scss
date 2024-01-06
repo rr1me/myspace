@@ -1,4 +1,25 @@
+@use '../../vars.module' as v;
+
 .skills{
 	display: flex;
 	gap: 15px;
+}
+
+.tab{
+	min-width: 1.2px;
+	background-color: v.$c_addition_first;
+}
+
+@media (max-width: 963px){
+	.skills{
+		flex-wrap: wrap;
+		flex-grow: 0;
+		justify-content: center;
+		width: 450px;
+
+		padding-block: 10px;
+	}
+	.tab{
+		display: none;
+	}
 }

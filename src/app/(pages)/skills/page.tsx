@@ -5,20 +5,18 @@ import { createClassName } from '@/app/components/shared/utils';
 import TabToChange from '@/app/components/atoms/Tab/Tab';
 import restyle from '@/app/components/shared/restyle';
 
-const Tab = restyle(TabToChange, {
-	minWidth: 1.2,
-	backgroundColor: colorVars.c_addition_second_50p,
-	position: 'static'
-});
+const Tab = () => <div className={s.tab} />
 
 const Page = () => {
 	return (
 		<article className={createClassName(mohave.className, s.skills)}>
 			<SkillColumn header='backend'>
 				{[
-					{ header: 'c#',
+					{
+						header: 'c#',
 						content: [
-							{ header: 'asp .net core',
+							{
+								header: 'asp .net core',
 								content: [
 									'entity framework',
 									'linq',
@@ -27,11 +25,13 @@ const Page = () => {
 							}
 						]
 					},
-					{ header: 'node js',
+					{
+						header: 'node js',
 						content: [
 							'nest',
 							'express',
-							{ header: 'orms',
+							{
+								header: 'orms',
 								content: [
 									'typeorm',
 									'prismaorm'
@@ -41,13 +41,15 @@ const Page = () => {
 					}
 				]}
 			</SkillColumn>
-			<Tab/>
+			<Tab />
 			<SkillColumn header='frontend'>
 				{[
-					{ header: 'javascript',
+					{
+						header: 'javascript',
 						content: [
 							'typescript',
-							{ header: 'react',
+							{
+								header: 'react',
 								content: [
 									'next',
 									'hooks',
@@ -55,14 +57,16 @@ const Page = () => {
 									'context'
 								]
 							},
-							{ header: 'redux',
+							{
+								header: 'redux',
 								content: [
 									'redux toolkit',
 									'redux thunk',
 									'rtk query'
 								]
 							},
-							{ header: 'layout design',
+							{
+								header: 'layout design',
 								content: [
 									'html5',
 									'css3 | scss | sass',
@@ -70,7 +74,8 @@ const Page = () => {
 									'semantics'
 								]
 							},
-							{ header: 'building',
+							{
+								header: 'building',
 								content: [
 									'webpack',
 									'vite'
@@ -81,10 +86,11 @@ const Page = () => {
 					}
 				]}
 			</SkillColumn>
-			<Tab/>
+			<Tab />
 			<SkillColumn header='miscellaneous'>
 				{[
-					{ header: 'databases',
+					{
+						header: 'databases',
 						content: [
 							'postgresql',
 							'mysql',
@@ -93,7 +99,8 @@ const Page = () => {
 							'transact sql'
 						]
 					},
-					{ header: 'protocols',
+					{
+						header: 'protocols',
 						content: [
 							'http | https',
 							'tcp | udp',
@@ -102,7 +109,8 @@ const Page = () => {
 							{ header: 'websocket', content: ['raw', 'socket.io'] }
 						]
 					},
-					{ header: 'tools',
+					{
+						header: 'tools',
 						content: [
 							'docker',
 							'figma',
@@ -113,25 +121,29 @@ const Page = () => {
 							'photoshop'
 						]
 					},
-					{ header: 'systems',
+					{
+						header: 'systems',
 						content: [
 							'linux: ubuntu',
 							'windows'
 						]
 					},
-					{ header: 'network',
+					{
+						header: 'network',
 						content: [
 							'nginx',
 							'apache'
 						]
 					},
-					{ header: 'methodology',
+					{
+						header: 'methodology',
 						content: [
 							'oop',
 							'fp',
 							'solid',
 							'design patterns',
-							{ header: 'principles',
+							{
+								header: 'principles',
 								content: [
 									'kiss',
 									'dry',
