@@ -1,13 +1,12 @@
 'use client';
 
 import s from './NavigationMenu.module.scss';
-import Button from '@/app/components/atoms/Button/Button';
 import { createClassName } from '@/app/components/shared/utils';
 import { colorVars, mohave } from '@/app/theme';
 import LineBreaker from '@/app/components/atoms/LineBreaker/LineBreaker';
 import { animated, easings, useSpring } from '@react-spring/web';
-import { useRouter } from 'next/navigation';
 import { animationStore, useAnimationStore } from '@/app/components/shared/syncStore';
+import Link from 'next/link';
 
 const btnClassName = createClassName(s.button, mohave.className);
 
@@ -21,8 +20,6 @@ const NavigationMenu = () => {
 	});
 
 	const onBreakerClick = () => animationStore.setState(s => ({ ...s, navMenuOpen: !s.navMenuOpen }));
-	const router = useRouter();
-	const onButtonClick = (to: string) => () => router.push(to);
 
 	return (
 		<div className={s.wrapper}>
@@ -42,11 +39,10 @@ const NavigationMenu = () => {
 						scale: '95%'
 					}
 				}} color={colorVars.c_accent_gold} vertical />
-
-				<Button className={btnClassName} onClick={onButtonClick('/')}>about me</Button>
-				<Button className={btnClassName} onClick={onButtonClick('/preview')}>skills</Button>
-				<Button className={btnClassName} onClick={onButtonClick('/')}>projects</Button>
-				<Button className={btnClassName} onClick={onButtonClick('/')}>experience</Button>
+				<Link href='/' className={btnClassName}>about me</Link>
+				<Link href='/skills' className={btnClassName}>skills</Link>
+				<Link href='/projects' className={btnClassName}>projects</Link>
+				<Link href='/experience' className={btnClassName}>experience</Link>
 			</animated.nav>
 		</div>
 	);

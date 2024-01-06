@@ -4,7 +4,6 @@ import s from './Preloader.module.scss';
 import PreloaderProtocol from '@/app/components/molecules/PreloaderProtocol/PreloaderProtocol';
 import Lamp from '@/app/components/atoms/Lamp/Lamp';
 import { animated, easings, useSpring } from '@react-spring/web';
-import Button from '@/app/components/atoms/Button/Button';
 import { animationStore, useAnimationStore } from '@/app/components/shared/syncStore';
 
 const Preloader = () => {
@@ -75,7 +74,7 @@ const Preloader = () => {
 
 				<div className={s.buttonZone}>
 					<animated.div style={innerSpringsButton} className={s.animatedButton}>
-						<Button onClick={onConnectClick} className={s.button}>CONNECT</Button>
+						<button onClick={onConnectClick} className={s.button}>CONNECT</button>
 					</animated.div>
 				</div>
 

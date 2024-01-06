@@ -39,6 +39,8 @@
 }
 
 .button{
+	@include v.button;
+
 	font-weight: 600;
 	font-size: 14px;
 	width: 100px;
@@ -48,4 +50,6 @@
 	padding: 3px 0 0 0;
 
 	color: v.$c_main_first;
+
+	text-align: center;
 }

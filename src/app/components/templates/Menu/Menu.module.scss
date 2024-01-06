@@ -3,6 +3,7 @@
 .menu{
 	width: 100%;
 	height: 800px;
+	margin-inline: 20px;
 
 	//todo decide do i need bg gradient here. probably i need for mobile version
 	background: linear-gradient(253deg, rgba(189, 45, 45, 0.05) 0%, rgba(21, 215, 180, 0.03) 100%), rgba(0, 0, 0, 0.25);
@@ -21,6 +22,12 @@
 	)
 }
 
+@container (max-width: 963px) {
+	.menu{
+		height: 1000px;
+	}
+}
+
 .invisible{
-	display: none;
+	//display: none;
 }

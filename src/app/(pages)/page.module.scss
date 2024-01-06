@@ -1,8 +1,10 @@
 @use '../vars.module' as v;
 
 .intro{
-  height: 250px;
-  width: 966px;
+  min-height: 250px;
+  max-width: 996px;
+  width: 100%;
+  margin-inline: 30px;
 
   color: v.$c_main_first;
 
@@ -11,11 +13,14 @@
   display: flex;
   gap: 20px;
   flex-direction: column;
+
+  container-type: inline-size;
 }
 
 .who{
   position: relative;
-  height: 150px;
+  min-height: 150px;
+  height: max-content;
 }
 
 .innerWho{
@@ -32,6 +37,20 @@
 .desc{
   font-size: 20px;
   text-align: right;
+}
+
+@container (width < 860px) {
+  .innerWho{
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px;
+  }
+  .me{
+    align-self: flex-start;
+  }
+  .desc{
+    align-self: flex-end;
+  }
 }
 
 .links{
@@ -69,6 +88,7 @@
 }
 
 .button{
+  @include v.button;
   align-self: center;
   font-size: 14px;
   font-weight: bolder;

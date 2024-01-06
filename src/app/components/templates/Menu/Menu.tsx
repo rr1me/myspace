@@ -11,20 +11,20 @@ const Menu = ({ children }: {children: ReactNode}) => {
 	const preloaderVisibility = useAnimationStore(s => s.preloaderVisibility);
 	const springsRef = useSpringRef();
 	const springs = useSpring({
-		ref: springsRef,
-		from: {
-			opacity: 0,
-			scale: 0
-		},
-		to: {
-			opacity: 1,
-			scale: 1
-		},
-		config: {
-			easing: easings.easeInOutExpo,
-			duration: 3000
-		},
-		delay: 4000
+		// ref: springsRef,
+		// from: {
+		// 	opacity: 0,
+		// 	scale: 0
+		// },
+		// to: {
+		// 	opacity: 1,
+		// 	scale: 1
+		// },
+		// config: {
+		// 	easing: easings.easeInOutExpo,
+		// 	duration: 3000
+		// },
+		// delay: 4000
 	});
 	useEffect(() => {
 		if (!preloaderVisibility) springsRef.start();

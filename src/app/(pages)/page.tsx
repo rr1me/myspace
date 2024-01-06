@@ -3,7 +3,6 @@ import LiningWrapper from '@/app/components/atoms/LiningWrapper/LiningWrapper';
 import restyle from '@/app/components/shared/restyle';
 import TabToChange from '@/app/components/atoms/Tab/Tab';
 import { colorVars } from '@/app/theme';
-import Button from '@/app/components/atoms/Button/Button';
 
 import Link from 'next/link';
 import { createClassName } from '@/app/components/shared/utils';
@@ -61,9 +60,9 @@ const Page = () =>
 					target='_blank' className={createClassName(s.link, s.linkedin)} />
 			</div>
 
-			<Button className={s.button}>
+			<button className={s.button}>
 				DOWNLOAD CV
-			</Button>
+			</button>
 		</div>
 	);
 
