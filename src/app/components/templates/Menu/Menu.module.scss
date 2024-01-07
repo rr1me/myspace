@@ -38,37 +38,41 @@
 	height: 800px;
 	margin-inline: 20px;
 
-	//border: 5px solid v.$c_main_second;
-	//background-color: blue;
-
-	padding: 50px;
-
 	position: relative;
+	padding: 2px;
 
-	clip-path: polygon(-5% -50%, 99% 0, 100% 1.5%, 100% 30%, 99% 31.5%, 99% 100%, 0% 100%);
-	//z-index: 2;
-	//border-color: #F00;
-	//border-style: solid;
+	//clip-path: polygon(0 0, 97.6% 0, 99.4% 1.4%, 99.4% 24.8%, 97.6% 26.2%, 97.6% 100%,
+	//9% 31.5%, 99% 100%, 0% 100%
+	//);
 
+	//&::before{
+	//	content: '';
+	//	position: absolute;
+	//	z-index: -1;
+	//	width: 100%;
+	//	height: 100%;
+	//}
+}
 
-	&::before{
-		content: '';
-		position: absolute;
-		z-index: -1;
-		width: 100%;
-		height: 100%;
-
-		//background-color: rebeccapurple;
-		//transform: scale(2);
+@container (max-width: 963px) {
+	.hardMenu{
+		min-height: 85%;
+		//height: max-content;
 	}
 }
 
-.svgInner{
+.inner{
+	width: 100%;
 	height: 100%;
-}
 
-.rightBottomLine{
-	height: calc(100% - 212px);
+	//todo decide do i need bg gradient here. probably i need for mobile version
+	background: linear-gradient(253deg, rgba(189, 45, 45, 0.05) 0%, rgba(21, 215, 180, 0.03) 100%), rgba(0, 0, 0, 0.25);
+	backdrop-filter: blur(4px);
+
+	clip-path: polygon(calc(100% - 13.5px) 0, calc(100% - 3.5px) 10px, calc(100% - 3.5px) 196.6px,
+		calc(100% - 14px) 207px, calc(100% - 14px) 100%, 0 100%, 0 0);
+
+	//box-shadow: inset -3px 0 5px 1px v.$c_main_second;
 }
 
 .border{
@@ -77,4 +81,93 @@
 	width: 100%;
 	top: 0;
 	left: 0;
+	//z-index: 1;
+}
+
+.fix{
+	transform: translateX(calc(100% - 18px));
+}
+
+@mixin tabText{
+	color: black;
+	font-size: 10px;
+	letter-spacing: 1px;
+	font-weight: bolder;
+	writing-mode: vertical-lr;
+}
+
+.bbText{
+	@include tabText;
+	transform: rotate(180deg) translateX(0.6px);
+	position: relative;
+	top: 14px;;
+}
+
+.rlbTextWrapper{
+	position: absolute;
+	height: 70.5%;
+	width: 10px;
+	right: 2px;
+	bottom: 20px;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.rlbText{
+	@include tabText;
+	position: relative;
+	right: 1px
+}
+
+.rightLineBreaker{
+	position: absolute;
+	height: 73.1%;
+	width: 10px;
+	right: 2px;
+	bottom: 10px;
+
+	background-color: v.$c_main_second;
+	transform: skewY(-45deg);
+}
+
+
+
+@mixin lineBreaker{
+	position: absolute;
+	clip-path: polygon(0 0, 15% 30%,
+		15% 85%, 70% 85%, 100% 100%, 0 100%);
+	background-color: v.$c_addition_first;
+}
+
+.lineBreaker{
+	@include lineBreaker;
+	width: 40px;
+	height: 40px;
+	bottom: 0;
+	z-index: 1;
+}
+
+.lineBreakerLight{
+	@include lineBreaker;
+	width: 43px;
+	height: 43px;
+	bottom: 2px;
+	left: 2px;
+}
+
+.bigBreaker{
+	position: absolute;
+	bottom: 36px;
+	left: -10px;
+
+	width: 17px;
+	height: 330px;
+
+	background-color: v.$c_addition_first;
+
+	clip-path: polygon(
+			5px 0, 10px 0, 100% 0, 100% 100%,
+			10px 100%, 0px calc(100% - 15px), 0 8px);
 }

@@ -15,7 +15,7 @@ import { useAnimationStore } from '@/app/components/shared/syncStore';
 
 
 const Background = () => {
-	const preloaderVisibility = useAnimationStore(s => s.preloaderVisibility);
+	const preloaderVisibility = !useAnimationStore(s => s.preloaderVisibility);
 
 	return (
 		<div className={createClassName(s.background, mohave.className)}>
