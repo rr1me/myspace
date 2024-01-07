@@ -65,22 +65,11 @@ const Menu = ({ children }: {children: ReactNode}) => {
 				<Tab sx={{ top: 0 }}/>
 				<Tab sx={{ bottom: 0 }}/>
 
-				{/*<Tab sx={{*/}
-				{/*	right: 3,*/}
-				{/*	width: 8,*/}
-				{/*	height: 579,*/}
-				{/*	bottom: 15,*/}
-				{/*	transform: 'skew(0, -45deg)'*/}
-				{/*}}/>*/}
 				<div className={s.rightLineBreaker}/>
 				<div className={s.rlbTextWrapper}>
 					<p className={s.rlbText}>CONNECTION 221-09-43</p>
 					<p className={s.rlbText}>CONNECTED VIA PROTOCOL 20X-044-423</p>
 				</div>
-
-				{/*<p className={s.tabText}>CONNECTION 221-09-43</p>*/}
-				{/*<p className={s.tabTextSecond}>CONNECTED VIA PROTOCOL 20X-044-423</p>*/}
-
 
 				<div className={s.lineBreaker} />
 				<div className={s.lineBreakerLight}/>
@@ -90,8 +79,10 @@ const Menu = ({ children }: {children: ReactNode}) => {
 					</p>
 				</div>
 			</div>
+
 			<div className={s.inner}>
-				menu
+				<NavigationMenu/>
+				{children}
 			</div>
 		</animated.div>
 	)

@@ -7,11 +7,12 @@ import LineBreaker from '@/app/components/atoms/LineBreaker/LineBreaker';
 import { animated, easings, useSpring } from '@react-spring/web';
 import { animationStore, useAnimationStore } from '@/app/components/shared/syncStore';
 import Link from 'next/link';
+import Button from '@/app/components/atoms/Button/Button';
 
 const btnClassName = createClassName(s.button, mohave.className);
 
 const NavigationMenu = () => {
-	const navMenuOpen = useAnimationStore(s => s.navMenuOpen);
+	const navMenuOpen = !useAnimationStore(s => s.navMenuOpen);
 	const springs = useSpring({
 		x: navMenuOpen ? '0' : '-100%',
 		config: {
@@ -51,7 +52,8 @@ const NavigationMenu = () => {
 				<Link href='/' className={btnClassName}>about me</Link>
 				<Link href='/skills' className={btnClassName}>skills</Link>
 				<Link href='/projects' className={btnClassName}>projects</Link>
-				<Link href='/experience' className={btnClassName}>experience</Link>
+				{/*<Link href='/experience' className={btnClassName}>experience</Link>*/}
+				<Button>huemoe</Button>
 			</animated.nav>
 		</div>
 	);
