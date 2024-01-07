@@ -18,7 +18,7 @@
 }
 
 .inner{
-	max-height: 500px;
+	max-height: 564px;
 
 	display: flex;
 	flex-direction: column;
@@ -36,7 +36,6 @@
 
 @media (max-width: 963px){
 	.skill{
-		font-size: 1.6rem;
 		gap: 15px;
 	}
 	.inner{
@@ -47,5 +46,11 @@
 	}
 	.misc{
 		width: 300px;
+	}
+}
+
+@media (min-resolution: 97dpi) {
+	.skill{
+		font-size: 1.6rem;
 	}
 }

@@ -4,7 +4,6 @@ html{
 
 body{
   background-color: black;
-  height: 100vh;
 }
 
 .main{
@@ -18,4 +17,10 @@ body{
   align-items: center;
 
   container-type: inline-size;
+}
+
+@media (max-height: 800px) {
+  .main{
+    height: auto;
+  }
 }

@@ -6,6 +6,15 @@ import NavigationMenu from '@/app/components/organisms/NavigationMenu/Navigation
 import { animated, easings, useSpring, useSpringRef } from '@react-spring/web';
 import clsx from 'clsx';
 import { useAnimationStore } from '@/app/components/shared/syncStore';
+import { colorVars } from '@/app/theme';
+import TabToChange from '@/app/components/atoms/Tab/Tab';
+import restyle from '@/app/components/shared/restyle';
+
+const Tab = restyle(TabToChange, {
+	backgroundColor: colorVars.c_main_second,
+	height: 2,
+	width: 'calc(100% - 16px)'
+});
 
 const Menu = ({ children }: {children: ReactNode}) => {
 	const preloaderVisibility = useAnimationStore(s => s.preloaderVisibility);
@@ -26,19 +35,45 @@ const Menu = ({ children }: {children: ReactNode}) => {
 		// },
 		// delay: 4000
 	});
-	useEffect(() => {
-		if (!preloaderVisibility) springsRef.start();
-	}, [preloaderVisibility]);
+	// useEffect(() => {
+	// 	if (!preloaderVisibility) springsRef.start();
+	// }, [preloaderVisibility]);
 
 	return (
-		<animated.div style={springs} className={clsx({
-			[s.menu]: true,
-			[s.invisible]: !preloaderVisibility
-		})}>
-			<NavigationMenu/>
-			{children}
+		// <animated.div style={springs} className={clsx({
+		// 	[s.menu]: true,
+		// 	[s.invisible]: !preloaderVisibility
+		// })}>
+		// 	<NavigationMenu/>
+		// 	{children}
+		// </animated.div>
+		<animated.div className={s.hardMenu}>
+			<div className={s.border}>
+				<svg height='100%' width='100%' fill='none' preserveAspectRatio="none">
+					<svg width='15' fill='none' x='calc(100% - 18px)' preserveAspectRatio="none">
+						<svg width='15' height='212' fill='none' preserveAspectRatio="none">
+							<path d='M3 212V209L13.5 198.5V11.5L3 1H0.5'
+								stroke={colorVars.c_main_second} strokeWidth='2' />
+						</svg>
+						<rect height='calc(100% - 212px)' x='2' y='212' width='2'
+							fill={colorVars.c_main_second} />
+					</svg>
+					{/*<rect x='0' y='0' className={s.rectCalc} height='2'*/}
+					{/*	fill={colorVars.c_main_second} />*/}
+					{/*<rect x='0' y='calc(100% - 2px)' className={s.rectCalc} height='2'*/}
+					{/*	fill={colorVars.c_main_second} />*/}
+					<rect x='0' y='0' width='2' height='100%'
+						fill={colorVars.c_main_second} />
+				</svg>
+				<Tab sx={{ top: 0 }}/>
+				<Tab sx={{ bottom: 0 }}/>
+			</div>
+			<div>
+				menu
+			</div>
 		</animated.div>
-	);
+	)
+	;
 };
 
 export default Menu;

@@ -32,3 +32,49 @@
 .invisible{
 	display: none;
 }
+
+.hardMenu{
+	width: 100%;
+	height: 800px;
+	margin-inline: 20px;
+
+	//border: 5px solid v.$c_main_second;
+	//background-color: blue;
+
+	padding: 50px;
+
+	position: relative;
+
+	clip-path: polygon(-5% -50%, 99% 0, 100% 1.5%, 100% 30%, 99% 31.5%, 99% 100%, 0% 100%);
+	//z-index: 2;
+	//border-color: #F00;
+	//border-style: solid;
+
+
+	&::before{
+		content: '';
+		position: absolute;
+		z-index: -1;
+		width: 100%;
+		height: 100%;
+
+		//background-color: rebeccapurple;
+		//transform: scale(2);
+	}
+}
+
+.svgInner{
+	height: 100%;
+}
+
+.rightBottomLine{
+	height: calc(100% - 212px);
+}
+
+.border{
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+}
