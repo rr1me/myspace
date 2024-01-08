@@ -17,7 +17,7 @@ const StatusPipeline = ({ elementDelay }: {elementDelay: number}) => {
 						<h4>MACHINE BREACH PIPELINE</h4>
 						<div className={s.breachPipelineWrapper}>
 							<Marquee duration={7} delay={elementDelay / 1000 + 6}>
-								<article className={createClassName(s.breachPipeline, orbitron.className)}>
+								<article className={createClassName(s.breachPipeline, orbitron)}>
 									<p>&#47;&#47;ROOT</p>
 									<p>&#47;&#47;ACCESS_REQUEST</p>
 									<p>&#47;&#47;ACCESS_REQUEST_SUCCESS</p>

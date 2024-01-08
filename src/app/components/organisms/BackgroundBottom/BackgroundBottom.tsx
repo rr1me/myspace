@@ -29,7 +29,7 @@ const BackgroundBottom = () => {
 
 	return (
 		<section className={s.wrapper}>
-			{/*<article className={createClassName(s.staticText, orbitron.className)}>*/}
+			{/*<article className={createClassName(s.staticText, orbitron)}>*/}
 			{/*	<SelfWritingText nixWrapped={false}>*/}
 			{/*		100110100101101010 110100110001011010*/}
 			{/*	</SelfWritingText>*/}

@@ -1,15 +1,13 @@
 import s from './page.module.scss';
 import SkillColumn from '@/app/components/organisms/SkillColumn/SkillColumn';
-import { colorVars, mohave } from '@/app/theme';
+import { rajdhani } from '@/app/theme';
 import { createClassName } from '@/app/components/shared/utils';
-import TabToChange from '@/app/components/atoms/Tab/Tab';
-import restyle from '@/app/components/shared/restyle';
 
-const Tab = () => <div className={s.tab} />
+const Tab = () => <div className={s.tab} />;
 
 const Page = () => {
 	return (
-		<article className={createClassName(mohave.className, s.skills)}>
+		<article className={createClassName(rajdhani, s.skills)}>
 			<SkillColumn header='backend'>
 				{[
 					{

@@ -21,6 +21,8 @@ $bs: 1px;
 		calc(34% - $bs) calc(13% + $bs), calc(30% - $bs) $bs,
 		5% $bs
 	);
+
+	transition: 70ms;
 }
 
 .inner{
@@ -45,10 +47,32 @@ $bs: 1px;
 
 .text{
 	position: relative;
-	top: 3px;
+	top: 2.5px;
 	color: v.$c_main_first;
 	line-height: 15px;
 	font-size: 14px;
 	font-weight: 600;
 	text-transform: uppercase;
+}
+
+//hover
+.wrapper:hover > .border{
+	background-color: v.$c_main_second;
+}
+.wrapper:hover > .inner{
+	background: linear-gradient(90deg, rgba(220, 70, 71, 0.36) 0%, rgba(166, 28, 67, 0.00) 50%, rgba(220, 70, 71, 0.36) 100%);
+}
+.wrapper:hover > .inner > .text{
+	color: v.$c_main_second
+}
+
+//active
+.wrapper:active > .border{
+	background-color: rgb(179, 57, 57);
+}
+.wrapper:active > .inner{
+	background: linear-gradient(90deg, rgba(220, 70, 71, 0.36) 0%, rgba(166, 28, 67, 0.00) 50%, rgba(179, 57, 57, 0.36) 100%);
+}
+.wrapper:active > .inner > .text{
+	color: #b33939;
 }

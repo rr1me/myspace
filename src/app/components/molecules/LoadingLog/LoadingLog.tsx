@@ -43,7 +43,7 @@ const LoadingLog = ({ delay }: {delay?: number}) => {
 
 	const timingClassName = createClassName(s.timing, s.wideNumber);
 	return (
-		<div className={s.element}>
+		<div className={createClassName(s.element, orbitron)}>
 			<animated.div style={innerSprings} className={s.inner}>
 				<div className={s.square}>
 					<div className={s.bound}>
@@ -53,7 +53,7 @@ const LoadingLog = ({ delay }: {delay?: number}) => {
 					</div>
 				</div>
 
-				<article className={createClassName(s.protocol, orbitron.className)}>
+				<article className={s.protocol}>
 					<SelfWritingText nixWrapped={false} className={s.text} duration={25} immediate={startWriting}>
 						success ui loading<br/>
 						-CONNECTION ESTABLISHED<br/>
@@ -63,7 +63,7 @@ const LoadingLog = ({ delay }: {delay?: number}) => {
 					</SelfWritingText>
 				</article>
 
-				<article className={createClassName(s.timings, orbitron.className)}>
+				<article className={s.timings}>
 					<SelfWritingText nixWrapped={false} className={timingClassName} immediate={startWriting}>
 						3.25604 0 . 4&nbsp;&nbsp;&nbsp;4
 					</SelfWritingText>
@@ -76,7 +76,7 @@ const LoadingLog = ({ delay }: {delay?: number}) => {
 				</article>
 
 				<animated.article style={springs}
-					className={createClassName(s.digits, s.timings, orbitron.className)}>
+					className={createClassName(s.digits, s.timings)}>
 					<p className={s.timing}>2</p>
 					<p className={s.timing}>4</p>
 					<p className={s.timing}>1</p>

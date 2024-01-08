@@ -10,7 +10,7 @@ const elementDelay = 2500;
 
 const Status = () => {
 	return (
-		<div className={createClassName(s.status, orbitron.className)}>
+		<div className={createClassName(s.status, orbitron)}>
 			<article className={s.top}>
 				<SelfWritingText nixWrapped={false} delay={elementDelay + 1000}>0.000000@D&ensp;&ensp;PPMGRO(HIGH)&ensp;&ensp;
 					:0X7ADD00D0 - 0X7DDD00D0 (998 MiB)</SelfWritingText>

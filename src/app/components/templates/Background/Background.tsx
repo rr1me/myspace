@@ -18,7 +18,7 @@ const Background = () => {
 	const preloaderVisibility = !useAnimationStore(s => s.preloaderVisibility);
 
 	return (
-		<div className={createClassName(s.background, mohave.className)}>
+		<div className={createClassName(s.background, mohave)}>
 			<BackgroundLighting start={!preloaderVisibility} />
 
 			{!preloaderVisibility &&

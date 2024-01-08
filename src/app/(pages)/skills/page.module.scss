@@ -3,11 +3,13 @@
 .skills{
 	display: flex;
 	gap: 15px;
+
+	font-weight: bold;
 }
 
 .tab{
-	min-width: 1.2px;
-	background-color: v.$c_addition_first;
+	min-width: 1px;
+	background-color: v.$c_addition_second_50p;
 }
 
 @media (max-width: 963px){

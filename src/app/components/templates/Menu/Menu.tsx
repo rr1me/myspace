@@ -18,8 +18,8 @@ const Tab = restyle(TabToChange, {
 });
 
 const Menu = ({ children }: {children: ReactNode}) => {
-	const preloaderVisibility = useAnimationStore(s => s.preloaderVisibility);
-	const springsRef = useSpringRef();
+	const preloaderVisibility = !useAnimationStore(s => s.preloaderVisibility);
+	// const springsRef = useSpringRef();
 	const springs = useSpring({
 		// ref: springsRef,
 		// from: {
@@ -48,7 +48,10 @@ const Menu = ({ children }: {children: ReactNode}) => {
 		// 	<NavigationMenu/>
 		// 	{children}
 		// </animated.div>
-		<animated.div className={s.hardMenu}>
+		<animated.div style={springs} className={clsx({
+			[s.hardMenu]: true,
+			// [s.invisible]: preloaderVisibility
+		})}>
 			<div className={s.border}>
 				<svg height='100%' width='100%' fill='none' preserveAspectRatio="none">
 					<svg width='15' fill='none' x='calc(100% - 18px)' className={s.fix} preserveAspectRatio="none">
