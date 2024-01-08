@@ -3,30 +3,46 @@ import TabToChange from '@/app/components/atoms/Tab/Tab';
 import restyle from '@/app/components/shared/restyle';
 import { colorVars } from '@/app/theme';
 import { SkillData } from '@/app/components/organisms/SkillColumn/SkillColumn';
+import clsx from 'clsx';
+import { CSSObject } from 'styled-components';
+import SxSC from '@/app/components/atoms/SxSC/SxSC';
 
 const Tab = restyle(TabToChange, {
 	width: 1,
 	position: 'relative'
 });
 
-const SkillBlock = ({ data, nestLevel = 0 }: {data: SkillData, nestLevel?: number}) => {
+const SkillBlock = ({ data, nestLevel = 0, specifyTabColor, rotateTab,
+	nonAdaptive, headerSx, innerSx, wrapperSx }:
+	{data: SkillData, nestLevel?: number, specifyTabColor?: string, rotateTab?: boolean,
+		nonAdaptive?: boolean, headerSx?: CSSObject, innerSx?: CSSObject, wrapperSx?: CSSObject}) => {
 	return (
 		<div className={s.skillBlock}>
-			<h3 className={s.header}>{data.header}</h3>
-			<div className={s.contentWrapper}>
+			<SxSC as='h3' $sx={headerSx} className={s.header}>{data.header}</SxSC>
+			<SxSC $sx={wrapperSx} className={clsx({
+				[s.contentWrapper]: true,
+				[s.adaptiveContentWrapper]: !nonAdaptive
+			})}>
 				<Tab sx={{
-					backgroundColor: nestLevel % 2 === 0 ? colorVars.c_main_first : colorVars.c_addition_second
+					background: !specifyTabColor ?
+						nestLevel % 2 === 0 ? colorVars.c_main_first : colorVars.c_addition_second
+						:
+						specifyTabColor,
+					rotate: rotateTab ? '180deg' : undefined
 				}}/>
 				<div className={s.content}>
-					<div className={s.inner}>
+					<SxSC $sx={innerSx} className={clsx({
+						[s.inner]: true,
+						[s.adaptiveInner]: nonAdaptive
+					})}>
 						{data.content.map((x, i) => {
 							if (typeof x === 'object')
 								return <SkillBlock data={x} key={i} nestLevel={nestLevel + 1}/>;
 							return <div key={i}>{x}</div>;
 						})}
-					</div>
+					</SxSC>
 				</div>
-			</div>
+			</SxSC>
 		</div>
 	);
 };

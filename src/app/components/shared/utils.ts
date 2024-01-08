@@ -27,8 +27,7 @@ export const getRandomInt = (min: number, max: number) =>
 export const getRandomArrayIndex = (length: number) =>
 	getRandomInt(0, length - 1);
 
-//fixme is there any way to intercept arr type?
-export const getRandomArrayElement = <T = any>(arr: T[]) =>
+export const getRandomArrayElement = <T>(arr: T[]) =>
 	arr[getRandomArrayIndex(arr.length)];
 
 export const delay = (ms: number) => new Promise(r => setTimeout(r, ms));

@@ -1,5 +1,7 @@
 @use '../../../vars.module' as v;
 
+$main-second-grad: linear-gradient(90deg, rgba(220, 70, 71, 0.36) 0%, rgba(166, 28, 67, 0.00) 50%, rgba(220, 70, 71, 0.36) 100%);
+
 .wrapper{
 	width: 100px;
 	height: 25px;
@@ -13,7 +15,6 @@ $bs: 1px;
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	background-color: v.$c_main_third;
 
 	clip-path: polygon(5% 0, 30% 0, 34% 13%, 100% 13%, 100% 85%, 93% 100%, 0 100%, 0 90%, 2% 85%, 2% 60%, 0 55%,
 
@@ -36,8 +37,6 @@ $bs: 1px;
 	width: calc(95% - $offset);
 	height: calc(100% - $offset * 2);
 
-	background: v.$g_redGradButton;
-
 	clip-path: polygon(0 0, 25% 0, 29% 13%, 100% 13%, 100% 85%, 93% 100%, 0 100%);
 
 	display: flex;
@@ -48,31 +47,75 @@ $bs: 1px;
 .text{
 	position: relative;
 	top: 2.5px;
-	color: v.$c_main_first;
 	line-height: 15px;
 	font-size: 14px;
 	font-weight: 600;
 	text-transform: uppercase;
 }
 
-//hover
-.wrapper:hover > .border{
+//main
+.main > .border{
+	background-color: v.$c_main_third;
+}
+.main > .inner{
+	background: v.$g_redGradButton;
+}
+.main > .inner > .text{
+	color: v.$c_main_first;
+}
+
+//hover main
+.main:hover > .border{
 	background-color: v.$c_main_second;
 }
-.wrapper:hover > .inner{
-	background: linear-gradient(90deg, rgba(220, 70, 71, 0.36) 0%, rgba(166, 28, 67, 0.00) 50%, rgba(220, 70, 71, 0.36) 100%);
+.main:hover > .inner{
+	background: $main-second-grad;
 }
-.wrapper:hover > .inner > .text{
+.main:hover > .inner > .text{
 	color: v.$c_main_second
 }
 
-//active
-.wrapper:active > .border{
+//active main
+.main:active > .border{
 	background-color: rgb(179, 57, 57);
 }
-.wrapper:active > .inner{
+.main:active > .inner{
 	background: linear-gradient(90deg, rgba(220, 70, 71, 0.36) 0%, rgba(166, 28, 67, 0.00) 50%, rgba(179, 57, 57, 0.36) 100%);
 }
-.wrapper:active > .inner > .text{
+.main:active > .inner > .text{
 	color: #b33939;
 }
+
+//alternative
+.alternative > .border{
+	background-color: rgb(179, 57, 57);
+}
+.alternative > .inner{
+	background: $main-second-grad;
+}
+.alternative > .inner > .text{
+	color: v.$c_main_second_2;
+}
+
+//alternative hover
+.alternative:hover > .border{
+	background-color: v.$c_main_third;
+}
+.alternative:hover > .inner{
+	background: v.$g_redGradButton;
+}
+.alternative:hover > .inner > .text{
+	color: v.$c_main_third
+}
+
+//alternative active
+.alternative:active > .border{
+	background-color: rgb(125, 21, 51);
+}
+.alternative:active > .inner{
+	background: linear-gradient(90deg, rgba(125, 21, 49, 0.25) 0%, rgba(166, 28, 67, 0.00) 50%, rgba(125, 21, 49, 0.25) 100%);;
+}
+.alternative:active > .inner > .text{
+	color: #7d1531;
+}
+
