@@ -75,6 +75,10 @@
 }
 
 .inner{
+	//background: linear-gradient(340deg, rgba(220, 70, 71, 0.06) 0%, rgba(220, 70, 71, 0.02) 100%);
+	background: linear-gradient(340deg, rgba(220, 70, 71, 0.04) 0%, rgba(220, 70, 71, 0.02) 100%);
+	backdrop-filter: blur(4px);
+
 	color: v.$c_main_second;
 	width: 100%;
 
@@ -96,6 +100,10 @@
 
 	display: flex;
 	justify-content: space-between;
+
+	padding-inline: 15px;
+
+	height: 140px;
 }
 
 .info{
@@ -107,7 +115,9 @@
 
 .desc{
 	font-size: 14px;
-	line-height: 114%
+	line-height: 114%;
+
+	height: 143px
 }
 
 .bottom{

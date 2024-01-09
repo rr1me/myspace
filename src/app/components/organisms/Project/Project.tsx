@@ -1,6 +1,5 @@
 import s from './Project.module.scss';
-import TabToChange from '@/app/components/atoms/Tab/Tab';
-import restyle, { applyProps } from '@/app/components/shared/restyle';
+import { applyProps } from '@/app/components/shared/restyle';
 import { colorVars, rajdhani } from '@/app/theme';
 import SkillBlockToChange from '@/app/components/molecules/SkillBlock/SkillBlock';
 import { createClassName } from '@/app/components/shared/utils';
@@ -16,11 +15,8 @@ const SkillBlock = applyProps<Pick<ComponentProps<typeof SkillBlockToChange>, 'd
 	specifyTabColor: colorVars.g_separator_oneway_vertical
 });
 
-const Tab = restyle(TabToChange, {
-	backgroundColor: colorVars.c_main_second,
-});
-
-const Project = ({ image, children: desc }: {image: string, children: string}) => {
+const Project = ({ header, image, children: desc, backend, frontend, github }:
+	{header: string, image: string, children: string, backend?: string[], frontend?: string[], github: string}) => {
 	return (
 		<section className={createClassName(s.project, rajdhani)}>
 			<div className={s.decorationRow}>
@@ -32,36 +28,27 @@ const Project = ({ image, children: desc }: {image: string, children: string}) =
 					<div className={s.leftBorderTab}/>
 
 					<div className={s.title}>
-						<h2>Sketch service</h2>
+						<h2>{header}</h2>
 						<div className={s.titleTab} />
 					</div>
 
-					<img src={image} className={s.image} />
+					<img src={image} alt={header + ' image'} className={s.image} />
 
 					<div className={s.info}>
 						<div className={s.techs}>
-							<SkillBlock
-								data={{
-									header: 'backend', content: [
-										'node js',
-										'nest js',
-										'peer js',
-										'socket io',
-									],
-								}}
-							/>
-							<SkillBlock
-								data={{
-									header: 'frontend', content: [
-										'typescript',
-										'react',
-										'redux toolkit',
-										'socket io',
-										'peer js',
-										'simplebar',
-										'react-colorful',
-									],
-								}} />
+							{backend &&
+								<SkillBlock
+									data={{
+										header: 'backend', content: backend,
+									}}
+								/>
+							}
+							{frontend &&
+								<SkillBlock
+									data={{
+										header: 'frontend', content: frontend,
+									}} />
+							}
 						</div>
 
 						<div className={s.gradSep} />
@@ -71,7 +58,7 @@ const Project = ({ image, children: desc }: {image: string, children: string}) =
 								{desc}
 							</p>
 							<div className={s.btnWrapper}>
-								<Button anotherColorVariation>
+								<Button anotherColorVariation link={github}>
 									Github
 								</Button>
 							</div>
