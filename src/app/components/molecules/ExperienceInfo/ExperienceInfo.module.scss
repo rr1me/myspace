@@ -1,0 +1,91 @@
+@use '../../../vars.module' as v;
+
+.info{
+	width: 260px;
+	min-height: 140px;
+	margin-inline: auto;
+	margin-top: 10px;
+
+	font-size: 14px;
+
+	display: flex;
+	gap: 1px;
+}
+
+.infoInner{
+	width: 254px;
+	position: relative;
+}
+
+.infoTitle{
+	line-height: 12px;
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	color: v.$c_addition_second;
+}
+
+.infoTitleTab{
+	background: v.$g_separator_oneway;
+	flex-grow: 1;
+	height: 1px;
+	rotate: 180deg;
+}
+
+.infoTab{
+	position: absolute;
+	height: calc(100% - 6px);
+	width: 1px;
+	right: 0;
+	bottom: 0;
+	background-color: v.$c_addition_second;
+}
+
+.responsibilities{
+	margin-top: 5px;
+	color: v.$c_main_second;
+}
+
+.responsibility{
+	display: flex;
+	gap: 8px;
+}
+
+.dot {
+	color: v.$c_addition_second;
+}
+
+.decorationWrapper{
+	position: relative;
+	width: 6px;
+
+	margin-top: 5.5px;
+}
+
+.highDecoration{
+	height: 100%;
+	width: 100%;
+	background-color: v.$c_addition_second;
+
+	clip-path: polygon(0 0, 100% 5%, 100% 20%, 70% 22%, 70% 48%, 35% calc(48% + 3px), 35% calc(53% + 30px), 100% calc(53% + 33px), 100% 100%, 100% 97%, 65% 100%, 0 100%);
+}
+
+.skewedDecoration{
+	position: absolute;
+	top: calc(53% + 2px);
+	left: 57%;
+	height: max-content;
+	width: 45%;
+
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+
+	transform: skewY(33deg);
+}
+
+.skewed{
+	width: 100%;
+	height: 8px;
+	background-color: v.$c_accent_gold;
+}
