@@ -13,11 +13,11 @@ const Page = () => {
 						'Optimization of web applications'
 					], dateMark: new Date(2022, 7, 7)
 				},
-				{ name: 'CodeWave', position: 'Fullstack Developer',
-					responsibilities: [
-						'q'
-					], dateMark: new Date(2022, 7, 7)
-				}
+				// { name: 'CodeWave', position: 'Fullstack Developer',
+				// 	responsibilities: [
+				// 		'q'
+				// 	], dateMark: new Date(2022, 7, 7)
+				// }
 			]}/>
 		</article>
 	);

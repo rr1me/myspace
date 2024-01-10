@@ -1,7 +1,8 @@
 @use '../../../vars.module' as v;
 
 .project{
-	width: 314px;
+	//width: 314px;
+	width: 317px;
 	height: 520px;
 }
 
@@ -76,6 +77,7 @@
 
 .inner{
 	//background: linear-gradient(340deg, rgba(220, 70, 71, 0.06) 0%, rgba(220, 70, 71, 0.02) 100%);
+	//fixme it overflows on top - both background and filter
 	background: linear-gradient(340deg, rgba(220, 70, 71, 0.04) 0%, rgba(220, 70, 71, 0.02) 100%);
 	backdrop-filter: blur(4px);
 
@@ -91,6 +93,8 @@
 
 .image{
 	height: 150px;
+	width: 300px;
+	object-fit: contain;
 	margin-right: 5px;
 }
 
