@@ -5,6 +5,8 @@ const ExperienceInfo = ({ responsibilities }: {responsibilities: string[]}) => {
 		<div className={s.info}>
 
 			<div className={s.infoInner}>
+				<div className={s.gradLight}/>
+
 				<div className={s.infoTitle}>
 					<p>Responsibility area</p>
 					<div className={s.infoTitleTab} />

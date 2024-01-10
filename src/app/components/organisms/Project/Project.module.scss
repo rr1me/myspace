@@ -3,7 +3,7 @@
 .project{
 	//width: 314px;
 	width: 317px;
-	height: 520px;
+	min-height: 520px;
 }
 
 .decorationRow{
@@ -13,73 +13,14 @@
 }
 
 .highDecoration{
-	height: 100%;
 	width: 7px;
 	background-color: v.$c_main_second;
 
 	clip-path: polygon(0 6px, 3px 0, 100% 0, 100% 172px, 5px 174px, 5px 100%, 0 98%, 0 91%, 2px 90.5%, 2px 67%, 0 66.5%);
 }
 
-.title{
-	height: 12px;
-	line-height: 12px;
-	font-size: 18px;
-	font-weight: 500;
-
-	width: 100%;
-	display: flex;
-	gap: 5px;
-	align-items: center;
-
-	color: v.$c_addition_first;
-}
-
-@mixin borderTab($position: absolute){
-	background-color: v.$c_main_second;
-	position: $position;
-}
-
-.titleTab{
-	@include borderTab(relative);
-	top: 1px;
-	flex-grow: 1;
-	height: 1px;
-}
-
-.bottomBorderTab{
-	@include borderTab;
-	bottom: 0;
-	width: 100%;
-	height: 1px;
-}
-
-.rightBorderTab{
-	@include borderTab;
-	height: calc(100% - 7px);
-	bottom: 0;
-	width: 1px;
-	right: 0;
-}
-
-.leftBorderTab{
-	@include borderTab;
-	height: calc(100% - 182px);
-	width: 1px;
-	left: 0;
-	bottom: 0;
-}
-
-.gradSep{
-	background: v.$g_separator_clr_addition;
-	width: 100%;
-	height: 1px;
-}
-
 .inner{
-	//background: linear-gradient(340deg, rgba(220, 70, 71, 0.06) 0%, rgba(220, 70, 71, 0.02) 100%);
-	//fixme it overflows on top - both background and filter
-	background: linear-gradient(340deg, rgba(220, 70, 71, 0.04) 0%, rgba(220, 70, 71, 0.02) 100%);
-	backdrop-filter: blur(4px);
+	//z-index: 5;
 
 	color: v.$c_main_second;
 	width: 100%;
@@ -96,39 +37,4 @@
 	width: 300px;
 	object-fit: contain;
 	margin-right: 5px;
-}
-
-.techs{
-	font-size: 18px;
-	text-transform: uppercase;
-
-	display: flex;
-	justify-content: space-between;
-
-	padding-inline: 15px;
-
-	height: 140px;
-}
-
-.info{
-	padding-inline: 15px;
-	display: flex;
-	flex-direction: column;
-	gap: 10px;
-}
-
-.desc{
-	font-size: 14px;
-	line-height: 114%;
-
-	height: 143px
-}
-
-.bottom{
-	display: flex;
-	flex-direction: column;
-}
-
-.btnWrapper{
-	align-self: flex-end;
 }

@@ -1,6 +1,5 @@
 import s from './vars.module.scss';
 import { Mohave, Orbitron, Rajdhani } from 'next/font/google';
-import { subset } from 'semver';
 
 export type Colors =
 	'c_main_first' |

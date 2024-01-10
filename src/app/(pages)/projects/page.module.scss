@@ -2,3 +2,24 @@
 	display: flex;
 	gap: 30px;
 }
+
+.scroll{
+	width: min-content;
+	max-height: 600px;
+}
+
+.wrapper{
+	display: flex;
+	gap: 30px;
+	width: min-content;
+	margin-inline: auto;
+}
+
+@media (max-width: 760px){
+	.scroll{
+		width: 350px;
+	}
+	.wrapper{
+		flex-direction: column;
+	}
+}

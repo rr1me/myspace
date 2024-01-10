@@ -72,10 +72,16 @@
 
 	//todo decide do i need bg gradient here. probably i need for mobile version
 	background: linear-gradient(253deg, rgba(189, 45, 45, 0.05) 0%, rgba(21, 215, 180, 0.03) 100%), rgba(0, 0, 0, 0.25);
-	backdrop-filter: blur(4px);
+	backdrop-filter: blur(6px);
 
 	clip-path: polygon(calc(100% - 13.5px) 0, calc(100% - 3.5px) 10px, calc(100% - 3.5px) 196.6px,
 		calc(100% - 14px) 207px, calc(100% - 14px) 100%, 0 100%, 0 0);
+}
+
+@media (min-resolution: 97dpi) {
+	.inner{
+		backdrop-filter: blur(8px);
+	}
 }
 
 .border{

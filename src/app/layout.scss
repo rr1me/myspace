@@ -1,3 +1,5 @@
+@use './vars.module' as v;
+
 html{
   background-color: black;
 }
@@ -23,4 +25,18 @@ body{
   .main{
     height: auto;
   }
+}
+
+.os-scrollbar{
+  --os-size: 8px;
+  --os-handle-border-radius: 0;
+  --os-track-border-radius: 0;
+
+  --os-handle-bg: #DC4647FF;
+  --os-handle-bg-hover: #8c2727;
+  --os-handle-bg-active: #8c2727;
+
+  --os-track-bg: #3F0E11FF;
+  --os-track-bg-hover: #3F0E11FF;
+  --os-track-bg-active: #3F0E11FF;
 }

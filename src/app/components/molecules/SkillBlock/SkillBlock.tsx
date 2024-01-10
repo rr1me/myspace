@@ -4,25 +4,49 @@ import restyle from '@/app/components/shared/restyle';
 import { colorVars } from '@/app/theme';
 import { SkillData } from '@/app/components/organisms/SkillColumn/SkillColumn';
 import clsx from 'clsx';
-import { CSSObject } from 'styled-components';
-import SxSC from '@/app/components/atoms/SxSC/SxSC';
 
 const Tab = restyle(TabToChange, {
 	width: 1,
 	position: 'relative'
 });
 
-const SkillBlock = ({ data, nestLevel = 0, specifyTabColor, rotateTab,
-	nonAdaptive, headerSx, innerSx, wrapperSx }:
-	{data: SkillData, nestLevel?: number, specifyTabColor?: string, rotateTab?: boolean,
-		nonAdaptive?: boolean, headerSx?: CSSObject, innerSx?: CSSObject, wrapperSx?: CSSObject}) => {
+const SkillBlock = ({ data, nestLevel = 0, specifyTabColor,
+	rotateTab, nonAdaptive, classNames
+}: {data: SkillData, nestLevel?: number, specifyTabColor?: string,
+		rotateTab?: boolean, nonAdaptive?: boolean,
+		classNames?: Partial<Record<'block' | 'header' | 'wrapper' | 'inner', string>>
+	}) => {
+	const blockClassNames = clsx({
+		[s.skillBlock]: true,
+		...(classNames ? {
+			[classNames!.block!]: !!classNames?.block
+		} : {})
+	});
+	const headerClassNames = clsx({
+		[s.header]: true,
+		...(classNames ? {
+			[classNames!.header!]: !!classNames?.header
+		} : {})
+	});
+	const wrapperClassNames = clsx({
+		[s.contentWrapper]: true,
+		[s.adaptiveContentWrapper]: !nonAdaptive,
+		...(classNames ? {
+			[classNames!.wrapper!]: !!classNames?.wrapper
+		} : {})
+	});
+	const innerClassNames = clsx({
+		[s.inner]: true,
+		[s.adaptiveInner]: nonAdaptive,
+		...(classNames ? {
+			[classNames!.inner!]: !!classNames?.inner
+		} : {})
+	});
+
 	return (
-		<div className={s.skillBlock}>
-			<SxSC as='h3' $sx={headerSx} className={s.header}>{data.header}</SxSC>
-			<SxSC $sx={wrapperSx} className={clsx({
-				[s.contentWrapper]: true,
-				[s.adaptiveContentWrapper]: !nonAdaptive
-			})}>
+		<div className={blockClassNames}>
+			<h3 className={headerClassNames}>{data.header}</h3>
+			<div className={wrapperClassNames}>
 				<Tab sx={{
 					background: !specifyTabColor ?
 						nestLevel % 2 === 0 ? colorVars.c_main_first : colorVars.c_addition_second
@@ -31,18 +55,15 @@ const SkillBlock = ({ data, nestLevel = 0, specifyTabColor, rotateTab,
 					rotate: rotateTab ? '180deg' : undefined
 				}}/>
 				<div className={s.content}>
-					<SxSC $sx={innerSx} className={clsx({
-						[s.inner]: true,
-						[s.adaptiveInner]: nonAdaptive
-					})}>
+					<div className={innerClassNames}>
 						{data.content.map((x, i) => {
 							if (typeof x === 'object')
 								return <SkillBlock data={x} key={i} nestLevel={nestLevel + 1}/>;
 							return <div key={i}>{x}</div>;
 						})}
-					</SxSC>
+					</div>
 				</div>
-			</SxSC>
+			</div>
 		</div>
 	);
 };

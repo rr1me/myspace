@@ -1,14 +1,16 @@
 import type { Metadata, Viewport } from 'next';
 import { ReactNode } from 'react';
 
-import './reset.css';
-import './layout.scss';
-import './vars.module.scss';
 import Background from '@/app/components/templates/Background/Background';
 import StyledComponentsRegistry from '@/app/registry';
 import { orbitron } from '@/app/theme';
 import Preloader from '@/app/components/templates/Preloader/Preloader';
 import Menu from '@/app/components/templates/Menu/Menu';
+
+import 'overlayscrollbars/overlayscrollbars.css';
+import './reset.css';
+import './layout.scss';
+import './vars.module.scss';
 
 export const metadata: Metadata = {
 	title: 'rr1me\'s space',

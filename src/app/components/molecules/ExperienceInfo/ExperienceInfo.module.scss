@@ -16,7 +16,15 @@
 	width: 254px;
 	position: relative;
 	//fixme it overflows on top
-	background: linear-gradient(220deg, rgba(0, 207, 214, 0.07) 0%, rgba(0, 207, 214, 0) 50%);
+	//background: linear-gradient(220deg, rgba(0, 207, 214, 0.07) 0%, rgba(0, 207, 214, 0) 50%);
+}
+
+.gradLight{
+	position: absolute;
+	width: 100%;
+	height: calc(100% - 6px);
+	bottom: 0;
+	background: linear-gradient(220deg, rgba(0, 207, 214, 0.15) 0%, rgba(0, 207, 214, 0) 60%);
 }
 
 .infoTitle{

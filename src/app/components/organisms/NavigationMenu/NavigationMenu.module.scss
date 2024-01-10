@@ -5,7 +5,7 @@
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
-	z-index: -1;
+	user-select: none;
 }
 
 .nav{
@@ -14,9 +14,10 @@
 	width: 120px;
 	height: 150px;
 
+	z-index: 1000;
 	background: linear-gradient(146deg, rgba(166, 28, 67, 0.10) 0%,
 		rgba(162, 33, 71, 0.10) 32.81%, rgba(0, 207, 214, 0.10) 100%);
-	backdrop-filter: blur(5px);
+	backdrop-filter: blur(50px);
 
 	$navBorderSize: 1px;
 	$coors: calc(-1 * $navBorderSize);

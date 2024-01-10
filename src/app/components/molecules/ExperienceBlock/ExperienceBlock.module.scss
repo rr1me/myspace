@@ -34,6 +34,7 @@
 	text-align: center;
 	line-height: 14px;
 	width: 28px;
+	text-shadow: 0 0 5px v.$c_main_second;
 }
 
 .firstMark{
@@ -46,6 +47,22 @@
 	@include mark;
 	right: -14px;
 	top: -20px;
+}
+
+@mixin tab{
+	background-color: v.$c_main_second;
+	box-shadow: 0 0 7px 2px rgba(243, 38, 38, 0.5);
+}
+
+.markTab{
+	@include tab;
+	height: 100%;
+	width: 1px;
+}
+.horizTab{
+	@include tab;
+	flex-grow: 1;
+	height: 1px;
 }
 
 .title{
@@ -73,7 +90,7 @@
 
 .date{
 	position: absolute;
-	top: -5px;
+	top: -8px;
 	width: 100%;
 	text-align: center;
 

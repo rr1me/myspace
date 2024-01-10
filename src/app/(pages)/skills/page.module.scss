@@ -1,10 +1,25 @@
 @use '../../vars.module' as v;
 
 .skills{
+	font-weight: bold;
+	height: 100%;
+	width: 100%;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.scroll{
+	height: max-content;
+	max-height: 95%;
+	width: max-content;
+}
+
+.wrapper{
 	display: flex;
 	gap: 15px;
-
-	font-weight: bold;
+	justify-content: center;
 }
 
 .tab{
@@ -13,15 +28,15 @@
 }
 
 @media (max-width: 963px){
-	.skills{
+	.wrapper{
 		flex-wrap: wrap;
 		flex-grow: 0;
 		justify-content: center;
-		width: 450px;
+		width: 420px;
 
 		padding-block: 10px;
 	}
-	.tab{
+	.tabAdaptive{
 		display: none;
 	}
 }

@@ -10,7 +10,7 @@ import SxSC from '@/app/components/atoms/SxSC/SxSC';
 const Tab = restyle(TabToChange, {
 	backgroundColor: colorVars.c_main_second,
 	position: 'static',
-	boxShadow: colorVars.main_box_shadow
+	boxShadow: '0 0 7px 2px rgba(243, 38, 38, 0.5)'
 });
 
 const months = [
@@ -38,19 +38,13 @@ const ExperienceBlock = ({ place: { name, position, responsibilities, dateMark }
 			</p>
 
 			<div className={s.marks}>
-				<Tab sx={{
-					height: '100%',
-					width: 1,
-				}} />
+				<div className={s.markTab}/>
 
 				<p className={s.date}>eto data DATA</p>
 
 				{last &&
 						<>
-							<Tab sx={{
-								height: '100%',
-								width: 1,
-							}} />
+							<div className={s.markTab}/>
 							<p className={s.lastMark}>Now</p>
 						</>
 				}
@@ -59,17 +53,11 @@ const ExperienceBlock = ({ place: { name, position, responsibilities, dateMark }
 			<div className={s.inner}>
 				<div className={s.title}>
 					<div className={s.place}>
-						<Tab sx={{
-							flexGrow: 1,
-							height: 1,
-						}} />
+						<div className={s.horizTab}/>
 						<p className={s.goldShadow}>
 							{name}
 						</p>
-						<Tab sx={{
-							flexGrow: 1,
-							height: 1,
-						}} />
+						<div className={s.horizTab}/>
 					</div>
 
 					<p className={createClassName(s.position, s.goldShadow)}>

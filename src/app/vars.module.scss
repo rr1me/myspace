@@ -120,8 +120,8 @@ $main_box_shadow: 0px 0px 25px 2px rgba(243, 38, 38, 0.5);
 }
 
 @mixin button($dimensions: true,
-$min-width: 100px, $min-height: 25px, $padding: 5px 15px, $border-radius: 2px){
-  @if $dimensions{
+$min-width: 100px, $min-height: 25px, $padding: 5px 15px, $border-radius: 2px) {
+  @if $dimensions {
     min-width: $min-width;
     min-height: $min-height;
 
@@ -136,12 +136,12 @@ $min-width: 100px, $min-height: 25px, $padding: 5px 15px, $border-radius: 2px){
 
   transition: 100ms ease-out;
 
-  &:hover{
+  &:hover {
     border-color: $c_addition_second;
     background: $g_blueGradButton;
     color: $c_addition_second;
   }
-  &:active{
+  &:active {
     border-color: $c_accent_gold;
     background: $g_goldGradButton;
     color: $c_accent_gold;
