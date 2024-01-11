@@ -24,3 +24,9 @@
 	display: flex;
 	margin-inline: 50px;
 }
+
+@media (hover: none) and (pointer: coarse){
+	.exp{
+		scale:140%;
+	}
+}

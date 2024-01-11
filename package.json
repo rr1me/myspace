@@ -11,6 +11,7 @@
   "dependencies": {
     "@react-spring/web": "^9.7.3",
     "clsx": "^2.0.0",
+    "dayjs": "^1.11.10",
     "nanoid": "^5.0.4",
     "next": "^14.0.4",
     "overlayscrollbars": "^2.4.6",
