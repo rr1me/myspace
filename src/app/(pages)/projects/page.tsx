@@ -55,6 +55,27 @@ const Page = () => {
 						through SMTP,
 						restoring access algorithm and token updating for infinite access.
 					</Project>
+					<Project header='LifeTracker' image={lifeTracker.src} github='https://github.com/rr1me/lifetracker'
+						backend={[
+							'asp .net core',
+							'entity framework',
+							'postgresql',
+							'redis',
+						]}
+						frontend={[
+							'typescript',
+							'react',
+							'module sass',
+							'redux toolkit',
+							'rtk query'
+						]}>
+						Scheduler application for tracking and statistics of time spent.
+						Includes sequential animations and deep authorization, based on Refresh-Access tokens that was built on top
+						of two databases:
+						PostgreSQL as true and Redis for frequent requests. Auth system based on roles and has email confirmation
+						through SMTP,
+						restoring access algorithm and token updating for infinite access.
+					</Project>
 				</div>
 			</OverlayScrollbarsComponent>
 		</article>

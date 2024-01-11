@@ -11,8 +11,8 @@
 }
 
 .title{
-	height: 12px;
-	line-height: 12px;
+	height: 14px;
+	line-height: 14px;
 	font-size: 18px;
 	font-weight: 500;
 
@@ -45,7 +45,7 @@
 
 .rightBorderTab{
 	@include borderTab;
-	height: calc(100% - 7px);
+	height: calc(100% - 8px);
 	bottom: 0;
 	width: 1px;
 	right: 0;
@@ -57,4 +57,18 @@
 	width: 1px;
 	left: 0;
 	bottom: 0;
+}
+
+@media (hover: none) and (pointer: coarse){
+	.leftBorderTab{
+		height: calc(100% - 225px);
+	}
+	.title{
+		font-size: 1.4rem;
+		line-height: 1.4rem;
+		height: 30px;
+	}
+	.rightBorderTab{
+		height: calc(100% - 12px);
+	}
 }

@@ -5,7 +5,8 @@ import ProjectInfo from '@/app/components/molecules/ProjectInfo/ProjectInfo';
 import ProjectTopAndInnerDecor from '@/app/components/molecules/ProjectInnerDecorations/ProjectTopAndInnerDecor';
 
 const Project = ({ header, image, children: desc, backend, frontend, github }:
-	{header: string, image: string, children: string, backend?: string[], frontend?: string[], github: string}) => {
+	{header: string, image: string, children: string,
+		backend?: string[], frontend?: string[], github: string}) => {
 	return (
 		<section className={createClassName(s.project, rajdhani)}>
 			<div className={s.decorationRow}>

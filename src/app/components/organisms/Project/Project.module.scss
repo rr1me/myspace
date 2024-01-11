@@ -2,9 +2,11 @@
 
 .project{
 	//width: 314px;
-	width: 317px;
+	min-width: 317px;
 	min-height: 520px;
 }
+
+
 
 .decorationRow{
 	height: 100%;
@@ -13,6 +15,7 @@
 }
 
 .highDecoration{
+	flex-shrink: 0;
 	width: 7px;
 	background-color: v.$c_main_second;
 
@@ -34,7 +37,14 @@
 
 .image{
 	height: 150px;
-	width: 300px;
+	width: 297px;
 	object-fit: contain;
-	margin-right: 5px;
+	//margin-right: 5px;
+}
+
+@media (hover: none) and (pointer: coarse){
+	.image{
+		width: calc(100% - 10px);
+		height: 183px;
+	}
 }

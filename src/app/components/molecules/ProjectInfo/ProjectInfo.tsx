@@ -1,17 +1,16 @@
 import s from './ProjectInfo.module.scss';
 import Button from '@/app/components/atoms/Button/Button';
-import { SkillData } from '@/app/components/organisms/SkillColumn/SkillColumn';
 import { applyProps } from '@/app/components/shared/restyle';
 import SkillBlockToChange from '@/app/components/molecules/SkillBlock/SkillBlock';
 import { colorVars } from '@/app/theme';
 
 const SkillBlock = applyProps(SkillBlockToChange, {
 	classNames: {
-		// header:
+		block: s.sbBlock,
+		header: s.sbHeader,
+		inner: s.sbInner,
+		wrapper: s.sbWrapper
 	},
-	// headerSx: { fontSize: 16 },
-	// innerSx: { fontSize: 14, gap: 4 },
-	// wrapperSx: { marginTop: 0 },
 	nonAdaptive: true,
 	rotateTab: true,
 	specifyTabColor: colorVars.g_separator_oneway_vertical,
