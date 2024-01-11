@@ -19,7 +19,7 @@ const Background = () => {
 
 	return (
 		<div className={createClassName(s.background, mohave)}>
-			{/*<BackgroundLighting start={!preloaderVisibility} />*/}
+			<BackgroundLighting start={!preloaderVisibility} />
 			{/*fixme need more optimization*/}
 
 			{!preloaderVisibility &&
