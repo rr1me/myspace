@@ -29,9 +29,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 					<Background/>
 					<main className='main'>
 						{/*<Preloader/>*/}
-						<Menu>
-							{children}
-						</Menu>
+						{/*<Menu>*/}
+						{/*	{children}*/}
+						{/*</Menu>*/}
 					</main>
 				</StyledComponentsRegistry>
 			</body>

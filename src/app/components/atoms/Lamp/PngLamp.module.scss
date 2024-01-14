@@ -1,0 +1,26 @@
+.lamp{
+	//width: 3000px;
+	//height: 1000px;
+	position: absolute;
+	//opacity: 0.1;
+	z-index: -10;
+}
+
+.animated{
+	opacity: 0;
+	animation-play-state: paused;
+	animation-name: show;
+
+	width: inherit;
+	height: inherit;
+	object-fit: fill;
+}
+
+@keyframes show {
+	from{
+		opacity: 0;
+	}
+	to{
+		opacity: 1;
+	}
+}

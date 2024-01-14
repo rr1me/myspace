@@ -3,5 +3,33 @@
 .shell{
 	background: v.$g_cliShell;
 	position: relative;
-	width: 10px;
+	//width: 10px;
+
+	width: 0;
+	height: 0;
+
+	will-change: width, height;
+}
+
+.animation{
+	animation-name: show;
+	animation-delay: 2000ms;
+	animation-duration: 2000ms;
+	animation-timing-function: ease-in-out;
+	animation-fill-mode: forwards;
+}
+
+@keyframes show {
+	from{
+		width: 0;
+		height: 0;
+	}
+	50%{
+		width: 100%;
+		height: 0;
+	}
+	to{
+		width: 100%;
+		height: 100%;
+	}
 }

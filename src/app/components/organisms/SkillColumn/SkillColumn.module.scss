@@ -10,6 +10,7 @@
 	position: relative;
 
 	font-size: 20px;
+	font-weight: bold;
 	line-height: 19px;
 
 	color: v.$c_main_first;
@@ -32,6 +33,13 @@
 
 .misc{
 	width: 270px;
+	//width: 335px;
+}
+
+@media (hover: none) and (pointer: coarse){
+	.misc{
+		width: 335px;
+	}
 }
 
 @media (max-width: 963px){
@@ -49,7 +57,7 @@
 	}
 }
 
-@media (min-resolution: 97dpi) {
+@media (min-resolution: 97dpi) or ((hover: none) and (pointer: coarse)) {
 	.skill{
 		font-size: 1.6rem;
 	}

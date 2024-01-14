@@ -1,0 +1,56 @@
+@use '../../../vars.module' as v;
+
+$transition: 150ms;
+
+.linkTab{
+	width: 100%;
+	height: 2px;
+	background-color: red;
+
+	box-shadow: 0 0 8px 1px v.$c_main_second;
+
+	transition: $transition;
+}
+
+.linkText{
+	font-size: 18px;
+	text-transform: uppercase;
+	color: v.$c_main_second;
+
+	padding-inline: 6px;
+	padding-bottom: 3px;
+
+	text-shadow: 0 0 8px v.$c_main_second;
+
+	transition: $transition;
+}
+
+.lineLinks{
+	display: flex;
+	gap: 2px;
+	white-space: nowrap;
+}
+
+@mixin colorize($clr){
+	.linkText{
+		color: $clr;
+		text-shadow: 0 0 8px $clr;
+	}
+	.linkTab{
+		background-color: $clr;
+		box-shadow: 0 0 8px 1px $clr;
+	}
+}
+
+.lineLink:hover{
+	@include colorize(v.$c_addition_first)
+}
+
+.lineLink:active{
+	//@include colorize(#56c6cc);
+	@include colorize(v.$c_addition_second);
+}
+
+.current{
+	@include colorize(v.$c_addition_first_2);
+}

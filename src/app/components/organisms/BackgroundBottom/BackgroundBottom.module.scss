@@ -9,6 +9,9 @@
 	display: flex;
 	justify-content: center;
 	margin-top: 40px;
+
+	will-change: transform;
+	transform: translateZ(0);
 }
 
 .innerBottom{

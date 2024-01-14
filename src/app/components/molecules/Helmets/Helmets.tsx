@@ -24,11 +24,9 @@ const Helmets = ({ width }: {width: number}) => {
 			width: '50px',
 			left: centering + 'px'
 		},
-		to: async (next) => {
-			await next({
-				width: remainSpace + 'px',
-				left: '0'
-			});
+		to: {
+			width: remainSpace + 'px',
+			left: '0'
 		},
 		pause: true,
 		...cfg
@@ -39,11 +37,9 @@ const Helmets = ({ width }: {width: number}) => {
 			width: '50px',
 			left: centering + 'px'
 		},
-		to: async (next) => {
-			await next({
-				width: remainSpace + 'px',
-				left: centering + 60 + 'px'
-			});
+		to: {
+			width: remainSpace + 'px',
+			left: centering + 60 + 'px'
 		},
 		pause: true,
 		...cfg

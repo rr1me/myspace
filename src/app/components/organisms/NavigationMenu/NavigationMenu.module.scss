@@ -54,3 +54,44 @@
 
 	text-align: center;
 }
+
+.lineMenu{
+	width: 100%;
+	height: 50px;
+	//background-color: v.$c_main_second;
+
+	display: none;
+	gap: 3px;
+	align-items: flex-end;
+}
+
+.tab{
+	width: 100%;
+	height: 2px;
+	background-color: v.$c_main_third;
+}
+
+.lineLinks{
+	display: flex;
+	gap: 3px;
+	white-space: nowrap;
+}
+
+@media (hover: none) and (pointer: coarse) {
+	.lineMenu{
+		scale: 115%; //fixme causes tap bug(unable to use on certain points of link button) on touch screens
+		gap: 5px;
+	}
+	.lineLinks{
+		gap: 5px;
+	}
+}
+
+@media (max-width: 1305px) {
+	.nav{
+		display: none;
+	}
+	.lineMenu{
+		display: flex;
+	}
+}

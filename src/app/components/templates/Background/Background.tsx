@@ -12,6 +12,7 @@ import { mohave } from '@/app/theme';
 import TopElement from '@/app/components/organisms/TopElement/TopElement';
 import { createClassName } from '@/app/components/shared/utils';
 import { useAnimationStore } from '@/app/components/shared/syncStore';
+import PngLamp from '@/app/components/atoms/Lamp/PngLamp';
 
 
 const Background = () => {
@@ -20,6 +21,29 @@ const Background = () => {
 	return (
 		<div className={createClassName(s.background, mohave)}>
 			<BackgroundLighting start={!preloaderVisibility} />
+
+			{/*<PngLamp delay={600} duration={3000} cyan moreFalloff sx={{*/}
+			{/*	opacity: 0.2,*/}
+			{/*	height: 140,*/}
+			{/*	width: 3000,*/}
+			{/*	objectFit: 'fill',*/}
+			{/*	top: 0*/}
+			{/*}}/>*/}
+			{/*<PngLamp delay={200} duration={3000} moreFalloff sx={{*/}
+			{/*	opacity: 0.13,*/}
+			{/*	height: 130,*/}
+			{/*	width: 3000,*/}
+			{/*	objectFit: 'fill',*/}
+			{/*	top: 100*/}
+			{/*}}/>*/}
+			{/*<PngLamp delay={1500} duration={3000} sx={{*/}
+			{/*	opacity: 0.1*/}
+			{/*}}/>*/}
+			{/*<PngLamp delay={2000} duration={3000} cyan sx={{*/}
+			{/*	opacity: 0.11,*/}
+			{/*	top: 850,*/}
+			{/*	// transform: 'translateY(60%) scale(100%, 45%)'*/}
+			{/*}}/>*/}
 			{/*fixme need more optimization*/}
 
 			{!preloaderVisibility &&

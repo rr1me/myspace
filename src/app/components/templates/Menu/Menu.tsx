@@ -85,7 +85,9 @@ const Menu = ({ children }: {children: ReactNode}) => {
 
 			<div className={s.inner}>
 				<NavigationMenu/>
-				{children}
+				<div className={s.content}>
+					{children}
+				</div>
 			</div>
 		</animated.div>
 	)

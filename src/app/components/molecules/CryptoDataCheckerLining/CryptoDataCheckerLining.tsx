@@ -49,7 +49,7 @@ const CryptoDataCheckerLining = () => {
 				overflow: 'hidden',
 				position: 'absolute',
 				...springs
-			}}>
+			}} className={s.lining}>
 				<Tab sx={{ width: 282, height: 1 }} />
 				<Tab sx={{ width: 308, height: 1, left: 292 }} />
 
@@ -63,19 +63,19 @@ const CryptoDataCheckerLining = () => {
 				height: '100%',
 				position: 'absolute',
 				...breakerSprings
-			}}>
+			}} className={s.breakers}>
 				<LineBreaker sx={{ top: -4 }} />
 				<LineBreaker mirrored vertical sx={{ left: -4, top: 0 }} />
 				<LineBreaker vertical sx={{ left: 65 }} />
 
 				<LineBreaker mirrored vertical sx={{ left: -4, top: 60 }}
-										 variant={LineBreakerVariant.startToEnd} />
+					variant={LineBreakerVariant.startToEnd} />
 
 				<LineBreaker mirrored vertical sx={{ left: 56, top: 20 }}
-										 variant={LineBreakerVariant.startToEnd} />
+					variant={LineBreakerVariant.startToEnd} />
 
 				<LineBreaker sx={{ left: 233, top: -4 }}
-										 variant={LineBreakerVariant.startToEnd} />
+					variant={LineBreakerVariant.startToEnd} />
 
 				<div className={s.square} />
 			</animated.div>

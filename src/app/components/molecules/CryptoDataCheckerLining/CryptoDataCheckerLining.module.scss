@@ -8,3 +8,11 @@
 	height: 4px;
 	background-color: v.$c_addition_second;
 }
+
+.lining{
+	will-change: height, width;
+}
+
+.lining{
+	will-change: opacity;
+}

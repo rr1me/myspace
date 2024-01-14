@@ -6,6 +6,8 @@
 	background-color: v.$c_main_first;
 	border-radius: 2px;
 	padding-bottom: 10px;
+
+	will-change: height, width, transform;
 }
 
 .helmet::after{
