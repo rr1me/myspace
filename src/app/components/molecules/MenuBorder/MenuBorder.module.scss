@@ -1,0 +1,95 @@
+@use '../../../vars.module' as v;
+
+.border{
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+}
+
+.fix{
+	transform: translateX(calc(100% - 18px));
+}
+
+@mixin tabText{
+	color: black;
+	font-size: 10px;
+	letter-spacing: 1px;
+	font-weight: bolder;
+	writing-mode: vertical-lr;
+}
+
+.bbText{
+	@include tabText;
+	transform: rotate(180deg) translateX(0.6px);
+	position: relative;
+	top: 14px;;
+}
+
+.rlbTextWrapper{
+	position: absolute;
+	height: calc(100% - 232px);
+	width: 10px;
+	right: 2px;
+	bottom: 20px;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.rlbText{
+	@include tabText;
+	position: relative;
+	right: 1px
+}
+
+.rightLineBreaker{
+	position: absolute;
+	height: calc(100% - 215px);
+	width: 10px;
+	right: 2px;
+	bottom: 10px;
+
+	background-color: v.$c_main_second;
+	transform: skewY(-45deg);
+}
+
+@mixin lineBreaker{
+	position: absolute;
+	clip-path: polygon(0 0, 15% 30%,
+		15% 85%, 70% 85%, 100% 100%, 0 100%);
+	background-color: v.$c_addition_first;
+}
+
+.lineBreaker{
+	@include lineBreaker;
+	width: 40px;
+	height: 40px;
+	bottom: 0;
+	z-index: 1;
+}
+
+.lineBreakerLight{
+	@include lineBreaker;
+	width: 43px;
+	height: 43px;
+	bottom: 2px;
+	left: 2px;
+}
+
+.bigBreaker{
+	position: absolute;
+	bottom: 36px;
+	left: -10px;
+
+	width: 17px;
+	height: 330px;
+
+	background-color: v.$c_addition_first;
+
+	clip-path: polygon(
+			5px 0, 10px 0, 100% 0, 100% 100%,
+			10px 100%, 0px calc(100% - 15px), 0 8px);
+}
