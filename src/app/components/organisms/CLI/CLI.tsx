@@ -13,7 +13,7 @@ const CLI = () => {
 				<CLIShellBack/>
 			</div>
 
-			{/*<CLIBottom/>*/}
+			<CLIBottom/>
 		</div>
 	);
 };

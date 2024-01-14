@@ -21,29 +21,29 @@ const TabVert = restyle(TabToChange, {
 const CLIShell = () => {
 	const [interactionMount, setInteractionMount] = useState(false);
 
-	const [springs] = useSpring(() => ({
-		// from: {
-		// 	height: '0',
-		// 	width: '0',
-		// },
-		// to: [
-		// 	{
-		// 		width: '100%'
-		// 	},
-		// 	{
-		// 		height: '100%'
-		// 	}
-		// ],
-		// delay: 2000,
-		// config: {
-		// 	easing: easings.easeInOutExpo,
-		// 	duration: 1000 //todo with or without?
-		// },
-		// onRest: async () => {
-		// 	await delay(250);
-		// 	setInteractionMount(true);
-		// }
-	}));
+	// const [springs] = useSpring(() => ({
+	// 	from: {
+	// 		height: '0',
+	// 		width: '0',
+	// 	},
+	// 	to: [
+	// 		{
+	// 			width: '100%'
+	// 		},
+	// 		{
+	// 			height: '100%'
+	// 		}
+	// 	],
+	// 	delay: 2000,
+	// 	config: {
+	// 		easing: easings.easeInOutExpo,
+	// 		duration: 1000 //todo with or without?
+	// 	},
+	// 	onRest: async () => {
+	// 		await delay(250);
+	// 		setInteractionMount(true);
+	// 	}
+	// }));
 
 	const elemRef = useRef<HTMLDivElement>(null);
 

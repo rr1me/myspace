@@ -13,45 +13,45 @@ const SelfWritingText = ({ children, onAnimationEnd, nixWrapped = true,
 	const [animationEnd, setAnimationEnd] = useState(false);
 
 	useEffect(() => {
-		// if (!textRef.current || !immediate) return;
-		//
-		// const element = textRef.current;
-		// if (element.innerText !== '') element.innerText = '';
-		//
-		// (async () => {
-		// 	if (delayMs) await delay(delayMs);
-		//
-		// 	let currentText = '';
-		// 	const arr = Children.toArray(children);
-		// 	for (const char of arr) {
-		//
-		// 		if (typeof char !== 'string'){
-		// 			if (typeof char === 'object' && (char as {type: string}).type === 'br'){
-		// 				currentText += '\n';
-		// 			}
-		// 			else
-		// 				currentText += char;
-		//
-		// 			requestAnimationFrame(() => {
-		// 				element.textContent = currentText;
-		// 			});
-		// 			await delay(duration);
-		// 		}
-		// 		else{
-		// 			for (const symbol of (char as string)) {
-		// 				currentText += symbol;
-		// 				requestAnimationFrame(() => {
-		// 					element.textContent = currentText;
-		// 				});
-		// 				await delay(duration);
-		// 			}
-		// 		}
-		// 	}
-		// 	if (onAnimationEnd) {
-		// 		onAnimationEnd();
-		// 		setAnimationEnd(true);
-		// 	}
-		// })();
+		if (!textRef.current || !immediate) return;
+
+		const element = textRef.current;
+		if (element.innerText !== '') element.innerText = '';
+
+		(async () => {
+			if (delayMs) await delay(delayMs);
+
+			let currentText = '';
+			const arr = Children.toArray(children);
+			for (const char of arr) {
+
+				if (typeof char !== 'string'){
+					if (typeof char === 'object' && (char as {type: string}).type === 'br'){
+						currentText += '\n';
+					}
+					else
+						currentText += char;
+
+					requestAnimationFrame(() => {
+						element.textContent = currentText;
+					});
+					await delay(duration);
+				}
+				else{
+					for (const symbol of (char as string)) {
+						currentText += symbol;
+						requestAnimationFrame(() => {
+							element.textContent = currentText;
+						});
+						await delay(duration);
+					}
+				}
+			}
+			if (onAnimationEnd) {
+				onAnimationEnd();
+				setAnimationEnd(true);
+			}
+		})();
 	}, [immediate]);
 
 	const textClassName = clsx({

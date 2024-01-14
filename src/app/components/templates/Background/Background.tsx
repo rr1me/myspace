@@ -16,7 +16,7 @@ import PngLamp from '@/app/components/atoms/Lamp/PngLamp';
 
 
 const Background = () => {
-	const preloaderVisibility = !useAnimationStore(s => s.preloaderVisibility);
+	const preloaderVisibility = useAnimationStore(s => s.preloaderVisibility);
 
 	return (
 		<div className={createClassName(s.background, mohave)}>
