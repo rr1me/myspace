@@ -28,10 +28,10 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 				<StyledComponentsRegistry>
 					<Background/>
 					<main className='main'>
-						<Preloader/>
-						<Menu>
-							{children}
-						</Menu>
+						{/*<Preloader/>*/}
+						{/*<Menu>*/}
+						{/*	{children}*/}
+						{/*</Menu>*/}
 					</main>
 				</StyledComponentsRegistry>
 			</body>
