@@ -18,12 +18,12 @@ const RedMovingCode = () => { //2300 width?
 
 	return (
 		<section className={s.movingCode}>
-			{
-				hydrated &&
-				codeArray.map((x, i) =>
-					<Marquee key={i} delay={2.5}>{x.code}</Marquee>
-				)
-			}
+			{/*{*/}
+			{/*	hydrated &&*/}
+			{/*	codeArray.map((x, i) =>*/}
+			{/*		<Marquee key={i} delay={2.5}>{x.code}</Marquee>*/}
+			{/*	)*/}
+			{/*}*/}
 		</section>
 	);
 };

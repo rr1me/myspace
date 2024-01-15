@@ -20,7 +20,7 @@ const Background = () => {
 
 	return (
 		<div className={createClassName(s.background, mohave)}>
-			<BackgroundLighting start={!preloaderVisibility} />
+			{/*<BackgroundLighting start={!preloaderVisibility} />*/}
 
 			{/*<PngLamp delay={600} duration={3000} cyan moreFalloff sx={{*/}
 			{/*	opacity: 0.2,*/}
@@ -56,7 +56,7 @@ const Background = () => {
 
 				<RedMovingCode />
 
-				<ExtendingLine variant={ExtendingLineVariant.centered} color='g_separator' />
+				{/*<ExtendingLine variant={ExtendingLineVariant.centered} color='g_separator' />*/}
 
 				<BackgroundBottom />
 			</>
