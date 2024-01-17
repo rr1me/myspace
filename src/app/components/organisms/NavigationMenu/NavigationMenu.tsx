@@ -1,15 +1,14 @@
 'use client';
 
 import s from './NavigationMenu.module.scss';
-import { colorVars, rajdhani } from '@/app/theme';
+import { colorVars } from '@/app/theme';
 import LineBreaker from '@/app/components/atoms/LineBreaker/LineBreaker';
 import { animated, easings, useSpring } from '@react-spring/web';
 import { animationStore, useAnimationStore } from '@/app/components/shared/syncStore';
 import Button from '@/app/components/atoms/Button/Button';
-import { useRouter } from 'next/navigation';
-import Link from 'next/link';
-import { createClassName } from '@/app/components/shared/utils';
 import LineLink from '@/app/components/atoms/LineLink/LineLink';
+import clsx from 'clsx';
+import { useState } from 'react';
 
 const NavigationMenu = () => {
 	const navMenuOpen = !useAnimationStore(s => s.navMenuOpen);
@@ -20,11 +19,12 @@ const NavigationMenu = () => {
 		}
 	});
 
-	const onBreakerClick = () =>
+	const [used, setUsed] = useState(false);
+	const onBreakerClick = () => {
 		animationStore.setState(s => ({ ...s, navMenuOpen: !s.navMenuOpen }));
 
-	const router = useRouter();
-	const onLinkClick = (to: string) => () => router.push(to);
+		if (!used) setUsed(true);
+	};
 
 	return (
 		<>
@@ -48,7 +48,7 @@ const NavigationMenu = () => {
 						cursor: 'pointer',
 						transition: '300ms',
 						'&:hover': {
-							scale: '110%',
+							scale: '120%',
 							filter: 'drop-shadow(0px 0px 8px #FFB800)'
 						},
 						'&:active': {
@@ -63,10 +63,18 @@ const NavigationMenu = () => {
 						bottom: -5, right: -1,
 						scale: '-1 -1'
 					}} />
-					<Button onClick={onLinkClick('/')}>about me</Button>
-					<Button onClick={onLinkClick('/skills')}>skills</Button>
-					<Button onClick={onLinkClick('/projects')}>projects</Button>
-					<Button onClick={onLinkClick('/experience')}>experience</Button>
+
+					<div className={clsx({
+						[s.mark]: true,
+						[s.invisible]: used
+					})}>
+						<div className={s.radialMark}/>
+					</div>
+
+					<Button link='/'>about me</Button>
+					<Button link='/skills'>skills</Button>
+					<Button link='/projects'>projects</Button>
+					<Button link='/experience'>experience</Button>
 				</animated.nav>
 			</div>
 		</>

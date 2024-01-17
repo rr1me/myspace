@@ -6,6 +6,7 @@ import { OverlayScrollbarsComponent } from 'overlayscrollbars-react';
 
 import sketchService from './sketchService.png';
 import lifeTracker from './lifeTracker.png';
+import mySpace from './mySpace.png';
 
 const Page = () => {
 	return (
@@ -55,26 +56,19 @@ const Page = () => {
 						through SMTP,
 						restoring access algorithm and token updating for infinite access.
 					</Project>
-					<Project header='LifeTracker' image={lifeTracker.src} github='https://github.com/rr1me/lifetracker'
-						backend={[
-							'asp .net core',
-							'entity framework',
-							'postgresql',
-							'redis',
-						]}
+					<Project header='MySpace' image={mySpace.src} github='https://github.com/rr1me/myspace'
 						frontend={[
 							'typescript',
+							'next',
 							'react',
+							'react-spring',
+							'styled components',
+							'overlayscrollbars',
 							'module sass',
-							'redux toolkit',
-							'rtk query'
 						]}>
-						Scheduler application for tracking and statistics of time spent.
-						Includes sequential animations and deep authorization, based on Refresh-Access tokens that was built on top
-						of two databases:
-						PostgreSQL as true and Redis for frequent requests. Auth system based on roles and has email confirmation
-						through SMTP,
-						restoring access algorithm and token updating for infinite access.
+						My personal presentation space. <br/>All elements are done in Sci-Fi and Cyberpunk style using
+						React-Spring, Keyframes, Transition and Styled Components tech synergy. That means no GIFs/Videos are used — everything works on HTML, CSS and JS.
+						Despite all this complex animations, UI fully adapted for mobile devices.
 					</Project>
 				</div>
 			</OverlayScrollbarsComponent>

@@ -56,3 +56,16 @@
     translate: 0 -2vw;
   }
 }
+
+.bottomCrosses{
+  margin-top: 30px;
+  margin-left: 1000px;
+  width: 800px;
+  display: none;
+}
+
+@media (max-width: 963px){
+  .bottomCrosses {
+    display: grid;
+  }
+}

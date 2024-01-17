@@ -13,14 +13,14 @@ $transition: 150ms;
 }
 
 .linkText{
-	font-size: 18px;
+	font-size: inherit;
 	text-transform: uppercase;
 	color: v.$c_main_second;
 
 	padding-inline: 6px;
 	padding-bottom: 3px;
 
-	text-shadow: 0 0 8px v.$c_main_second;
+	text-shadow: 0 0 4px v.$c_main_second;
 
 	transition: $transition;
 }

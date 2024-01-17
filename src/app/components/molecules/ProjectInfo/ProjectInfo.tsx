@@ -3,6 +3,7 @@ import Button from '@/app/components/atoms/Button/Button';
 import { applyProps } from '@/app/components/shared/restyle';
 import SkillBlockToChange from '@/app/components/molecules/SkillBlock/SkillBlock';
 import { colorVars } from '@/app/theme';
+import { ReactNode } from 'react';
 
 const SkillBlock = applyProps(SkillBlockToChange, {
 	classNames: {
@@ -18,7 +19,7 @@ const SkillBlock = applyProps(SkillBlockToChange, {
 
 const ProjectInfo = ({ backend, frontend, desc, github }:
 	{backend?: string[], frontend?: string[],
-		desc: string, github: string}) => {
+		desc: ReactNode, github: string}) => {
 	return (
 		<div className={s.info}>
 			<div className={s.techs}>
@@ -41,7 +42,7 @@ const ProjectInfo = ({ backend, frontend, desc, github }:
 					{desc}
 				</p>
 				<div className={s.btnWrapper}>
-					<Button anotherColorVariation link={github}>
+					<Button anotherColorVariation link={github} blank>
 						Github
 					</Button>
 				</div>

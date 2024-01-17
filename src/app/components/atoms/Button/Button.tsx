@@ -4,8 +4,8 @@ import { createClassName } from '@/app/components/shared/utils';
 import { rajdhani } from '@/app/theme';
 import Link from 'next/link';
 
-const Button = ({ children, anotherColorVariation, link, ...props }:
-	{children: ReactNode, anotherColorVariation?: boolean, link?: string}
+const Button = ({ children, anotherColorVariation, link, blank, ...props }:
+	{children: ReactNode, anotherColorVariation?: boolean, link?: string, blank?: boolean}
 	& Omit<DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, 'className'>) => {
 
 	const inner =
@@ -14,7 +14,7 @@ const Button = ({ children, anotherColorVariation, link, ...props }:
 			<div className={s.inner}>
 				<p className={s.text}>{children}</p>
 			</div>
-		</>
+		</>;
 
 	const wrapperClassName = createClassName(s.wrapper, rajdhani,
 		anotherColorVariation ? s.alternative : s.main);
@@ -24,9 +24,9 @@ const Button = ({ children, anotherColorVariation, link, ...props }:
 			{inner}
 		</button>
 		:
-		<Link href={link} target='_blank' className={wrapperClassName}>
+		<Link href={link} target={blank ? '_blank' : undefined} className={wrapperClassName}>
 			{inner}
-		</Link>
+		</Link>;
 };
 
 export default Button;

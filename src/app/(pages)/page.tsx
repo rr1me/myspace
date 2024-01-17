@@ -56,8 +56,8 @@ const Page = () =>
 					target='_blank' className={createClassName(s.link, s.telegram)} />
 				<Link href='https://github.com/rr1me'
 					target='_blank' className={createClassName(s.link, s.github)} />
-				<Link href='https://linkedin/'
-					target='_blank' className={createClassName(s.link, s.linkedin)} />
+				{/*<Link href='https://linkedin/'*/}
+				{/*	target='_blank' className={createClassName(s.link, s.linkedin)} />*/}
 			</div>
 
 			<button className={s.button}>

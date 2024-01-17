@@ -6,8 +6,6 @@
 	min-height: 520px;
 }
 
-
-
 .decorationRow{
 	height: 100%;
 	display: flex;
@@ -36,6 +34,7 @@
 }
 
 .image{
+	min-height: 150px;
 	height: 150px;
 	width: 297px;
 	object-fit: contain;
@@ -46,5 +45,6 @@
 	.image{
 		width: calc(100% - 10px);
 		height: 183px;
+		min-height: 183px;
 	}
 }

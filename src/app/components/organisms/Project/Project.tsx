@@ -3,9 +3,10 @@ import { rajdhani } from '@/app/theme';
 import { createClassName } from '@/app/components/shared/utils';
 import ProjectInfo from '@/app/components/molecules/ProjectInfo/ProjectInfo';
 import ProjectTopAndInnerDecor from '@/app/components/molecules/ProjectInnerDecorations/ProjectTopAndInnerDecor';
+import { ReactNode } from 'react';
 
 const Project = ({ header, image, children: desc, backend, frontend, github }:
-	{header: string, image: string, children: string,
+	{header: string, image: string, children: ReactNode,
 		backend?: string[], frontend?: string[], github: string}) => {
 	return (
 		<section className={createClassName(s.project, rajdhani)}>
