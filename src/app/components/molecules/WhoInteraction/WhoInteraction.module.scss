@@ -1,0 +1,51 @@
+@use '../../../vars.module' as v;
+
+.wrapper{
+	align-self: center;
+	overflow: hidden;
+}
+
+.interaction{
+	padding-top: 20px;
+}
+
+.links{
+	//width: 140px;
+	height: 33px;
+
+	display: flex;
+	justify-content: space-evenly;
+
+	margin-bottom: 20px;
+}
+
+.link{
+	width: 33px;
+	height: 33px;
+	display: block;
+
+	background-color: rgba(166, 28, 67, 1);
+
+	mask-size: 33px;
+	transition: 200ms;
+}
+
+.link:hover{
+	scale: 120%;
+}
+
+.telegram{
+	mask-image: url('../../../../../public/telegram-logo-white.png');
+}
+.github{
+	mask-image: url('../../../../../public/github-mark-white.png');
+}
+.linkedin{
+	mask-image: url('../../../../../public/linkedin-logo-white.png');
+}
+
+.button{
+	@include v.button;
+	font-size: 14px;
+	font-weight: bolder;
+}

@@ -1,6 +1,15 @@
+@use '../../vars.module' as v;
+
 .main{
   //height: 100vh;
   color: white;
   padding: 50px;
   width: 1000px
+}
+
+.prev{
+  margin: 100px;
+  color: v.$c_main_first;
+  //width: 1000px;
+  max-width: 996px
 }
