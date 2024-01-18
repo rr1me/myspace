@@ -18,6 +18,7 @@ import BlueCrossArray from '@/app/components/molecules/BlueCrossArray/BlueCrossA
 
 const Background = () => {
 	const preloaderVisibility = useAnimationStore(s => s.preloaderVisibility);
+	console.log('render back');
 
 	return (
 		<div className={createClassName(s.background, mohave)}>

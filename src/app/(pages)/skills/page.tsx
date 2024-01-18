@@ -6,8 +6,8 @@ import { createClassName } from '@/app/components/shared/utils';
 import { OverlayScrollbarsComponent } from 'overlayscrollbars-react';
 import SkillColumn from '@/app/components/organisms/SkillColumn/SkillColumn';
 
-const Page = () => {
-	return (
+const Page = () =>
+	(
 		<article className={createClassName(rajdhani, s.skills)}>
 			<OverlayScrollbarsComponent className={s.scroll}>
 				<div className={s.wrapper}>
@@ -26,7 +26,6 @@ const Page = () => {
 			</OverlayScrollbarsComponent>
 		</article>
 	);
-};
 
 export default Page;
 

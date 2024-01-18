@@ -7,12 +7,8 @@
 
 .who{
 	position: relative;
-	//min-height: 150px;
-	height: 150px;
 	width: 100%;
-	//height: max-content;
-
-	//background-color: white;
+	height: 100%;
 	overflow: hidden;
 }
 
@@ -33,6 +29,9 @@
 }
 
 @container (width < 860px) {
+	.wrapper{
+		height: 280px;
+	}
 	.innerWho{
 		flex-direction: column;
 		gap: 15px;

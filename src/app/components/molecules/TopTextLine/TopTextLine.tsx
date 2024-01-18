@@ -10,7 +10,8 @@ import {
 } from '@/app/components/shared/utils';
 
 const allSpecials = katakana.concat(missingKatakana).concat(endAlphabetDigitsSpared);
-const randStr = Array(450).fill(0).map(() => getRandomArrayElement(allSpecials)).join('').toUpperCase();
+const randStr = Array(450).fill(0).map(() =>
+	getRandomArrayElement(allSpecials)).join('').toUpperCase();
 
 const TopTextLine = () =>
 	(

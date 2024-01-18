@@ -11,7 +11,7 @@ import { CSSProperties } from 'styled-components';
  */
 const Marquee = ({ children, horizontal = false, sx, duration = 30,
 	whitespacePreWrap = false, reverse = false, once = false,
-	onAnimationEnd, noOverflow = false, delay = 0, }:
+	onAnimationEnd, noOverflow = false, delay = 0 }:
 	{children: ReactNode, horizontal?: boolean, sx?: CSSProperties,
 		duration?: number, whitespacePreWrap?: boolean, reverse?: boolean, once?: boolean,
 		onAnimationEnd?: () => void, noOverflow?: boolean, delay?: number}) => {

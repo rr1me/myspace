@@ -23,38 +23,43 @@ const config = {
 	easing: easings.easeInOutExpo
 };
 
-let initialized = false;
+let initialized: boolean | undefined = false;
 const Who = () => {
 	const springsWidthRef = useSpringRef();
-	const [springsWidth] = useSpring(() => (initialized ? {
-		ref: springsWidthRef,
-		from: initialized ? {
-			height: '1px',
-			width: '0',
-			left: '50%'
-		}: {},
-		to: {
-			width: '100%',
-			left: '0'
-		},
-		config
-	} : undefined));
+	const [springsWidth] = useSpring(() => (initialized ?
+		{
+			ref: springsWidthRef,
+			from: {
+				height: '1px',
+				width: '0',
+				left: '50%'
+			},
+			to: {
+				width: '100%',
+				left: '0'
+			},
+			config
+		} : undefined
+	));
 	const springsHeightRef = useSpringRef();
 	const [springsHeight] = useSpring(() => (initialized ?
 		{
 			ref: springsHeightRef,
 			from:{
-				height: '1px'
+				height: '1%'
 			},
 			to: {
-				height: '150px'
+				height: '100%'
 			},
-			config
+			config,
+			onRest: () => {
+				initialized = undefined;
+			}
 		} : undefined
 	));
 
 	useChain(initialized ? [springsWidthRef, springsHeightRef] : [], [0, 0.8]);
-	if (!initialized) initialized = true;
+	if (initialized === false) initialized = true;
 
 	return (
 		<div className={s.wrapper}>

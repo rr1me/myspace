@@ -2,7 +2,7 @@
 
 .skill{
 	display: flex;
-	gap: 10px;
+	//gap: 10px;
 	flex-direction: column;
 	align-items: center;
 	white-space: nowrap;
@@ -29,6 +29,7 @@
 	column-gap: 8px;
 
 	padding-inline: 15px;
+	padding-top: 10px;
 }
 
 .misc{
@@ -42,12 +43,24 @@
 	}
 }
 
+.innerWrapper{
+	overflow: hidden;
+}
+
+.headerWrapper{
+	overflow: hidden;
+}
+
+.header{
+	padding-bottom: 10px;
+}
+
 @media (max-width: 963px){
-	.skill{
-		gap: 15px;
+	.header{
+		padding-bottom: 15px;
 	}
 	.inner{
-		padding-top: 5px;
+		padding-top: 15px;
 		max-height: 625px;
 		gap: 10px;
 		column-gap: 15px;
@@ -63,8 +76,9 @@
 	}
 }
 
-//@media (hover: none) and (pointer: coarse){
-//	.skill{
-//		background-color: rebeccapurple;
-//	}
-//}
+.tab{
+	background-color: v.$c_addition_second;
+	height: 1px;
+	width: 100%;
+	align-self: center;
+}

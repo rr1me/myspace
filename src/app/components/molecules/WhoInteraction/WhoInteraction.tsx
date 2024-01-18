@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { createClassName } from '@/app/components/shared/utils';
 import { animated, easings, useSpring } from '@react-spring/web';
 
-let initialized = false;
+let initialized: boolean | undefined = false;
 const WhoInteraction = () => {
 	const springs = useSpring(initialized ? {
 		from: {
@@ -18,9 +18,12 @@ const WhoInteraction = () => {
 		config: {
 			duration: 1000,
 			easing: easings.easeOutExpo
+		},
+		onRest: () => {
+			initialized = undefined;
 		}
 	} : {});
-	if (!initialized) initialized = true;
+	if (initialized === false) initialized = true;
 
 	return (
 		<div className={s.wrapper}>
