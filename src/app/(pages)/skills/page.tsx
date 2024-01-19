@@ -6,24 +6,97 @@ import { createClassName } from '@/app/components/shared/utils';
 import { OverlayScrollbarsComponent } from 'overlayscrollbars-react';
 import SkillColumn from '@/app/components/organisms/SkillColumn/SkillColumn';
 import { useShowPageAnimation } from '@/app/components/shared/hooks';
+import { useSpring, animated, easings, useSpringRef, useChain } from '@react-spring/web';
+
+const config = {
+	easing: easings.easeOutExpo,
+	duration: 1500
+};
 
 const Page = () => {
 	const [pageAnimation, onAnimationEnd] = useShowPageAnimation('skills');
+
+	let headerSprings, innerSprings, horizontalTabSprings, verticalTabSprings;
+
+	if (pageAnimation){
+		const verticalTabSpringsRef = useSpringRef();
+		const horizontalTabSpringsRef = useSpringRef();
+		const headerSpringsRef = useSpringRef();
+		const innerSpringsRef = useSpringRef();
+
+		verticalTabSprings = useSpring({
+			ref: verticalTabSpringsRef,
+			from: {
+				scaleY: 0
+			},
+			to: {
+				scaleY: 1
+			},
+			config
+		});
+		horizontalTabSprings = useSpring({
+			ref: horizontalTabSpringsRef,
+			from: {
+				scaleX: 0
+			},
+			to: {
+				scaleX: 1
+			},
+			config
+		});
+		headerSprings = useSpring({
+			ref: headerSpringsRef,
+			from: {
+				y: '100%'
+			},
+			to: {
+				y: '0'
+			},
+			config
+		});
+		innerSprings = useSpring({
+			ref: innerSpringsRef,
+			from: {
+				y: '-100%'
+			},
+			to: {
+				y: '0'
+			},
+			config: {
+				duration: 1200,
+				easing: easings.easeInOutQuint
+			},
+			onRest: onAnimationEnd
+		});
+
+		useChain([verticalTabSpringsRef, horizontalTabSpringsRef,
+			headerSpringsRef, innerSpringsRef],
+		[0, 0.5, 1, 1.3]
+		);
+	}
 
 	return (
 		<article className={createClassName(rajdhani, s.skills)}>
 			<OverlayScrollbarsComponent className={s.scroll}>
 				<div className={s.wrapper}>
-					<SkillColumn pageAnimation={pageAnimation} header='backend'>
+					<SkillColumn horizontalTabSprings={horizontalTabSprings}
+						headerSprings={headerSprings}
+						innerSprings={innerSprings}
+						header='backend'>
 						{back}
 					</SkillColumn>
-					<div className={s.tab} />
-					<SkillColumn pageAnimation={pageAnimation} header='frontend'>
+					<animated.div style={verticalTabSprings} className={s.tab} />
+					<SkillColumn horizontalTabSprings={horizontalTabSprings}
+						headerSprings={headerSprings}
+						innerSprings={innerSprings}
+						header='frontend'>
 						{front}
 					</SkillColumn>
-					<div className={createClassName(s.tab, s.tabAdaptive)} />
-					<SkillColumn pageAnimation={pageAnimation} header='miscellaneous'
-						onAnimationEnd={onAnimationEnd}>
+					<animated.div style={verticalTabSprings} className={createClassName(s.tab, s.tabAdaptive)} />
+					<SkillColumn horizontalTabSprings={horizontalTabSprings}
+						headerSprings={headerSprings}
+						innerSprings={innerSprings}
+						header='miscellaneous'>
 						{misc}
 					</SkillColumn>
 				</div>
