@@ -7,13 +7,17 @@ import { OverlayScrollbarsComponent } from 'overlayscrollbars-react';
 import sketchService from './sketchService.png';
 import lifeTracker from './lifeTracker.png';
 import mySpace from './mySpace.png';
+import { useShowPageAnimation } from '@/app/components/shared/hooks';
 
 const Page = () => {
+	const [pageAnimation, onAnimationEnd] = useShowPageAnimation('projects');
+
 	return (
 		<article className={s.projects}>
 			<OverlayScrollbarsComponent className={s.scroll}>
 				<div className={s.wrapper}>
-					<Project header='Sketch service' image={sketchService.src} github='https://github.com/rr1me/sketch-service'
+					<Project pageAnimation={pageAnimation} header='Sketch service'
+						image={sketchService.src} github='https://github.com/rr1me/sketch-service'
 						backend={[
 							'node js',
 							'nest js',
@@ -35,7 +39,8 @@ const Page = () => {
 						WebSocket serves room system for steady connection,
 						when WebRTC provides faster connection for drawing service.
 					</Project>
-					<Project header='LifeTracker' image={lifeTracker.src} github='https://github.com/rr1me/lifetracker'
+					<Project pageAnimation={pageAnimation} header='LifeTracker'
+						image={lifeTracker.src} github='https://github.com/rr1me/lifetracker'
 						backend={[
 							'asp .net core',
 							'entity framework',
@@ -56,7 +61,9 @@ const Page = () => {
 						through SMTP,
 						restoring access algorithm and token updating for infinite access.
 					</Project>
-					<Project header='MySpace' image={mySpace.src} github='https://github.com/rr1me/myspace'
+					<Project pageAnimation={pageAnimation} header='MySpace'
+						image={mySpace.src} github='https://github.com/rr1me/myspace'
+						onAnimationEnd={onAnimationEnd}
 						frontend={[
 							'typescript',
 							'next',

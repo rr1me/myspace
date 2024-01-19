@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { animationStore, useAnimationStore } from '@/app/components/shared/syncStore';
 
 export const useHydrated = () => {
 	const [hydrated, setHydrated] = useState(false);
@@ -13,4 +14,14 @@ export const useIsFirstRender = () => {
 	const isFirstRender = ref.current;
 	ref.current = false;
 	return isFirstRender;
+};
+
+export const useShowPageAnimation = (pageAnimationID: string): [boolean, () => void] => {
+	const pageAnimation = useAnimationStore(s =>
+		s.pageAnimation && !s.showedPages.includes(pageAnimationID));
+	const onAnimationEnd = () => {
+		animationStore.setStateSilently(s => ({ ...s,
+			pageAnimation: false, showedPages: s.showedPages.concat(pageAnimationID) }));
+	};
+	return [pageAnimation, onAnimationEnd];
 };

@@ -1,11 +1,11 @@
 'use client';
 
 import s from './Menu.module.scss';
-import { ReactNode, useEffect } from 'react';
+import { ReactNode } from 'react';
 import NavigationMenu from '@/app/components/organisms/NavigationMenu/NavigationMenu';
 import { animated, easings, useChain, useSpring, useSpringRef } from '@react-spring/web';
 import clsx from 'clsx';
-import { animationStore, useAnimationStore } from '@/app/components/shared/syncStore';
+import { useAnimationStore } from '@/app/components/shared/syncStore';
 import MenuBorder from '@/app/components/molecules/MenuBorder/MenuBorder';
 
 const config = {
@@ -34,23 +34,7 @@ const Menu = ({ children }: {children: ReactNode}) => {
 
 	useChain(preloaderVisibility ? [] : [springsWidthRef, springsHeightRef], [5, 6.1]);
 
-	useEffect(() => {
-		// if (preloaderVisibility)
-			animationStore.setStateSilently(s => ({ ...s, menuInitialized: true }));
-	}, [preloaderVisibility]);
-
-	useEffect(() => {
-		console.log('kavo');
-	});
-
 	return (
-		// <animated.div style={springs} className={clsx({
-		// 	[s.menu]: true,
-		// 	[s.invisible]: !preloaderVisibility
-		// })}>
-		// 	<NavigationMenu/>
-		// 	{children}
-		// </animated.div>
 		<div className={clsx({
 			[s.global]: true,
 			[s.invisible]: preloaderVisibility

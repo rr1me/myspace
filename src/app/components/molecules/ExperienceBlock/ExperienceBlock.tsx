@@ -3,6 +3,7 @@ import { createClassName } from '@/app/components/shared/utils';
 import ExperienceInfo from '@/app/components/molecules/ExperienceInfo/ExperienceInfo';
 import { Place } from '@/app/components/organisms/Experience/Experience';
 import dayjs, { Dayjs } from 'dayjs';
+import { animated, SpringValue } from '@react-spring/web';
 
 const months = [
 	'Jan',
@@ -33,50 +34,64 @@ const getDiff = (startDate: Dayjs, endDate: Dayjs) => {
 	${days > 0 ? days + ` day${mto(days)}` : 'recently'}`;
 };
 
-const ExperienceBlock = ({ place: { name, position, responsibilities, dateMark }, last }:
-	{place: Place, last: boolean | Dayjs}) =>
-	(
+export type Springs = Record<string, SpringValue<number> | SpringValue<string>> | undefined;
+const ExperienceBlock = ({ place: { name, position, responsibilities, dateMark }, last,
+	experienceHeadSprings, infoDecorationSprings,
+	responsibilitiesSprings, responsibilitiesTitleSprings }:
+	{place: Place, last: boolean | string,
+		experienceHeadSprings: Springs, infoDecorationSprings: Springs,
+		responsibilitiesSprings: Springs, responsibilitiesTitleSprings: Springs}) => {
+	const dateMarkObj = dayjs(dateMark);
+
+	return (
 		<div className={s.content}>
-			<p className={s.firstMark}>
-				{dateMark.year()}<br />
-				{months[dateMark.month()]}
-			</p>
 
-			<div className={s.marks}>
-				<div className={s.markTab} />
+			<animated.div style={experienceHeadSprings}>
+				<p className={s.firstMark}>
+					{dateMarkObj.year()}<br />
+					{months[dateMarkObj.month()]}
+				</p>
 
-				{typeof last === 'boolean' ?
-					<>
-						<p className={s.date}>{getDiff(dateMark, dayjs())}</p>
+				<div className={s.marks}>
+					<div className={s.markTab} />
 
-						<div className={s.markTab} />
-						<p className={s.lastMark}>Now</p>
-					</>
-					:
-					<>
-						<p className={s.date}>{getDiff(dateMark, last)}</p>
-					</>
-				}
-			</div>
+					{typeof last === 'boolean' ?
+						<>
+							<p className={s.date}>{getDiff(dateMarkObj, dayjs())}</p>
 
-			<div className={s.inner}>
-				<div className={s.title}>
-					<div className={s.place}>
-						<div className={s.horizTab} />
-						<p className={s.goldShadow}>
-							{name}
-						</p>
-						<div className={s.horizTab} />
-					</div>
-
-					<p className={createClassName(s.position, s.goldShadow)}>
-						{position}
-					</p>
+							<div className={s.markTab} />
+							<p className={s.lastMark}>Now</p>
+						</>
+						:
+						<>
+							<p className={s.date}>{getDiff(dateMarkObj, dayjs(last))}</p>
+						</>
+					}
 				</div>
 
-				<ExperienceInfo responsibilities={responsibilities} />
-			</div>
+				<div className={s.inner}>
+					<div className={s.title}>
+						<div className={s.place}>
+							<div className={s.horizTab} />
+							<p className={s.goldShadow}>
+								{name}
+							</p>
+							<div className={s.horizTab} />
+						</div>
+
+						<p className={createClassName(s.position, s.goldShadow)}>
+							{position}
+						</p>
+					</div>
+				</div>
+			</animated.div>
+
+			<ExperienceInfo decorationSprings={infoDecorationSprings}
+				responsibilities={responsibilities}
+				responsibilitiesSprings={responsibilitiesSprings}
+				responsibilitiesTitleSprings={responsibilitiesTitleSprings}/>
 		</div>
 	);
+};
 
 export default ExperienceBlock;

@@ -12,13 +12,11 @@ import { mohave } from '@/app/theme';
 import TopElement from '@/app/components/organisms/TopElement/TopElement';
 import { createClassName } from '@/app/components/shared/utils';
 import { useAnimationStore } from '@/app/components/shared/syncStore';
-import PngLamp from '@/app/components/atoms/Lamp/PngLamp';
 import BlueCrossArray from '@/app/components/molecules/BlueCrossArray/BlueCrossArray';
 
 
 const Background = () => {
 	const preloaderVisibility = useAnimationStore(s => s.preloaderVisibility);
-	console.log('render back');
 
 	return (
 		<div className={createClassName(s.background, mohave)}>

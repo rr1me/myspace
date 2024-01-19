@@ -5,12 +5,9 @@ import PreloaderProtocol from '@/app/components/molecules/PreloaderProtocol/Prel
 import Lamp from '@/app/components/atoms/Lamp/Lamp';
 import { animated, easings, useSpring } from '@react-spring/web';
 import { animationStore, useAnimationStore } from '@/app/components/shared/syncStore';
-import { useRouter } from 'next/navigation';
 
 const Preloader = () => {
 	const preloaderVisibility = useAnimationStore(s => s.preloaderVisibility);
-
-	const router = useRouter();
 
 	const [innerSprings, api] = useSpring(() => ({
 		from: {
@@ -41,12 +38,6 @@ const Preloader = () => {
 			duration: 3000,
 			easing: easings.easeInOutQuart
 		},
-		// onStart: () => {
-		// 	router.prefetch('/');
-		// 	router.prefetch('/skills');
-		// 	router.prefetch('/projects');
-		// 	router.prefetch('/experience');
-		// },
 		onRest: () => {
 			api.resume();
 			apiButton.resume();

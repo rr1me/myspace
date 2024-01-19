@@ -10,7 +10,7 @@ const page = () => {
 	return (
 		<div className={createClassName(mohave, s.prev)}>
 			{/*<CryptoDataChecker/>*/}
-			<Who/>
+			{/*<Who/>*/}
 		</div>
 	);
 };

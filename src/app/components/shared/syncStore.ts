@@ -33,16 +33,16 @@ type AnimationStore = {
 	redCodeQueue: number[],
 	preloaderVisibility: boolean,
 	navMenuOpen: boolean,
-	pageUiInitializations: Record<string, boolean | undefined>,
-	menuInitialized: boolean
+	pageAnimation: boolean,
+	showedPages: string[]
 }
 
 export const animationStore = createStore<AnimationStore>({
 	redCodeQueue: [],
 	preloaderVisibility: true,
 	navMenuOpen: false,
-	pageUiInitializations: {},
-	menuInitialized: false,
+	pageAnimation: false,
+	showedPages: []
 });
 
 export const useAnimationStore = <Callback extends (s: AnimationStore) => ReturnType<Callback>>(selector: Callback): ReturnType<Callback> =>

@@ -26,15 +26,18 @@ const NavigationMenu = () => {
 		if (!used) setUsed(true);
 	};
 
+	const onLinkClick = () =>
+		animationStore.setStateSilently(s => ({ ...s, pageAnimation: true }));
+
 	return (
 		<>
 			<header className={s.lineMenu}>
 				<div className={s.tab} />
 				<nav className={s.lineLinks}>
-					<LineLink href='/'>about me</LineLink>
-					<LineLink href='/skills'>skills</LineLink>
-					<LineLink href='/projects'>projects</LineLink>
-					<LineLink href='/experience'>experience</LineLink>
+					<LineLink onClick={onLinkClick} href='/'>about me</LineLink>
+					<LineLink onClick={onLinkClick} href='/skills'>skills</LineLink>
+					<LineLink onClick={onLinkClick} href='/projects'>projects</LineLink>
+					<LineLink onClick={onLinkClick} href='/experience'>experience</LineLink>
 				</nav>
 				<div className={s.tab} />
 			</header>
@@ -71,10 +74,10 @@ const NavigationMenu = () => {
 						<div className={s.radialMark}/>
 					</div>
 
-					<Button link='/'>about me</Button>
-					<Button link='/skills'>skills</Button>
-					<Button link='/projects'>projects</Button>
-					<Button link='/experience'>experience</Button>
+					<Button onClick={onLinkClick} link='/'>about me</Button>
+					<Button onClick={onLinkClick} link='/skills'>skills</Button>
+					<Button onClick={onLinkClick} link='/projects'>projects</Button>
+					<Button onClick={onLinkClick} link='/experience'>experience</Button>
 				</animated.nav>
 			</div>
 		</>

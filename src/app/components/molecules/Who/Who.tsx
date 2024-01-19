@@ -6,6 +6,7 @@ import restyle from '@/app/components/shared/restyle';
 import TabToChange from '@/app/components/atoms/Tab/Tab';
 import { colorVars } from '@/app/theme';
 import { animated, easings, useChain, useSpring, useSpringRef } from '@react-spring/web';
+import { animationStore } from '@/app/components/shared/syncStore';
 
 const Tab = restyle(TabToChange, {
 	background: colorVars.g_separator_oneway_main,
@@ -23,10 +24,9 @@ const config = {
 	easing: easings.easeInOutExpo
 };
 
-let initialized: boolean | undefined = false;
-const Who = () => {
+const Who = ({ pageAnimation }: {pageAnimation: boolean}) => {
 	const springsWidthRef = useSpringRef();
-	const [springsWidth] = useSpring(() => (initialized ?
+	const [springsWidth] = useSpring(() => (pageAnimation ?
 		{
 			ref: springsWidthRef,
 			from: {
@@ -42,7 +42,7 @@ const Who = () => {
 		} : undefined
 	));
 	const springsHeightRef = useSpringRef();
-	const [springsHeight] = useSpring(() => (initialized ?
+	const [springsHeight] = useSpring(() => (pageAnimation ?
 		{
 			ref: springsHeightRef,
 			from:{
@@ -51,15 +51,11 @@ const Who = () => {
 			to: {
 				height: '100%'
 			},
-			config,
-			onRest: () => {
-				initialized = undefined;
-			}
+			config
 		} : undefined
 	));
 
-	useChain(initialized ? [springsWidthRef, springsHeightRef] : [], [0, 0.8]);
-	if (initialized === false) initialized = true;
+	useChain(pageAnimation ? [springsWidthRef, springsHeightRef] : [], [0, 0.8]);
 
 	return (
 		<div className={s.wrapper}>

@@ -5,27 +5,32 @@ import { rajdhani } from '@/app/theme';
 import { createClassName } from '@/app/components/shared/utils';
 import { OverlayScrollbarsComponent } from 'overlayscrollbars-react';
 import SkillColumn from '@/app/components/organisms/SkillColumn/SkillColumn';
+import { useShowPageAnimation } from '@/app/components/shared/hooks';
 
-const Page = () =>
-	(
+const Page = () => {
+	const [pageAnimation, onAnimationEnd] = useShowPageAnimation('skills');
+
+	return (
 		<article className={createClassName(rajdhani, s.skills)}>
 			<OverlayScrollbarsComponent className={s.scroll}>
 				<div className={s.wrapper}>
-					<SkillColumn header='backend'>
+					<SkillColumn pageAnimation={pageAnimation} header='backend'>
 						{back}
 					</SkillColumn>
 					<div className={s.tab} />
-					<SkillColumn header='frontend'>
+					<SkillColumn pageAnimation={pageAnimation} header='frontend'>
 						{front}
 					</SkillColumn>
 					<div className={createClassName(s.tab, s.tabAdaptive)} />
-					<SkillColumn header='miscellaneous'>
+					<SkillColumn pageAnimation={pageAnimation} header='miscellaneous'
+						onAnimationEnd={onAnimationEnd}>
 						{misc}
 					</SkillColumn>
 				</div>
 			</OverlayScrollbarsComponent>
 		</article>
 	);
+};
 
 export default Page;
 

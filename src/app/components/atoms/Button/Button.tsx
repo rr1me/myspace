@@ -1,12 +1,13 @@
 import s from './Button.module.scss';
-import { ButtonHTMLAttributes, DetailedHTMLProps, ReactNode } from 'react';
+import { ButtonHTMLAttributes, DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react';
 import { createClassName } from '@/app/components/shared/utils';
 import { rajdhani } from '@/app/theme';
 import Link from 'next/link';
 
 const Button = ({ children, anotherColorVariation, link, blank, ...props }:
 	{children: ReactNode, anotherColorVariation?: boolean, link?: string, blank?: boolean}
-	& Omit<DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>, 'className'>) => {
+	& Omit<DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>
+	& HTMLAttributes<HTMLAnchorElement>, 'className' | 'ref'>) => {
 
 	const inner =
 		<>
@@ -24,7 +25,8 @@ const Button = ({ children, anotherColorVariation, link, blank, ...props }:
 			{inner}
 		</button>
 		:
-		<Link href={link} target={blank ? '_blank' : undefined} className={wrapperClassName}>
+		<Link href={link} {...props}
+			target={blank ? '_blank' : undefined} className={wrapperClassName}>
 			{inner}
 		</Link>;
 };

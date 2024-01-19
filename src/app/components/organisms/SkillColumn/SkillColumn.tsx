@@ -2,7 +2,7 @@ import s from './SkillColumn.module.scss';
 import SkillBlock from '@/app/components/molecules/SkillBlock/SkillBlock';
 import clsx from 'clsx';
 import { animated, easings, useSpring } from '@react-spring/web';
-import { animationStore, useAnimationStore } from '@/app/components/shared/syncStore';
+import { useAnimationStore } from '@/app/components/shared/syncStore';
 
 export type SkillData = {
 	header: string;
@@ -13,14 +13,11 @@ const config = {
 	easing: easings.easeOutExpo,
 	duration: 1500
 };
-const SkillColumn = ({ header, children }: {header: string, children: SkillData[]}) => {
-	const initialized = false
-	const check = useAnimationStore(s =>
-		s.menuInitialized);
-	console.log(check);
+const SkillColumn = ({ header, children, onAnimationEnd, pageAnimation }:
+	{header: string, children: SkillData[], onAnimationEnd?: () => void, pageAnimation?: boolean}) => {
 	let headerSprings, innerSprings, tabSprings;
 
-	if (initialized){
+	if (pageAnimation){
 		tabSprings = useSpring({
 			from: {
 				left: '50%',
@@ -52,10 +49,7 @@ const SkillColumn = ({ header, children }: {header: string, children: SkillData[
 			},
 			delay: 1000,
 			config,
-			onRest: () => {
-				animationStore.setStateSilently(s =>
-					({ ...s, pageUiInitializations: { ...s.pageUiInitializations, [header]: false } }));
-			}
+			onRest: onAnimationEnd
 		});
 	}
 

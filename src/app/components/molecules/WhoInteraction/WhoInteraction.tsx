@@ -5,9 +5,9 @@ import Link from 'next/link';
 import { createClassName } from '@/app/components/shared/utils';
 import { animated, easings, useSpring } from '@react-spring/web';
 
-let initialized: boolean | undefined = false;
-const WhoInteraction = () => {
-	const springs = useSpring(initialized ? {
+const WhoInteraction = ({ pageAnimation, onAnimationEnd }:
+	{pageAnimation: boolean, onAnimationEnd: () => void}) => {
+	const springs = useSpring(pageAnimation ? {
 		from: {
 			y: '-100%'
 		},
@@ -19,11 +19,8 @@ const WhoInteraction = () => {
 			duration: 1000,
 			easing: easings.easeOutExpo
 		},
-		onRest: () => {
-			initialized = undefined;
-		}
+		onRest: onAnimationEnd
 	} : {});
-	if (initialized === false) initialized = true;
 
 	return (
 		<div className={s.wrapper}>

@@ -20,6 +20,7 @@
     "react-dom": "latest",
     "sass": "^1.69.7",
     "scss": "latest",
+    "sharp": "^0.33.2",
     "styled-components": "^6.1.3"
   },
   "devDependencies": {

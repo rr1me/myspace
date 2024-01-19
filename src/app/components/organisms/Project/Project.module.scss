@@ -13,6 +13,8 @@
 }
 
 .highDecoration{
+	transform-origin: 0 0;
+
 	flex-shrink: 0;
 	width: 7px;
 	background-color: v.$c_main_second;
@@ -20,16 +22,16 @@
 	clip-path: polygon(0 6px, 3px 0, 100% 0, 100% 172px, 5px 174px, 5px 100%, 0 98%, 0 91%, 2px 90.5%, 2px 67%, 0 66.5%);
 }
 
-.inner{
-	//z-index: 5;
-
-	color: v.$c_main_second;
+.innerWrapper{
+	overflow: hidden;
 	width: 100%;
+}
 
+.inner{
+	color: v.$c_main_second;
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
-
 	position: relative;
 }
 
