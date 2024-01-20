@@ -22,6 +22,21 @@ const WhoInteraction = ({ pageAnimation, onAnimationEnd }:
 		onRest: onAnimationEnd
 	} : {});
 
+	const onCvDownload = async () => {
+		const response = await fetch('/cv');
+
+		if (response.status !== 200) {
+			console.error(response.status, response.statusText);
+		}
+
+		const blob = await response.blob();
+		const url = window.URL.createObjectURL(blob);
+		const link = document.createElement('a');
+		link.href = url;
+		link.download = 'cv.pdf';
+		link.click();
+		link.remove();
+	};
 	return (
 		<div className={s.wrapper}>
 			<animated.div style={springs} className={s.interaction}>
@@ -32,7 +47,7 @@ const WhoInteraction = ({ pageAnimation, onAnimationEnd }:
 						target='_blank' className={createClassName(s.link, s.github)} />
 				</div>
 
-				<button className={s.button}>
+				<button onClick={onCvDownload} className={s.button}>
 					DOWNLOAD CV
 				</button>
 			</animated.div>
