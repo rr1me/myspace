@@ -9,7 +9,7 @@ const WhoInteraction = ({ pageAnimation, onAnimationEnd }:
 	{pageAnimation: boolean, onAnimationEnd: () => void}) => {
 	const springs = useSpring(pageAnimation ? {
 		from: {
-			y: '-100%'
+			y: '-105%'
 		},
 		to:{
 			y: '0'

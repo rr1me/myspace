@@ -47,7 +47,7 @@ const Page = () => {
 		headerSprings = useSpring({
 			ref: headerSpringsRef,
 			from: {
-				y: '100%'
+				y: '105%'
 			},
 			to: {
 				y: '0'

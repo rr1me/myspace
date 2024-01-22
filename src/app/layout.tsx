@@ -1,16 +1,13 @@
 import type { Metadata, Viewport } from 'next';
 import { ReactNode } from 'react';
-
-import Background from '@/app/components/templates/Background/Background';
 import StyledComponentsRegistry from '@/app/registry';
 import { orbitron } from '@/app/theme';
-import Preloader from '@/app/components/templates/Preloader/Preloader';
-import Menu from '@/app/components/templates/Menu/Menu';
 
 import 'overlayscrollbars/overlayscrollbars.css';
 import './reset.css';
 import './layout.scss';
 import './vars.module.scss';
+import Space from '@/app/components/templates/Space/Space';
 
 export const metadata: Metadata = {
 	title: 'rr1me\'s space',
@@ -18,7 +15,7 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
 	userScalable: false,
-	initialScale: 0.6 //smaller scale reduces stutters on mobiles
+	initialScale: 0.7 //smaller scale reduces stutters on mobiles
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -26,13 +23,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 		<html lang="en">
 			<body className={orbitron}>
 				<StyledComponentsRegistry>
-					<Background/>
-					<main className='main'>
-						<Preloader/>
-						<Menu>
-							{children}
-						</Menu>
-					</main>
+					<Space>
+						{children}
+					</Space>
 				</StyledComponentsRegistry>
 			</body>
 		</html>

@@ -13,7 +13,8 @@ const config = {
 	duration: 1500
 };
 
-const Menu = ({ children }: {children: ReactNode}) => {
+const Menu = ({ children, isMobile }: {children: ReactNode, isMobile: boolean}) => {
+	const ad = isMobile ? 0 : 5;
 	const preloaderVisibility = useAnimationStore(s => s.preloaderVisibility);
 
 	const springsWidthRef = useSpringRef();
@@ -32,7 +33,7 @@ const Menu = ({ children }: {children: ReactNode}) => {
 		config
 	});
 
-	useChain(preloaderVisibility ? [] : [springsWidthRef, springsHeightRef], [5, 6.1]);
+	useChain(preloaderVisibility ? [] : [springsWidthRef, springsHeightRef], [ad, ad + 1.1]);
 
 	return (
 		<div className={clsx({

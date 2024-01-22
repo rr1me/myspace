@@ -15,36 +15,37 @@ import { useAnimationStore } from '@/app/components/shared/syncStore';
 import BlueCrossArray from '@/app/components/molecules/BlueCrossArray/BlueCrossArray';
 
 
-const Background = () => {
+const Background = ({ isMobile }: {isMobile: boolean}) => {
 	const preloaderVisibility = useAnimationStore(s => s.preloaderVisibility);
 
-	return (
-		<div className={createClassName(s.background, mohave)}>
-			<BackgroundLighting start={!preloaderVisibility} />
+	if (!isMobile)
+		return (
+			<div className={createClassName(s.background, mohave)}>
+				<BackgroundLighting start={!preloaderVisibility} />
 
-			{/*<PngLamp start={!preloaderVisibility} delay={600} duration={3000} cyan moreFalloff sx={{*/}
-			{/*	opacity: 0.2,*/}
-			{/*	height: 140,*/}
-			{/*	width: 3000,*/}
-			{/*	objectFit: 'fill',*/}
-			{/*	top: 0*/}
-			{/*}}/>*/}
-			{/*<PngLamp start={!preloaderVisibility} delay={200} duration={3000} moreFalloff sx={{*/}
-			{/*	opacity: 0.13,*/}
-			{/*	height: 130,*/}
-			{/*	width: 3000,*/}
-			{/*	objectFit: 'fill',*/}
-			{/*	top: 100*/}
-			{/*}}/>*/}
-			{/*<PngLamp start={!preloaderVisibility} delay={1500} duration={3000} sx={{*/}
-			{/*	opacity: 0.1*/}
-			{/*}}/>*/}
-			{/*<PngLamp start={!preloaderVisibility} delay={2000} duration={3000} cyan sx={{*/}
-			{/*	opacity: 0.11,*/}
-			{/*	top: 850,*/}
-			{/*}}/>*/}
+				{/*<PngLamp start={!preloaderVisibility} delay={600} duration={3000} cyan moreFalloff sx={{*/}
+				{/*	opacity: 0.2,*/}
+				{/*	height: 140,*/}
+				{/*	width: 3000,*/}
+				{/*	objectFit: 'fill',*/}
+				{/*	top: 0*/}
+				{/*}}/>*/}
+				{/*<PngLamp start={!preloaderVisibility} delay={200} duration={3000} moreFalloff sx={{*/}
+				{/*	opacity: 0.13,*/}
+				{/*	height: 130,*/}
+				{/*	width: 3000,*/}
+				{/*	objectFit: 'fill',*/}
+				{/*	top: 100*/}
+				{/*}}/>*/}
+				{/*<PngLamp start={!preloaderVisibility} delay={1500} duration={3000} sx={{*/}
+				{/*	opacity: 0.1*/}
+				{/*}}/>*/}
+				{/*<PngLamp start={!preloaderVisibility} delay={2000} duration={3000} cyan sx={{*/}
+				{/*	opacity: 0.11,*/}
+				{/*	top: 850,*/}
+				{/*}}/>*/}
 
-			{!preloaderVisibility &&
+				{!preloaderVisibility &&
 			<>
 				<TopElement />
 
@@ -60,9 +61,14 @@ const Background = () => {
 
 				<BlueCrossArray quantity={30} additionalClassName={s.bottomCrosses}/>
 			</>
-			}
-		</div>
-	);
+				}
+			</div>
+		);
+
+	return !preloaderVisibility &&
+		<div className={s.mobBackground}>
+			<div className={s.mobGrad}/>
+		</div>;
 };
 
 export default Background;

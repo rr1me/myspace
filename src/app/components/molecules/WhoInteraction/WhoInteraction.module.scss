@@ -5,6 +5,12 @@
 	overflow: hidden;
 }
 
+@media (hover: none) and (pointer: coarse){
+	.wrapper{
+		scale: 130%
+	}
+}
+
 .interaction{
 	padding-top: 20px;
 }
