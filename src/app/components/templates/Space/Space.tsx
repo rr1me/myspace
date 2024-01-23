@@ -1,11 +1,15 @@
 'use client';
 
+import s from './Space.module.scss';
 import Background from '@/app/components/templates/Background/Background';
 import Preloader from '@/app/components/templates/Preloader/Preloader';
 import Menu from '@/app/components/templates/Menu/Menu';
 import { ReactNode, useEffect, useState } from 'react';
+import { useAnimationStore } from '@/app/components/shared/syncStore';
+import clsx from 'clsx';
 
 const Space = ({ children }: {children: ReactNode}) => {
+	const preloaderVisibility = useAnimationStore(s => s.preloaderVisibility);
 	const [isMobile, setIsMobile] = useState<null | boolean>(null);
 
 	useEffect(() => {
@@ -37,7 +41,10 @@ const Space = ({ children }: {children: ReactNode}) => {
 	return (
 		<>
 			{isMounted && <Background isMobile={isMobile} />}
-			<main className='main'>
+			<main className={clsx({
+				[s.main]: true,
+				[s.mainAdaptive]: !preloaderVisibility
+			})}>
 				<Preloader/>
 				{isMounted &&
 						<Menu isMobile={isMobile}>

@@ -10,10 +10,22 @@
 	justify-content: center;
 }
 
+@media (max-width: 1305px) {
+	.skills {
+		padding-inline: 50px;
+	}
+}
+
 .scroll{
 	height: max-content;
 	max-height: 95%;
-	width: max-content;
+	width: 100%;
+}
+
+.global{
+	width: 100%;
+	display: flex;
+	justify-content: center;
 }
 
 .wrapper{

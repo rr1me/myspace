@@ -78,27 +78,29 @@ const Page = () => {
 	return (
 		<article className={createClassName(rajdhani, s.skills)}>
 			<OverlayScrollbarsComponent className={s.scroll}>
-				<div className={s.wrapper}>
-					<SkillColumn horizontalTabSprings={horizontalTabSprings}
-						headerSprings={headerSprings}
-						innerSprings={innerSprings}
-						header='backend'>
-						{back}
-					</SkillColumn>
-					<animated.div style={verticalTabSprings} className={s.tab} />
-					<SkillColumn horizontalTabSprings={horizontalTabSprings}
-						headerSprings={headerSprings}
-						innerSprings={innerSprings}
-						header='frontend'>
-						{front}
-					</SkillColumn>
-					<animated.div style={verticalTabSprings} className={createClassName(s.tab, s.tabAdaptive)} />
-					<SkillColumn horizontalTabSprings={horizontalTabSprings}
-						headerSprings={headerSprings}
-						innerSprings={innerSprings}
-						header='miscellaneous'>
-						{misc}
-					</SkillColumn>
+				<div className={s.global}>
+					<div className={s.wrapper}>
+						<SkillColumn horizontalTabSprings={horizontalTabSprings}
+							headerSprings={headerSprings}
+							innerSprings={innerSprings}
+							header='backend'>
+							{back}
+						</SkillColumn>
+						<animated.div style={verticalTabSprings} className={s.tab} />
+						<SkillColumn horizontalTabSprings={horizontalTabSprings}
+							headerSprings={headerSprings}
+							innerSprings={innerSprings}
+							header='frontend'>
+							{front}
+						</SkillColumn>
+						<animated.div style={verticalTabSprings} className={createClassName(s.tab, s.tabAdaptive)} />
+						<SkillColumn horizontalTabSprings={horizontalTabSprings}
+							headerSprings={headerSprings}
+							innerSprings={innerSprings}
+							header='miscellaneous'>
+							{misc}
+						</SkillColumn>
+					</div>
 				</div>
 			</OverlayScrollbarsComponent>
 		</article>
