@@ -13,8 +13,8 @@ const config = {
 	duration: 1500
 };
 
-const ad = 5;
-const Menu = ({ children }: {children: ReactNode}) => {
+const Menu = ({ children, isMobile }: {children: ReactNode, isMobile: boolean}) => {
+	const ad = isMobile ? 2 : 5;
 	const preloaderVisibility = useAnimationStore(s => s.preloaderVisibility);
 
 	const springsWidthRef = useSpringRef();

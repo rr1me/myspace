@@ -1,0 +1,55 @@
+@use '../../../vars.module' as v;
+
+.taskManager{
+	position: absolute;
+	right: 0;
+	bottom: 20px;
+	color: v.$c_main_second;
+	width: 250px;
+	height: 60px;
+}
+
+.managerTab{
+	width: 100%;
+	height: 1px;
+	background-color: v.$c_main_second;
+
+	transform-origin: 100%;
+}
+
+.labelGlobal{
+	margin-top: 10px;
+	height: 25px;
+}
+
+.labelWrapper{
+	//height: 1px;
+	overflow: hidden;
+}
+
+.label{
+	height: 25px;
+	border: 1px solid v.$c_main_second;
+	padding: 2px 5px;
+	display: flex;
+	justify-content: space-between;
+
+	position: relative;
+}
+
+.tmTab{
+	position: absolute;
+	right: 85px;
+	background-color: v.$c_main_second;
+	width: 1px;
+	height: 100%;
+}
+
+.cadp{
+	font-size: 9px;
+	width: 70px;
+}
+
+.swt{
+	height: 21px;
+}

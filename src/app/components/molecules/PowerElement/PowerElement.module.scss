@@ -1,0 +1,14 @@
+@use '../../../vars.module' as v;
+
+.wrapper{
+	position: absolute;
+	bottom: 25px;
+	padding-left: 40px;
+}
+
+.powerElement{
+	width: 110px;
+	height: 27px;
+	mask-image: url('power element.png');
+	background-color: v.$c_main_third;
+}

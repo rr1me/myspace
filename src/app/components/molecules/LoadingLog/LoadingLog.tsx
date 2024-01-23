@@ -7,8 +7,9 @@ import SelfWritingText from '@/app/components/atoms/SelfWritingText/SelfWritingT
 import { animated, easings, useChain, useSpring, useSpringRef } from '@react-spring/web';
 import { useState } from 'react';
 import SquareBound from '@/app/components/atoms/SquareBound/SquareBound';
+import SxSC from '@/app/components/atoms/SxSC/SxSC';
 
-const LoadingLog = ({ delay }: {delay?: number}) => {
+const LoadingLog = ({ delay, topOffset }: {delay?: number, topOffset?: number}) => {
 	const springsRef = useSpringRef();
 	const [springs] = useSpring(() => ({
 		ref: springsRef,
@@ -44,8 +45,13 @@ const LoadingLog = ({ delay }: {delay?: number}) => {
 
 	const timingClassName = createClassName(s.timing, s.wideNumber);
 	return (
-		<div className={createClassName(s.element, orbitron)}>
-			<animated.div style={innerSprings} className={s.inner}>
+		<SxSC $sx={topOffset ? {
+			height: 50 + topOffset
+		} : undefined} className={createClassName(s.element, orbitron)}>
+			<animated.div style={topOffset ? {
+				paddingTop: topOffset + 'px',
+				...innerSprings
+			} : innerSprings} className={s.inner}>
 				<div className={s.square}>
 					<SquareBound>
 						<div className={s.innerBound}>
@@ -84,7 +90,7 @@ const LoadingLog = ({ delay }: {delay?: number}) => {
 					<p className={s.timing}>1</p>
 				</animated.article>
 			</animated.div>
-		</div>
+		</SxSC>
 	);
 };
 
