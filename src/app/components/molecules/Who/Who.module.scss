@@ -44,3 +44,9 @@
 		align-self: flex-end;
 	}
 }
+
+@container (width < 44px){
+	.wrapper{
+		height: auto;
+	}
+}
