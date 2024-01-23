@@ -7,7 +7,7 @@
 .pipeline{
 	margin-left: 10px;
 	height: 0;
-	overflow: hidden; //fixme this makes marquee invisible for initial render, but it needs to be hidden for show animation. need to dig into it. probable fix – overflow: visible on marquee wrapper/element
+	overflow: hidden;
 
 	animation-name: show;
 	animation-duration: 1s;

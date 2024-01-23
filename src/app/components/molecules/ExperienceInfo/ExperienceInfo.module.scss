@@ -4,19 +4,14 @@
 	width: 290px;
 	min-height: 140px;
 	margin-inline: auto;
-	//margin-top: 10px;
 
 	display: flex;
 	gap: 1px;
 }
 
 .infoInner{
-	//width: 254px;
 	width: calc(100% - 6px);
 	overflow: hidden;
-	//position: relative;
-	//fixme it overflows on top
-	//background: linear-gradient(220deg, rgba(0, 207, 214, 0.07) 0%, rgba(0, 207, 214, 0) 50%);
 }
 
 .content{

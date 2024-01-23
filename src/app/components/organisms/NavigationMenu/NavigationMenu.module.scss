@@ -39,26 +39,9 @@
 	text-transform: uppercase;
 }
 
-//.button{
-//	@include v.button;
-//
-//	font-weight: 600;
-//	font-size: 32px;
-//	width: 100px;
-//	height: 25px;
-//
-//	text-transform: uppercase;
-//	padding: 3px 0 0 0;
-//
-//	color: v.$c_main_first;
-//
-//	text-align: center;
-//}
-
 .lineMenu{
 	width: 100%;
 	height: 50px;
-	//background-color: v.$c_main_second;
 
 	display: none;
 	gap: 3px;
@@ -79,7 +62,6 @@
 
 @media (hover: none) and (pointer: coarse) {
 	.lineMenu{
-		//scale: 115%; //fixme causes tap bug(unable to use on certain points of link button) on touch screens
 		font-size: 22px;
 		gap: 5px;
 	}
@@ -111,7 +93,6 @@
 	//background: radial-gradient(closest-side, rgba(255, 255, 0, 0.27) 5%, transparent 60%, #3f87a6, #ebf8e1 90%, transparent);
 	//background: radial-gradient(closest-side, rgba(255, 255, 0, 0.27) 5%, transparent 60%, rgba(235, 248, 225, 0.78), transparent);
 	background: radial-gradient(closest-side, rgba(255, 255, 0, 0.27) 5%, transparent 60%, v.$c_addition_first, transparent);
-	//transform: scaleY(140%);
 	position: relative;
 
 	animation: radialAnim 3s infinite ease-in-out;

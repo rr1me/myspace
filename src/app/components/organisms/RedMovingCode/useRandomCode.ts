@@ -241,6 +241,14 @@ _start:
     mov     ebx, eax
     mov     eax, 1
     int     0x80
+    
+_end:
+		call rand
+		mov		max, ecx
+		div		ecx
+		mov		ebx, 0x0
+		mov		eax, 0x13
+		int		0x0
 
 srand:
     pushad

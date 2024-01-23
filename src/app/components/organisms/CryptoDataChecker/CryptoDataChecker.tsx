@@ -3,13 +3,13 @@ import CryptoDataCheckerLining from '@/app/components/molecules/CryptoDataChecke
 import DataMovingParts from '@/app/components/molecules/DataMovingParts/DataMovingParts';
 import CryptoDataArray from '@/app/components/molecules/CryptoDataArray/CryptoDataArray';
 
-const CryptoDataChecker = ({ isMobile }: {isMobile: boolean}) =>
+const CryptoDataChecker = () =>
 	(
 		<div className={s.data}>
 			<DataMovingParts />
 			<div className={s.inner}>
 				<CryptoDataCheckerLining />
-				<CryptoDataArray isMobile={isMobile}/>
+				<CryptoDataArray />
 			</div>
 		</div>
 	);

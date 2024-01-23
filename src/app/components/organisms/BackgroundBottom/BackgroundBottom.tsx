@@ -8,7 +8,7 @@ import BlueCrossArray from '@/app/components/molecules/BlueCrossArray/BlueCrossA
 import { createClassName } from '@/app/components/shared/utils';
 import Status from '@/app/components/organisms/Status/Status';
 
-const BackgroundBottom = ({ isMobile }: {isMobile: boolean}) => {
+const BackgroundBottom = () => {
 
 	const [springs] = useSpring(() => ({
 		from: {
@@ -27,26 +27,6 @@ const BackgroundBottom = ({ isMobile }: {isMobile: boolean}) => {
 
 	return (
 		<section className={s.wrapper}>
-			{/*<article className={createClassName(s.staticText, orbitron)}>*/}
-			{/*	<SelfWritingText nixWrapped={false}>*/}
-			{/*		100110100101101010 110100110001011010*/}
-			{/*	</SelfWritingText>*/}
-			{/*	<SelfWritingText nixWrapped={false}>*/}
-			{/*		IMAGE NAME: BLACKLARCH 441.454 &nbsp;&nbsp;*/}
-			{/*		IMAGE TYPE: KERNEL ISOLATED IMAGE &nbsp;&nbsp;*/}
-			{/*		ICCXS COMPRESSED &nbsp;&nbsp;*/}
-			{/*		LOAD ADDRESS: 000211244*/}
-			{/*	</SelfWritingText>*/}
-			{/*	<SelfWritingText nixWrapped={false}>*/}
-			{/*		MODEL LINE&nbsp;&nbsp;1.2001A&nbsp;&nbsp;4801_252 22S0*/}
-			{/*	</SelfWritingText>*/}
-			{/*	<SelfWritingText nixWrapped={false}>*/}
-			{/*		10034&nbsp;&nbsp;13 62 84 CP 10560&nbsp;&nbsp;49 85 08 92*/}
-			{/*	</SelfWritingText>*/}
-			{/*	<SelfWritingText nixWrapped={false}>*/}
-			{/*		S11.S/N 7907.03 ALIAS: J.A.C.K*/}
-			{/*	</SelfWritingText>*/}
-			{/*</article>*/}
 			<div className={s.bottom}>
 				<BlueCrossArray quantity={24}
 					additionalClassName={s.leftCrosses}/>
@@ -57,7 +37,7 @@ const BackgroundBottom = ({ isMobile }: {isMobile: boolean}) => {
 					<div className={s.middle}>
 						<BlueCrossArray quantity={9}
 							additionalClassName={createClassName(s.undisplayedCrosses, s.middleCrosses)}/>
-						<CryptoDataChecker isMobile={isMobile}/>
+						<CryptoDataChecker/>
 					</div>
 					<div className={createClassName(s.middle, s.reversed)}>
 						<BlueCrossArray quantity={18}

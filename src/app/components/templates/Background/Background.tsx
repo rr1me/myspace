@@ -30,14 +30,15 @@ const Background = ({ isMobile }: {isMobile: boolean}) => {
 						<>
 							<TopElement />
 
-							<RedCodeTopHelmets isMobile={isMobile}/>
-							{!isMobile && <TopTextLine />}
+							<RedCodeTopHelmets/>
 
-							<RedMovingCode isMobile={isMobile}/>
+							<TopTextLine />
+
+							<RedMovingCode/>
 
 							<ExtendingLine variant={ExtendingLineVariant.centered} color='g_separator' />
 
-							<BackgroundBottom isMobile={isMobile}/>
+							<BackgroundBottom/>
 
 							<BlueCrossArray quantity={30} additionalClassName={s.bottomCrosses}/>
 						</>

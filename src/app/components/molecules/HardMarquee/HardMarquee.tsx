@@ -5,7 +5,8 @@ import { ReactElement, useEffect, useRef } from 'react';
 import SxSC from '@/app/components/atoms/SxSC/SxSC';
 import { delay } from '@/app/components/shared/utils';
 
-const HardMarquee = ({ element, delay: delayMs, intervalDelay = 300 }: {element: ReactElement, delay?: number, intervalDelay?: number}) => {
+const HardMarquee = ({ element, delay: delayMs, intervalDelay = 300 }:
+	{element: ReactElement, delay?: number, intervalDelay?: number}) => {
 	const wrapperRef = useRef<HTMLDivElement>(null);
 	const firstRef = useRef<HTMLDivElement>(null);
 	const secondRef = useRef<HTMLDivElement>(null);
@@ -36,7 +37,7 @@ const HardMarquee = ({ element, delay: delayMs, intervalDelay = 300 }: {element:
 
 					clearInterval(interval);
 					innerInterval = setInterval(() => {
-						requestIdleCallback(() => { //fixme seems to be its not cost effective and causes lags. try it on refs
+						requestIdleCallback(() => {
 							const tr = firstElem.style.transform;
 							const currentTransform = tr !== '' ? Number(/\((.+)%/g.exec(tr)![1]) : 0;
 
@@ -67,7 +68,7 @@ const HardMarquee = ({ element, delay: delayMs, intervalDelay = 300 }: {element:
 	return (
 		<div className={s.hardMarquee}>
 			<SxSC ref={wrapperRef} $sx={{
-				transform: 'translateY(-200%)'
+				transform: 'translateY(-210%)'
 			}} className={s.inner}>
 				<SxSC ref={firstRef} $sx={{
 					transform: 'translateY(0%)'
