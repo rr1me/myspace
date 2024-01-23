@@ -57,7 +57,7 @@ const Page = () => {
 		innerSprings = useSpring({
 			ref: innerSpringsRef,
 			from: {
-				y: '-100%'
+				y: '-105%'
 			},
 			to: {
 				y: '0'

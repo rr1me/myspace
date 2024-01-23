@@ -57,9 +57,10 @@ const SkillBlock = ({ data, nestLevel = 0, specifyTabColor,
 				<div className={s.content}>
 					<div className={innerClassNames}>
 						{data.content.map((x, i) => {
-							if (typeof x === 'object')
-								return <SkillBlock data={x} key={i} nestLevel={nestLevel + 1}/>;
-							return <div key={i}>{x}</div>;
+							return typeof x === 'object' ?
+								<SkillBlock data={x} key={i} nestLevel={nestLevel + 1} />
+								:
+								<div key={i}>{x}</div>;
 						})}
 					</div>
 				</div>
