@@ -74,15 +74,13 @@
   position: fixed;
   width: 100%;
   height: 100%;
-}
 
-.mobGrad{
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(30deg, rgba(40, 134, 154, .2) 10%, rgba(154,40,73, .2) 50% 90%);
+  //background: linear-gradient(30deg, rgba(40, 134, 154, .2) 10%, rgba(154,40,73, .2) 50% 90%);
   opacity: 0;
-
   animation: show both 1s ease-in-out;
+  //z-index: 0;
+  background: url('background.png');
+  background-position-y: 10px;
 }
 
 @keyframes show{
@@ -92,4 +90,77 @@
   to{
     opacity: 1;
   }
+}
+
+.digitalLineWrapper{
+  opacity: 0.6;
+  position: absolute;
+  left: -5px
+}
+
+.digitalLine{
+  width: 20px;
+  object-fit: fill;
+  height: 1200px;
+  background-color: v.$c_main_third;
+  mask-image: url('digital line.png');
+}
+
+.loadingLogWrapper{
+  position: absolute;
+  left: 30px;
+  top: 20px;
+}
+
+.addLight{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(82, 0, 0, 0.07);
+}
+
+.powerElement{
+  width: 110px;
+  height: 27px;
+  mask-image: url('power element.png');
+  background-color: v.$c_main_third;
+  position: absolute;
+  bottom: 25px;
+  left: 25px;
+}
+
+.taskManager{
+  position: absolute;
+  right: 0;
+  bottom: 20px;
+  //background-color: wheat;
+  color: v.$c_main_second;
+  width: 250px;
+  height: 60px;
+}
+
+.managerTab{
+  width: 100%;
+  height: 1px;
+  background-color: v.$c_main_second;
+}
+
+.wrappedLabel{
+  margin-top: 10px;
+  border: 1px solid v.$c_main_second;
+  padding: 2px 5px;
+  height: 25px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.tmTab{
+  background-color: v.$c_main_second;
+  width: 1px;
+  height: 100%;
+}
+
+.cadp{
+  font-size: 9px;
+  width: 70px;
 }
