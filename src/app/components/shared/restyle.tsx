@@ -13,7 +13,7 @@ export default restyle;
 /**
  * Be careful using not optional props here.
  */
-export const applyProps = <V, T = any,>(Component: FunctionComponent<T | V>, props: Partial<T>) =>
+export const applyProps = <V, T = object>(Component: FunctionComponent<T | V>, props: Partial<T>) =>
 	// eslint-disable-next-line react/display-name
 	(additionalProps: V) => {
 		const combinedProps = { ...props, ...additionalProps } as IntrinsicAttributes & T & V;

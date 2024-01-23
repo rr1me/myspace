@@ -5,7 +5,7 @@ import { ReactElement, useEffect, useRef } from 'react';
 import SxSC from '@/app/components/atoms/SxSC/SxSC';
 import { delay } from '@/app/components/shared/utils';
 
-const HardMarquee = ({ element, delay: delayMs }: {element: ReactElement, delay?: number}) => {
+const HardMarquee = ({ element, delay: delayMs, intervalDelay = 300 }: {element: ReactElement, delay?: number, intervalDelay?: number}) => {
 	const wrapperRef = useRef<HTMLDivElement>(null);
 	const firstRef = useRef<HTMLDivElement>(null);
 	const secondRef = useRef<HTMLDivElement>(null);
@@ -19,7 +19,6 @@ const HardMarquee = ({ element, delay: delayMs }: {element: ReactElement, delay?
 
 		const length = firstElem.children.length;
 		const part = 100 / length;
-		const intervalDelay = 300;
 
 		let interval: NodeJS.Timeout;
 		let innerInterval: NodeJS.Timeout;

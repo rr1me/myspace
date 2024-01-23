@@ -6,11 +6,9 @@ import CryptoDataChecker from '@/app/components/organisms/CryptoDataChecker/Cryp
 import { animated, easings, useSpring } from '@react-spring/web';
 import BlueCrossArray from '@/app/components/molecules/BlueCrossArray/BlueCrossArray';
 import { createClassName } from '@/app/components/shared/utils';
-import { orbitron } from '@/app/theme';
-import SelfWritingText from '@/app/components/atoms/SelfWritingText/SelfWritingText';
 import Status from '@/app/components/organisms/Status/Status';
 
-const BackgroundBottom = () => {
+const BackgroundBottom = ({ isMobile }: {isMobile: boolean}) => {
 
 	const [springs] = useSpring(() => ({
 		from: {
@@ -49,20 +47,17 @@ const BackgroundBottom = () => {
 			{/*		S11.S/N 7907.03 ALIAS: J.A.C.K*/}
 			{/*	</SelfWritingText>*/}
 			{/*</article>*/}
-			<animated.div
-				className={s.bottom}
-				style={{
-					...springs
-				}}
-			>
+			<div className={s.bottom}>
 				<BlueCrossArray quantity={24}
 					additionalClassName={s.leftCrosses}/>
 				<div className={s.innerBottom}>
-					<CLI />
+					<animated.div style={springs}>
+						<CLI />
+					</animated.div>
 					<div className={s.middle}>
 						<BlueCrossArray quantity={9}
 							additionalClassName={createClassName(s.undisplayedCrosses, s.middleCrosses)}/>
-						<CryptoDataChecker />
+						<CryptoDataChecker isMobile={isMobile}/>
 					</div>
 					<div className={createClassName(s.middle, s.reversed)}>
 						<BlueCrossArray quantity={18}
@@ -71,7 +66,7 @@ const BackgroundBottom = () => {
 					</div>
 				</div>
 				<BlueCrossArray quantity={27} additionalClassName={s.rightCrosses}/>
-			</animated.div>
+			</div>
 		</section>
 	);
 };

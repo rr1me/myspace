@@ -40,7 +40,7 @@ const Space = ({ children }: {children: ReactNode}) => {
 			<main className='main'>
 				<Preloader/>
 				{isMounted &&
-						<Menu isMobile={isMobile}>
+						<Menu>
 							{children}
 						</Menu>
 				}

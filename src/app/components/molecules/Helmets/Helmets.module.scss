@@ -3,20 +3,22 @@
 .helmet{
 	height: 50%;
 	position: absolute;
-	background-color: v.$c_main_first;
 	border-radius: 2px;
 	padding-bottom: 10px;
 
 	will-change: height, width, transform;
+
+	background-color: v.$c_main_first;
 }
 
 .helmet::after{
 	content: '';
 	display: block;
-	box-shadow: v.$main_box_shadow;
 	height: 10px;
 	opacity: 0;
 	transition: 300ms;
+
+	box-shadow: v.$main_box_shadow;
 }
 
 .afterVisible::after{

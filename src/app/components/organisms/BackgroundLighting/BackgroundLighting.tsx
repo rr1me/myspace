@@ -1,6 +1,6 @@
 import Lamp from '@/app/components/atoms/Lamp/Lamp';
 
-const BackgroundLighting = ({start}: {start: boolean}) => {
+const BackgroundLighting = ({ start }: {start: boolean}) => {
 	return (
 		<>
 			<Lamp color={'rgba(40, 134, 154, .2)'} falloff={35} sx={{

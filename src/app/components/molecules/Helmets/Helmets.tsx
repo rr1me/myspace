@@ -64,7 +64,7 @@ const Helmets = ({ width }: {width: number}) => {
 
 	const classNameHelmet = clsx({
 		[s.helmet]: true,
-		[s.afterVisible]: shadow
+		[s.afterVisible]: shadow,
 	});
 
 	return (

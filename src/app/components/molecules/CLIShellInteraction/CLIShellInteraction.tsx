@@ -1,7 +1,7 @@
 'use client';
 
 import s from './CLIShellInteraction.module.scss';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { getRandomArrayIndex, shellRandomText } from '@/app/components/shared/utils';
 import SelfWritingText from '@/app/components/atoms/SelfWritingText/SelfWritingText';
 import { nanoid } from 'nanoid';

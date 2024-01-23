@@ -6,7 +6,6 @@ import restyle from '@/app/components/shared/restyle';
 import TabToChange from '@/app/components/atoms/Tab/Tab';
 import { colorVars } from '@/app/theme';
 import { animated, easings, useChain, useSpring, useSpringRef } from '@react-spring/web';
-import { animationStore } from '@/app/components/shared/syncStore';
 
 const Tab = restyle(TabToChange, {
 	background: colorVars.g_separator_oneway_main,

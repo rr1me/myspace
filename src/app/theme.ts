@@ -21,6 +21,8 @@ export type Colors =
 
 	'c_fourth_dark' |
 
+	'c_fifth_light' |
+
 	/////
 
 	'g_separator' |

@@ -219,7 +219,7 @@ export const shellRandomText = [
 			'datawraith terminated.\n' +
 			'Squad returning to base. Mission accomplished.\n' +
 			'\n' +
-			'Protecting the Future. Securely and Efficiently.'}
+			'Protecting the Future. Securely and Efficiently.' }
 ];
 
 // const s1 = '*group_info) { if (group_info->blocks[0] != group_info->small_block) { int i; for (i = 0; i < group_info->nblocks; i++) ' +

@@ -6,6 +6,7 @@ import { createClassName } from '@/app/components/shared/utils';
 import SelfWritingText from '@/app/components/atoms/SelfWritingText/SelfWritingText';
 import { animated, easings, useChain, useSpring, useSpringRef } from '@react-spring/web';
 import { useState } from 'react';
+import SquareBound from '@/app/components/atoms/SquareBound/SquareBound';
 
 const LoadingLog = ({ delay }: {delay?: number}) => {
 	const springsRef = useSpringRef();
@@ -46,12 +47,13 @@ const LoadingLog = ({ delay }: {delay?: number}) => {
 		<div className={createClassName(s.element, orbitron)}>
 			<animated.div style={innerSprings} className={s.inner}>
 				<div className={s.square}>
-					<div className={s.bound}>
+					<SquareBound>
 						<div className={s.innerBound}>
 							<div className={s.boundLine} />
 						</div>
-					</div>
+					</SquareBound>
 				</div>
+
 
 				<article className={s.protocol}>
 					<SelfWritingText nixWrapped={false} className={s.text} duration={25} immediate={startWriting}>

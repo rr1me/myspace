@@ -11,6 +11,8 @@ import Space from '@/app/components/templates/Space/Space';
 
 export const metadata: Metadata = {
 	title: 'rr1me\'s space',
+	description: 'rr1me\'s personal presentation space',
+	creator: 'rr1me',
 };
 
 export const viewport: Viewport = {
