@@ -7,7 +7,7 @@ const Page = () => {
 				{ name: 'CodeWave', position: 'Fullstack Developer',
 					responsibilities: [
 						'Developing internal CRM system',
-						'Building projects form start to MVP and production',
+						'Building projects from start to MVP and production',
 						'Creating authorization & authentication',
 						'Cooperation with a team consisting of Frontend, Backend developers, Designer and SDET',
 						'Optimization of web applications'
