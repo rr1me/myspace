@@ -79,38 +79,38 @@
 	}
 }
 
-.mark{
-	position: absolute;
-	top: -9px;
-	right: -25px;
-	pointer-events: none;
-}
-
-.radialMark{
-	$size: 45px;
-	height: $size;
-	width: $size; //rgba(255, 0, 0, 0.66)
-	//background: radial-gradient(closest-side, rgba(255, 255, 0, 0.27) 5%, transparent 60%, #3f87a6, #ebf8e1 90%, transparent);
-	//background: radial-gradient(closest-side, rgba(255, 255, 0, 0.27) 5%, transparent 60%, rgba(235, 248, 225, 0.78), transparent);
-	background: radial-gradient(closest-side, rgba(255, 255, 0, 0.27) 5%, transparent 60%, v.$c_addition_first, transparent);
-	position: relative;
-
-	animation: radialAnim 3s infinite ease-in-out;
-}
-
-@keyframes radialAnim{
-	from{
-		transform: scale(100%);
-	}
-	50%{
-		transform: scale(120%);
-	}
-	to{
-		transform: scale(100%);
-	}
-}
-
-.invisible{
-	display: none
-}
+//.mark{
+//	position: absolute;
+//	top: -9px;
+//	right: -25px;
+//	pointer-events: none;
+//}
+//
+//.radialMark{
+//	$size: 45px;
+//	height: $size;
+//	width: $size; //rgba(255, 0, 0, 0.66)
+//	//background: radial-gradient(closest-side, rgba(255, 255, 0, 0.27) 5%, transparent 60%, #3f87a6, #ebf8e1 90%, transparent);
+//	//background: radial-gradient(closest-side, rgba(255, 255, 0, 0.27) 5%, transparent 60%, rgba(235, 248, 225, 0.78), transparent);
+//	background: radial-gradient(closest-side, rgba(255, 255, 0, 0.27) 5%, transparent 60%, v.$c_addition_first, transparent);
+//	position: relative;
+//
+//	animation: radialAnim 3s infinite ease-in-out;
+//}
+//
+//@keyframes radialAnim{
+//	from{
+//		transform: scale(100%);
+//	}
+//	50%{
+//		transform: scale(120%);
+//	}
+//	to{
+//		transform: scale(100%);
+//	}
+//}
+//
+//.invisible{
+//	display: none
+//}
 

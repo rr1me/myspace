@@ -7,8 +7,6 @@ import { animated, easings, useSpring } from '@react-spring/web';
 import { animationStore, useAnimationStore } from '@/app/components/shared/syncStore';
 import Button from '@/app/components/atoms/Button/Button';
 import LineLink from '@/app/components/atoms/LineLink/LineLink';
-import clsx from 'clsx';
-import { useState } from 'react';
 
 const NavigationMenu = () => {
 	const navMenuOpen = !useAnimationStore(s => s.navMenuOpen);
@@ -19,11 +17,11 @@ const NavigationMenu = () => {
 		}
 	});
 
-	const [used, setUsed] = useState(false);
+	// const [used, setUsed] = useState(false);
 	const onBreakerClick = () => {
 		animationStore.setState(s => ({ ...s, navMenuOpen: !s.navMenuOpen }));
 
-		if (!used) setUsed(true);
+		// if (!used) setUsed(true);
 	};
 
 	const onLinkClick = () =>
@@ -67,12 +65,12 @@ const NavigationMenu = () => {
 						scale: '-1 -1'
 					}} />
 
-					<div className={clsx({
-						[s.mark]: true,
-						[s.invisible]: used
-					})}>
-						<div className={s.radialMark}/>
-					</div>
+					{/*<div className={clsx({*/}
+					{/*	[s.mark]: true,*/}
+					{/*	[s.invisible]: used*/}
+					{/*})}>*/}
+					{/*	<div className={s.radialMark}/>*/}
+					{/*</div>*/}
 
 					<Button onClick={onLinkClick} link='/'>about me</Button>
 					<Button onClick={onLinkClick} link='/skills'>skills</Button>
