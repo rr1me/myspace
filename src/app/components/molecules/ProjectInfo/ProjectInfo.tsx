@@ -1,5 +1,5 @@
 import s from './ProjectInfo.module.scss';
-import Button from '@/app/components/atoms/Button/Button';
+import Button, { ButtonClrVariation } from '@/app/components/atoms/Button/Button';
 import { applyProps } from '@/app/components/shared/restyle';
 import SkillBlockToChange from '@/app/components/molecules/SkillBlock/SkillBlock';
 import { colorVars } from '@/app/theme';
@@ -42,7 +42,7 @@ const ProjectInfo = ({ backend, frontend, desc, github }:
 					{desc}
 				</p>
 				<div className={s.btnWrapper}>
-					<Button anotherColorVariation link={github} blank>
+					<Button colorVariation={ButtonClrVariation.alternative} link={github} blank>
 						Github
 					</Button>
 				</div>

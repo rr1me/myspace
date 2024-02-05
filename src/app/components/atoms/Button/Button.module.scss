@@ -121,3 +121,24 @@ $bs: 1px;
 	color: #7d1531;
 }
 
+//chosen
+.chosen > .border{
+	background-color: v.$c_addition_second;
+}
+.chosen > .inner{
+	background: v.$g_blueGradButton;
+}
+.chosen > .inner > .text{
+	color: v.$c_addition_second;
+}
+
+//hover chosen
+.chosen:hover > .border{
+	background-color: v.$c_addition_first;
+}
+.chosen:hover > .inner{
+	background: v.$g_additionalFirstBlueGradButton;
+}
+.chosen:hover > .inner > .text{
+	color: v.$c_addition_first;
+}

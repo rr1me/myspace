@@ -5,8 +5,9 @@ import { colorVars } from '@/app/theme';
 import LineBreaker from '@/app/components/atoms/LineBreaker/LineBreaker';
 import { animated, easings, useSpring } from '@react-spring/web';
 import { animationStore, useAnimationStore } from '@/app/components/shared/syncStore';
-import Button from '@/app/components/atoms/Button/Button';
+import Button, { ButtonClrVariation } from '@/app/components/atoms/Button/Button';
 import LineLink from '@/app/components/atoms/LineLink/LineLink';
+import { applyProps } from '@/app/components/shared/restyle';
 
 const NavigationMenu = () => {
 	const navMenuOpen = !useAnimationStore(s => s.navMenuOpen);
@@ -26,6 +27,11 @@ const NavigationMenu = () => {
 
 	const onLinkClick = () =>
 		animationStore.setStateSilently(s => ({ ...s, pageAnimation: true }));
+
+	const ButtonElement = applyProps(Button, {
+		colorVariation: ButtonClrVariation.chosenByLink,
+		onClick: onLinkClick
+	});
 
 	return (
 		<>
@@ -72,10 +78,10 @@ const NavigationMenu = () => {
 					{/*	<div className={s.radialMark}/>*/}
 					{/*</div>*/}
 
-					<Button onClick={onLinkClick} link='/'>about me</Button>
-					<Button onClick={onLinkClick} link='/skills'>skills</Button>
-					<Button onClick={onLinkClick} link='/projects'>projects</Button>
-					<Button onClick={onLinkClick} link='/experience'>experience</Button>
+					<ButtonElement link='/'>about me</ButtonElement>
+					<ButtonElement link='/skills'>skills</ButtonElement>
+					<ButtonElement link='/projects'>projects</ButtonElement>
+					<ButtonElement link='/experience'>experience</ButtonElement>
 				</animated.nav>
 			</div>
 		</>

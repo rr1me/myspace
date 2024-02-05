@@ -3,9 +3,17 @@ import { ButtonHTMLAttributes, DetailedHTMLProps, HTMLAttributes, ReactNode } fr
 import { createClassName } from '@/app/components/shared/utils';
 import { rajdhani } from '@/app/theme';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
-const Button = ({ children, anotherColorVariation, link, blank, ...props }:
-	{children: ReactNode, anotherColorVariation?: boolean, link?: string, blank?: boolean}
+export enum ButtonClrVariation {
+	standard,
+	alternative,
+	chosen,
+	chosenByLink
+}
+
+const Button = ({ children, colorVariation = 0, link, blank, ...props }:
+	{children: ReactNode, colorVariation?: ButtonClrVariation,link?: string, blank?: boolean}
 	& Omit<DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>
 	& HTMLAttributes<HTMLAnchorElement>, 'className' | 'ref'>) => {
 
@@ -17,8 +25,19 @@ const Button = ({ children, anotherColorVariation, link, blank, ...props }:
 			</div>
 		</>;
 
-	const wrapperClassName = createClassName(s.wrapper, rajdhani,
-		anotherColorVariation ? s.alternative : s.main);
+	const pathname = usePathname();
+	const current = pathname === link;
+
+	const variation = (() => {
+		switch (colorVariation) {
+		case ButtonClrVariation.standard: return s.main;
+		case ButtonClrVariation.alternative: return s.alternative;
+		case ButtonClrVariation.chosen: return s.chosen;
+		case ButtonClrVariation.chosenByLink: return current ? s.chosen : s.main;
+		}
+	})();
+
+	const wrapperClassName = createClassName(s.wrapper, rajdhani, variation);
 
 	return !link ?
 		<button className={wrapperClassName} {...props}>

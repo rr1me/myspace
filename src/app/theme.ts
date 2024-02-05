@@ -37,6 +37,7 @@ export type Colors =
 
 	'g_cliSHell' |
 
+	'g_additionalFirstBlueGradButton' |
 	'g_blueGradButton' |
 	'g_redGradButton' |
 	'g_goldGradButton' |
