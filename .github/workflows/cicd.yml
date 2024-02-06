@@ -9,7 +9,16 @@ jobs:
   build:
     runs-on: ubuntu-20.04
 
+#    container:
+#      image: node:21
+#      env:
+#        NODE_ENV: production
+#      ports:
+#        - 3001
+#      options: --user root
+
     steps:
+#      - run: ls
       - uses: actions/checkout@v4
       - name: use node.js 21.x
         uses: actions/setup-node@v3
