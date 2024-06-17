@@ -1,28 +1,43 @@
 @use '../../../vars.module' as v;
 
 .line{
-	width: 100%;
-	height: 2px;
+	height: 100%;
+	width: 2px;
 
 	background-color: v.$c_addition_first;
 
 	box-shadow: 0 0 10px 3px v.$c_addition_second_50p;
+
+	flex-grow: 1;
 }
 
 .lineWrapper{
-	width: 100%;
 	display: flex;
+	flex-direction: column;
 	align-items: center;
+	justify-content: center;
+}
+
+.testWrapper{
+	min-height: 100%;
+}
+
+.arrow{
+	flex-shrink: 0;
 }
 
 .circle{
-	position: relative;
-	left: 1px;
+	flex-shrink: 0;
 }
 
 .blocks{
+	position: relative;
+	left: -57px;
+	margin-block: 25px;
+}
+
+.exp{
 	display: flex;
-	margin-inline: 50px;
 }
 
 @media (hover: none) and (pointer: coarse){
