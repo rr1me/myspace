@@ -23,9 +23,7 @@ const ExperienceInfo = (
 	}) => {
 	return (
 		<div className={s.info}>
-			{/*<div className={s.infoInner}>*/}
 			<animated.div style={responsibilitiesSprings} className={s.content}>
-				{/*<div className={s.gradLight} />*/}
 
 				<div className={s.title}>
 					<p>
@@ -53,14 +51,6 @@ const ExperienceInfo = (
 					))}
 				</div>
 			</animated.div>
-			{/*</div>*/}
-
-			{/*<animated.div style={decorationSprings} className={s.decorationWrapper}>*/}
-			{/*	<div className={s.highDecoration} />*/}
-			{/*	<div className={s.skewedDecoration}>*/}
-			{/*		{Array(3).fill(<div className={s.skewed} />)}*/}
-			{/*	</div>*/}
-			{/*</animated.div>*/}
 
 		</div>
 	);

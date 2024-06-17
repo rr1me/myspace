@@ -4,46 +4,42 @@ import { createClassName } from '@/app/components/shared/utils';
 import ProjectInfo from '@/app/components/molecules/ProjectInfo/ProjectInfo';
 import ProjectTopAndInnerDecor from '@/app/components/molecules/ProjectInnerDecorations/ProjectTopAndInnerDecor';
 import { ReactNode } from 'react';
-import { animated, easings, useChain, useSpring, useSpringRef } from '@react-spring/web';
+import { animated, easings, useChain } from '@react-spring/web';
+import { useSpringWithRef } from '@/app/components/shared/hooks';
 
 const config = {
 	duration: 1200,
 	easing: easings.easeInOutQuint
 };
 
-const Project = ({ header, image, children: desc, backend, frontend, github,
-	pageAnimation, onAnimationEnd }:
-	{header: string, image: string, children: ReactNode,
-		backend?: string[], frontend?: string[], github: string,
-		pageAnimation: boolean, onAnimationEnd?: () => void}) => {
+const Project = (
+	{
+		header,
+		image,
+		children: desc,
+		backend,
+		frontend,
+		github,
+		pageAnimation,
+		onAnimationEnd
+	}:
+	{
+		header: string,
+		image: string,
+		children: ReactNode,
+		backend?: string[],
+		frontend?: string[],
+		github: string,
+		pageAnimation: boolean,
+		onAnimationEnd?: () => void
+	}) => {
+	const [highDecorationSprings, highDecorationSpringsRef] =
+		useSpringWithRef({ scaleY: 0 }, { scaleY: 1 }, config);
+	const [innerSprings, innerSpringsRef] =
+		useSpringWithRef({ x: '-100%' }, { x: '0' }, config, onAnimationEnd);
 
-	let highDecorationSprings, innerSprings;
-	if (pageAnimation){
-		const highDecorationSpringRef = useSpringRef();
-		highDecorationSprings = useSpring({
-			ref: highDecorationSpringRef,
-			from: {
-				scaleY: 0
-			},
-			to: {
-				scaleY: 1
-			},
-			config
-		});
-		const innerSpringsSpringRef = useSpringRef();
-		innerSprings = useSpring({
-			ref: innerSpringsSpringRef,
-			from: {
-				x: '-100%'
-			},
-			to: {
-				x: '0'
-			},
-			config,
-			onRest: onAnimationEnd
-		});
-		useChain([highDecorationSpringRef, innerSpringsSpringRef], [0, 1]);
-	}
+
+	if (pageAnimation) useChain([highDecorationSpringsRef, innerSpringsRef], [0, 1]);
 
 	return (
 		<section className={createClassName(s.project, rajdhani)}>

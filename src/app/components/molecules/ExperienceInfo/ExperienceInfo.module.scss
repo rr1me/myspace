@@ -10,26 +10,12 @@
 	gap: 1px;
 }
 
-.infoInner{
-	width: calc(100% - 6px);
-	overflow: hidden;
-}
-
 .content{
 	position: relative;
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
 	margin-block: 10px;
-}
-
-.gradLight{
-	z-index: -1;
-	position: absolute;
-	width: 100%;
-	height: calc(100% - 6px);
-	bottom: 0;
-	background: linear-gradient(220deg, rgba(0, 207, 214, 0.15) 0%, rgba(0, 207, 214, 0) 60%);
 }
 
 .exactInfoTitle{
@@ -45,24 +31,7 @@
 	color: v.$c_addition_second;
 }
 
-.infoTitleTab{
-	background: v.$g_separator_oneway;
-	flex-grow: 1;
-	height: 1px;
-	rotate: 180deg;
-}
-
-.infoTab{
-	position: absolute;
-	height: calc(100% - 6px);
-	width: 1px;
-	right: 0;
-	bottom: 0;
-	background-color: v.$c_addition_second;
-}
-
 .responsibilities{
-	//margin-top: 5px;
 	color: v.$c_main_second;
 }
 
@@ -75,42 +44,6 @@
 	color: v.$c_addition_second;
 }
 
-.decorationWrapper{
-	transform-origin: 0 0;
-	position: relative;
-	width: 6px;
-
-	margin-top: 5.5px;
-}
-
-.highDecoration{
-	height: 100%;
-	width: 100%;
-	background-color: v.$c_addition_second;
-
-	clip-path: polygon(0 0, 100% 5%, 100% 20%, 70% 22%, 70% 48%, 35% calc(48% + 3px), 35% calc(53% + 30px), 100% calc(53% + 33px), 100% 100%, 100% 97%, 65% 100%, 0 100%);
-}
-
-.skewedDecoration{
-	position: absolute;
-	top: calc(53% + 2px);
-	left: 57%;
-	height: max-content;
-	width: 45%;
-
-	display: flex;
-	flex-direction: column;
-	gap: 2px;
-
-	transform: skewY(33deg);
-}
-
-.skewed{
-	width: 100%;
-	height: 8px;
-	background-color: v.$c_accent_gold;
-}
-
 .title{
 	font-size: 17px;
 	line-height: 13px;
@@ -118,8 +51,4 @@
 	display: flex;
 	flex-direction: column;
 	gap: 5px;
-}
-
-.goldShadow{
-	text-shadow: 0 0 7px v.$c_accent_gold;
 }
