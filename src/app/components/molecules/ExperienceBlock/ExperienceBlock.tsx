@@ -1,52 +1,27 @@
 import s from './ExperienceBlock.module.scss';
-import { createClassName } from '@/app/components/shared/utils';
+import { createClassName, getDiff } from '@/app/components/shared/utils';
 import ExperienceInfo from '@/app/components/molecules/ExperienceInfo/ExperienceInfo';
 import { Place } from '@/app/components/organisms/Experience/Experience';
-import dayjs, { Dayjs } from 'dayjs';
+import dayjs from 'dayjs';
 import clsx from 'clsx';
 import { PickAnimated, SpringValues } from '@react-spring/core';
+import { animated } from '@react-spring/web';
 
-const months = [
-	'Jan',
-	'Feb',
-	'Mar',
-	'Apr',
-	'May',
-	'Jun',
-	'Jul',
-	'Aug',
-	'Sep',
-	'Oct',
-	'Nov',
-	'Dec'
-];
-
-const mto = (n: number) => n > 1 ? 's' : '';
-
-const getDiff = (startDate: Dayjs, endDate: Dayjs) => {
-	const years = endDate.diff(startDate, 'year');
-	const startDatePlusYears = startDate.add(years, 'year');
-	const months = endDate.diff(startDatePlusYears, 'month');
-
-	return `${years > 0 ? `${years} year${mto(years)}` : ''}` +
-		`${months > 0 ? `${years > 0 ? ', ' : ''}${months} month${mto(months)}` : ''}`;
-};
-
-export type Springs = SpringValues<PickAnimated<object>> | undefined;
 const ExperienceBlock = (
 	{ place: { name, position, responsibilities, dateFrom, dateTo },
 		nextDate,
-		experienceHeadSprings,
-		infoDecorationSprings,
 		responsibilitiesSprings,
-		responsibilitiesTitleSprings
+		horizLineSprings,
+		vertLineSprings,
+		dateSprings
 	}:
-	{place: Place,
+	{
+		place: Place,
 		nextDate: string,
-		experienceHeadSprings: Springs,
-		infoDecorationSprings: Springs,
-		responsibilitiesSprings: Springs,
-		responsibilitiesTitleSprings: Springs
+		responsibilitiesSprings: Spring,
+		horizLineSprings: Spring,
+		vertLineSprings: Spring,
+		dateSprings: Spring
 	}) => {
 	const dateFromObject = dayjs(dateFrom);
 	const dateToObject = dayjs(dateTo);
@@ -74,40 +49,37 @@ const ExperienceBlock = (
 
 	const time = (() => {
 		let dateToDiff;
-
 		if (!isSeamless)
 			dateToDiff = dateTo;
 		else if (!isFirst)
 			dateToDiff = nextDate;
-
 		return getDiff(dateFromObject, dayjs(dateToDiff));
 	})();
 
 	return (
 		<div className={clsx({
 			[s.content]: true,
-			[s.notSeamless]: dateTo !== undefined,
+			[s.notSeamless]: !isSeamless,
 		})}>
 
-			<div className={createClassName(s.marks, firstOrNotSeamless ? s.marksMultiple : s.marksAlone)}>
+			<animated.div style={dateSprings} className={createClassName(s.dates,
+				firstOrNotSeamless ? s.datesMultiple : s.datesAlone)}>
 				{endDateElement}
 				<div className={s.dateFrom}>
 					<p>{dateFromObject.year()}</p>
 					<p>{months[dateFromObject.month()]}</p>
 				</div>
-			</div>
+			</animated.div>
 
 			<div className={s.tabLines}>
-				{firstOrNotSeamless && <div className={s.horizTab} />}
-				<div className={s.markTab} />
-				<div className={s.horizTab} />
+				{firstOrNotSeamless && <animated.div style={horizLineSprings} className={s.horizTab} />}
+				<animated.div style={vertLineSprings} className={s.vertTab} />
+				<animated.div style={horizLineSprings} className={s.horizTab} />
 			</div>
 
 			<ExperienceInfo
-				decorationSprings={infoDecorationSprings}
 				responsibilities={responsibilities}
 				responsibilitiesSprings={responsibilitiesSprings}
-				responsibilitiesTitleSprings={responsibilitiesTitleSprings}
 				name={name}
 				position={position}
 				time={time}
@@ -117,3 +89,20 @@ const ExperienceBlock = (
 };
 
 export default ExperienceBlock;
+
+const months = [
+	'Jan',
+	'Feb',
+	'Mar',
+	'Apr',
+	'May',
+	'Jun',
+	'Jul',
+	'Aug',
+	'Sep',
+	'Oct',
+	'Nov',
+	'Dec'
+];
+
+export type Spring = SpringValues<PickAnimated<object>> | undefined;

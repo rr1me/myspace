@@ -1,9 +1,8 @@
-import { useEffect, useRef, useState } from 'react';
 import { animationStore, useAnimationStore } from '@/app/components/shared/syncStore';
 import { CSSProperties } from 'styled-components';
 import { SpringConfig } from '@react-spring/core';
-import { Springs } from '@/app/components/molecules/ExperienceBlock/ExperienceBlock';
-import { SpringRef, useSpring, useSpringRef } from '@react-spring/web';
+import { Spring } from '@/app/components/molecules/ExperienceBlock/ExperienceBlock';
+import { SpringRef, useChain, useSpring, useSpringRef } from '@react-spring/web';
 
 // export const useHydrated = () => {
 // 	const [hydrated, setHydrated] = useState(false);
@@ -30,18 +29,52 @@ export const useShowPageAnimation = (pageAnimationID: string): [boolean, () => v
 	return [pageAnimation, onAnimationEnd];
 };
 
-export const useSpringWithRef = (
-	from: CSSProperties | object, to: CSSProperties | object,
-	cfg?: SpringConfig, onRest?: () => void): [Springs, SpringRef] => {
-	const ref = useSpringRef();
+// export const useSpringWithRef = (
+// 	from: Style,
+// 	to: Style,
+// 	cfg?: SpringConfig,
+// 	offline: boolean = false,
+// 	onRest?: () => void)
+// 	:
+// 	[Springs | undefined, SpringRef | undefined] => {
+// 	const ref = useSpringRef();
+//
+// 	return offline ? [undefined, undefined] : [
+// 		useSpring({
+// 			ref,
+// 			from,
+// 			to,
+// 			config: cfg,
+// 			onRest
+// 		}), ref
+// 	];
+// };
 
-	return [
-		useSpring({
-			// ref,
+type Style = CSSProperties | object;
+export const useChainedSprings = (springs:
+	{
+		options: [from: Style, to: Style, cfg?: SpringConfig, onRest?: () => void],
+		timing: number
+	}[], online: boolean = true) => {
+	if (!online) return springs.map(() => undefined);
+
+	const springArray: Spring[] = [];
+	const refArray: SpringRef[] = [];
+
+	for (const { options } of springs) {
+		const [from, to, cfg, onRest] = options;
+		const ref = useSpringRef();
+		const spring = useSpring({
+			ref,
 			from,
 			to,
-			cfg,
+			config: cfg,
 			onRest
-		}), ref
-	];
+		});
+		springArray.push(spring);
+		refArray.push(ref);
+	}
+
+	useChain(refArray, springs.map(x => x.timing));
+	return springArray;
 };

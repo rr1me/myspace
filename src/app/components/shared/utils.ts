@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { Dayjs } from 'dayjs';
 
 export const engAlphabet = [
 	'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
@@ -45,6 +46,20 @@ export const createClassName = (...classNames: string[]) => assembleClassNames(c
 
 export const addToClassName = (definedClassName: string, ...classNames: string[]) =>
 	definedClassName + ' ' + assembleClassNames(classNames);
+
+const mto = (n: number) => n > 1 ? 's' : '';
+
+export const formatYearsAndMonths = (years: number, months: number) =>
+	`${years > 0 ? `${years} year${mto(years)}` : ''}` +
+	`${months > 0 ? `${years > 0 ? ', ' : ''}${months} month${mto(months)}` : ''}`
+
+export const getDiff = (startDate: Dayjs, endDate: Dayjs) => {
+	const years = endDate.diff(startDate, 'year');
+	const startDatePlusYears = startDate.add(years, 'year');
+	const months = endDate.diff(startDatePlusYears, 'month');
+
+	return formatYearsAndMonths(years, months);
+};
 
 export const shellRandomText = [
 	{ req: 'sudo service nginx restart', res:

@@ -11,14 +11,15 @@
 	flex-grow: 1;
 }
 
-.lineWrapper{
+.lineInner{
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	height: 100%;
 }
 
-.testWrapper{
+.lineWrapper{
 	min-height: 100%;
 }
 
@@ -38,10 +39,19 @@
 
 .exp{
 	display: flex;
+	position: relative;
 }
 
 @media (hover: none) and (pointer: coarse){
 	.exp{
 		scale:140%;
 	}
+}
+
+.experienceLength{
+	position: absolute;
+	left: 25px;
+	top: -15px;
+	color: v.$c_accent_gold;
+	text-shadow: 0 0 7px v.$c_accent_gold;
 }

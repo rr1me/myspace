@@ -2,7 +2,7 @@ import s from './SkillColumn.module.scss';
 import SkillBlock from '@/app/components/molecules/SkillBlock/SkillBlock';
 import clsx from 'clsx';
 import { animated } from '@react-spring/web';
-import { Springs } from '@/app/components/molecules/ExperienceBlock/ExperienceBlock';
+import { Spring } from '@/app/components/molecules/ExperienceBlock/ExperienceBlock';
 
 export type SkillData = {
 	header: string;
@@ -12,7 +12,7 @@ export type SkillData = {
 const SkillColumn = ({ header, children,
 	horizontalTabSprings, headerSprings, innerSprings }:
 	{header: string, children: SkillData[],
-		horizontalTabSprings: Springs, headerSprings: Springs, innerSprings: Springs}) => {
+		horizontalTabSprings: Spring, headerSprings: Spring, innerSprings: Spring}) => {
 
 	return (
 		<section className={s.skill}>

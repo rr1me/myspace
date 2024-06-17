@@ -1,22 +1,18 @@
 import s from './ExperienceInfo.module.scss';
-import { Springs } from '@/app/components/molecules/ExperienceBlock/ExperienceBlock';
+import { Spring } from '@/app/components/molecules/ExperienceBlock/ExperienceBlock';
 import { animated } from '@react-spring/web';
 
 const ExperienceInfo = (
 	{
 		responsibilities,
-		decorationSprings,
 		responsibilitiesSprings,
-		responsibilitiesTitleSprings,
 		name,
 		position,
 		time
 	}:
 	{
 		responsibilities: string[],
-		decorationSprings: Springs,
-		responsibilitiesSprings: Springs,
-		responsibilitiesTitleSprings: Springs,
+		responsibilitiesSprings: Spring,
 		name: string,
 		position: string,
 		time: string
@@ -37,9 +33,9 @@ const ExperienceInfo = (
 				<p>{time}</p>
 
 				<div className={s.infoTitle}>
-					<div style={responsibilitiesTitleSprings} className={s.exactInfoTitle}>
-						<animated.p style={responsibilitiesTitleSprings}>Responsibility area:</animated.p>
-					</div>
+					<p className={s.exactInfoTitle}>
+						Responsibility area:
+					</p>
 				</div>
 
 				<div className={s.responsibilities}>

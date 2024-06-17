@@ -1,8 +1,12 @@
 @use '../../../vars.module' as v;
 
 .info{
+	position: relative;
+	left: -20px;
+	overflow: hidden;
+
 	margin-top: 2px;
-	width: 400px;
+	width: 420px;
 	min-height: 140px;
 	margin-inline: auto;
 
@@ -11,6 +15,7 @@
 }
 
 .content{
+	padding-left: 20px;
 	position: relative;
 	display: flex;
 	flex-direction: column;
@@ -48,6 +53,7 @@
 	font-size: 17px;
 	line-height: 13px;
 	color: v.$c_accent_gold;
+	text-shadow: 0 0 7px v.$c_accent_gold;
 	display: flex;
 	flex-direction: column;
 	gap: 5px;

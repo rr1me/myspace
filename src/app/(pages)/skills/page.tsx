@@ -4,9 +4,9 @@ import s from './page.module.scss';
 import { rajdhani } from '@/app/theme';
 import { createClassName } from '@/app/components/shared/utils';
 import { OverlayScrollbarsComponent } from 'overlayscrollbars-react';
-import SkillColumn from '@/app/components/organisms/SkillColumn/SkillColumn';
-import { useShowPageAnimation } from '@/app/components/shared/hooks';
-import { useSpring, animated, easings, useSpringRef, useChain } from '@react-spring/web';
+import SkillColumn, { SkillData } from '@/app/components/organisms/SkillColumn/SkillColumn';
+import { useChainedSprings, useShowPageAnimation } from '@/app/components/shared/hooks';
+import { animated, easings } from '@react-spring/web';
 
 const config = {
 	easing: easings.easeOutExpo,
@@ -16,90 +16,38 @@ const config = {
 const Page = () => {
 	const [pageAnimation, onAnimationEnd] = useShowPageAnimation('skills');
 
-	let headerSprings, innerSprings, horizontalTabSprings, verticalTabSprings;
+	const [
+		verticalTabAnim,
+		horizontalTabAnim,
+		headerAnim,
+		innerAnim
+	] = useChainedSprings([
+		{ options: [{ scaleY: 0 }, { scaleY: 1 }, config], timing: 0 },
+		{ options: [{ scaleX: 0 }, { scaleX: 1 }, config], timing: 0.5 },
+		{ options: [{ y: '105%' }, { y: '0' }, config], timing: 1 },
+		{ options: [{ y: '-105%' }, { y: '0' },
+			{ duration: 1200, easing: easings.easeInOutQuint }, onAnimationEnd], timing: 1.3 },
+	], pageAnimation);
 
-	if (pageAnimation){
-		const verticalTabSpringsRef = useSpringRef();
-		const horizontalTabSpringsRef = useSpringRef();
-		const headerSpringsRef = useSpringRef();
-		const innerSpringsRef = useSpringRef();
-
-		verticalTabSprings = useSpring({
-			ref: verticalTabSpringsRef,
-			from: {
-				scaleY: 0
-			},
-			to: {
-				scaleY: 1
-			},
-			config
-		});
-		horizontalTabSprings = useSpring({
-			ref: horizontalTabSpringsRef,
-			from: {
-				scaleX: 0
-			},
-			to: {
-				scaleX: 1
-			},
-			config
-		});
-		headerSprings = useSpring({
-			ref: headerSpringsRef,
-			from: {
-				y: '105%'
-			},
-			to: {
-				y: '0'
-			},
-			config
-		});
-		innerSprings = useSpring({
-			ref: innerSpringsRef,
-			from: {
-				y: '-105%'
-			},
-			to: {
-				y: '0'
-			},
-			config: {
-				duration: 1200,
-				easing: easings.easeInOutQuint
-			},
-			onRest: onAnimationEnd
-		});
-
-		useChain([verticalTabSpringsRef, horizontalTabSpringsRef,
-			headerSpringsRef, innerSpringsRef],
-		[0, 0.5, 1, 1.3]
-		);
-	}
+	const EncapsulatedSkillColumn = ({ header, children }: {header: string, children: SkillData[]}) =>
+		<SkillColumn
+			horizontalTabSprings={horizontalTabAnim}
+			headerSprings={headerAnim}
+			innerSprings={innerAnim}
+			header={header}>
+			{children}
+		</SkillColumn>;
 
 	return (
 		<article className={createClassName(rajdhani, s.skills)}>
 			<OverlayScrollbarsComponent className={s.scroll}>
 				<div className={s.global}>
 					<div className={s.wrapper}>
-						<SkillColumn horizontalTabSprings={horizontalTabSprings}
-							headerSprings={headerSprings}
-							innerSprings={innerSprings}
-							header='backend'>
-							{back}
-						</SkillColumn>
-						<animated.div style={verticalTabSprings} className={s.tab} />
-						<SkillColumn horizontalTabSprings={horizontalTabSprings}
-							headerSprings={headerSprings}
-							innerSprings={innerSprings}
-							header='frontend'>
-							{front}
-						</SkillColumn>
-						<animated.div style={verticalTabSprings} className={createClassName(s.tab, s.tabAdaptive)} />
-						<SkillColumn horizontalTabSprings={horizontalTabSprings}
-							headerSprings={headerSprings}
-							innerSprings={innerSprings}
-							header='miscellaneous'>
-							{misc}
-						</SkillColumn>
+						<EncapsulatedSkillColumn header='backend'>{back}</EncapsulatedSkillColumn>
+						<animated.div style={verticalTabAnim} className={s.tab} />
+						<EncapsulatedSkillColumn header='frontend'>{front}</EncapsulatedSkillColumn>
+						<animated.div style={verticalTabAnim} className={createClassName(s.tab, s.tabAdaptive)} />
+						<EncapsulatedSkillColumn header='miscellaneous'>{misc}</EncapsulatedSkillColumn>
 					</div>
 				</div>
 			</OverlayScrollbarsComponent>
