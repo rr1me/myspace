@@ -40,11 +40,13 @@
 .exp{
 	display: flex;
 	position: relative;
+	margin: 15px 0 3px 80px;
 }
 
 @media (hover: none) and (pointer: coarse){
 	.exp{
-		scale:140%;
+		font-size: 1.15em;
+		margin-left: 60px;
 	}
 }
 

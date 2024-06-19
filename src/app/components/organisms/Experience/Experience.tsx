@@ -17,6 +17,7 @@ export type Place = {
 	name: string,
 	position: string,
 	responsibilities: string[],
+	stack?: string[],
 	dateFrom: string,
 	dateTo?: string
 };

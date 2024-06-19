@@ -3,7 +3,7 @@
 .content{
 	height: max-content;
 
-	font-size: 16px;
+	//font-size: 16px;
 	color: v.$c_main_second;
 
 	display: flex;
@@ -71,7 +71,12 @@
 	height: 25px;
 
 	position: relative;
+
+	@media (hover: none) and (pointer: coarse){
+		gap: 5px;
+	}
 }
+
 
 .dateTo{
 	@include date;

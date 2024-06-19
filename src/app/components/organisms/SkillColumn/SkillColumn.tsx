@@ -9,21 +9,31 @@ export type SkillData = {
 	content: (SkillData | string)[]
 }
 
-const SkillColumn = ({ header, children,
-	horizontalTabSprings, headerSprings, innerSprings }:
-	{header: string, children: SkillData[],
-		horizontalTabSprings: Spring, headerSprings: Spring, innerSprings: Spring}) => {
-
-	return (
+const SkillColumn = (
+	{
+		header,
+		children,
+		horizontalTabSprings,
+		headerSprings,
+		innerSprings
+	}:
+	{
+		header: string,
+		children: SkillData[],
+		horizontalTabSprings: Spring,
+		headerSprings: Spring,
+		innerSprings: Spring
+	}) =>
+	(
 		<section className={s.skill}>
 			<div className={s.headerWrapper}>
 				<animated.h2 style={headerSprings} className={s.header}>{header}</animated.h2>
 			</div>
-			<animated.div style={horizontalTabSprings} className={s.tab}/>
+			<animated.div style={horizontalTabSprings} className={s.tab} />
 			<div className={s.innerWrapper}>
 				<animated.div style={innerSprings} className={clsx({
 					[s.inner]: true,
-					[s.misc]: header === 'miscellaneous'
+					[s.misc]: header === 'miscellaneous',
 				})}>
 					{children.map((x, i) => (
 						<SkillBlock key={i} data={x} />
@@ -32,6 +42,5 @@ const SkillColumn = ({ header, children,
 			</div>
 		</section>
 	);
-};
 
 export default SkillColumn;

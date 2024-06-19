@@ -101,19 +101,6 @@ const front = [
 ];
 const back = [
 	{
-		header: 'c#',
-		content: [
-			{
-				header: 'asp .net core',
-				content: [
-					'entity framework',
-					'linq',
-					'swashbuckle',
-				],
-			},
-		],
-	},
-	{
 		header: 'node js',
 		content: [
 			'nest',
@@ -123,6 +110,19 @@ const back = [
 				content: [
 					'typeorm',
 					'prismaorm',
+				],
+			},
+		],
+	},
+	{
+		header: 'c#',
+		content: [
+			{
+				header: 'asp .net core',
+				content: [
+					'entity framework',
+					'linq',
+					'swashbuckle',
 				],
 			},
 		],

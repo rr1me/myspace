@@ -2,7 +2,6 @@
 
 .skill{
 	display: flex;
-	//gap: 10px;
 	flex-direction: column;
 	align-items: center;
 	white-space: nowrap;
@@ -34,7 +33,6 @@
 
 .misc{
 	width: 270px;
-	//width: 335px;
 }
 
 @media (hover: none) and (pointer: coarse){

@@ -18,12 +18,8 @@ const NavigationMenu = () => {
 		}
 	});
 
-	// const [used, setUsed] = useState(false);
-	const onBreakerClick = () => {
+	const onBreakerClick = () =>
 		animationStore.setState(s => ({ ...s, navMenuOpen: !s.navMenuOpen }));
-
-		// if (!used) setUsed(true);
-	};
 
 	const onLinkClick = () =>
 		animationStore.setStateSilently(s => ({ ...s, pageAnimation: true }));

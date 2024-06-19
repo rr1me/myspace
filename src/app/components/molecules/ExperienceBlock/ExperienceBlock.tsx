@@ -8,7 +8,7 @@ import { PickAnimated, SpringValues } from '@react-spring/core';
 import { animated } from '@react-spring/web';
 
 const ExperienceBlock = (
-	{ place: { name, position, responsibilities, dateFrom, dateTo },
+	{ place: { name, position, responsibilities, stack, dateFrom, dateTo },
 		nextDate,
 		responsibilitiesSprings,
 		horizLineSprings,
@@ -31,18 +31,18 @@ const ExperienceBlock = (
 	const firstOrNotSeamless = isFirst || !isSeamless;
 
 	const endDateElement = (() => {
-		if (isFirst)
-			return (
-				<p className={s.dateTo}>
-					Now
-				</p>
-			);
 		if (!isSeamless)
 			return (
 				<div className={s.dateTo}>
 					<p>{dateToObject.year()}</p>
 					<p>{months[dateToObject.month()]}</p>
 				</div>
+			);
+		if (isFirst)
+			return (
+				<p className={s.dateTo}>
+					Now
+				</p>
 			);
 		return;
 	})();
@@ -59,7 +59,7 @@ const ExperienceBlock = (
 	return (
 		<div className={clsx({
 			[s.content]: true,
-			[s.notSeamless]: !isSeamless,
+			[s.notSeamless]: !isSeamless && !isFirst,
 		})}>
 
 			<animated.div style={dateSprings} className={createClassName(s.dates,
@@ -79,6 +79,7 @@ const ExperienceBlock = (
 
 			<ExperienceInfo
 				responsibilities={responsibilities}
+				stack={stack}
 				responsibilitiesSprings={responsibilitiesSprings}
 				name={name}
 				position={position}

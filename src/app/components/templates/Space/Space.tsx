@@ -7,12 +7,21 @@ import Menu from '@/app/components/templates/Menu/Menu';
 import { ReactNode, useEffect, useState } from 'react';
 import { useAnimationStore } from '@/app/components/shared/syncStore';
 import clsx from 'clsx';
+import { useRouter } from 'next/navigation';
+import { PrefetchKind } from 'next/dist/client/components/router-reducer/router-reducer-types';
 
 const Space = ({ children }: {children: ReactNode}) => {
 	const preloaderVisibility = useAnimationStore(s => s.preloaderVisibility);
 	const [isMobile, setIsMobile] = useState<null | boolean>(null);
 
+	const router = useRouter();
+
 	useEffect(() => {
+		router.prefetch('/', { kind: PrefetchKind.FULL });
+		router.prefetch('/projects', { kind: PrefetchKind.FULL });
+		router.prefetch('/experience', { kind: PrefetchKind.FULL });
+		router.prefetch('/skills', { kind: PrefetchKind.FULL });
+
 		let hasTouchScreen: boolean;
 		if ('maxTouchPoints' in navigator)
 			hasTouchScreen = navigator.maxTouchPoints > 0;

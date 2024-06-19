@@ -51,7 +51,7 @@ const mto = (n: number) => n > 1 ? 's' : '';
 
 export const formatYearsAndMonths = (years: number, months: number) =>
 	`${years > 0 ? `${years} year${mto(years)}` : ''}` +
-	`${months > 0 ? `${years > 0 ? ', ' : ''}${months} month${mto(months)}` : ''}`
+	`${months > 0 ? `${years > 0 ? ', ' : ''}${months} month${mto(months)}` : ''}`;
 
 export const getDiff = (startDate: Dayjs, endDate: Dayjs) => {
 	const years = endDate.diff(startDate, 'year');
