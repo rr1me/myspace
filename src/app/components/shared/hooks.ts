@@ -56,7 +56,6 @@ export const useChainedSprings = (springs:
 		options: [from: Style, to: Style, cfg?: SpringConfig, onRest?: () => void],
 		timing: number
 	}[], online: boolean = true) => {
-	if (!online) return springs.map(() => undefined);
 
 	const springArray: Spring[] = [];
 	const refArray: SpringRef[] = [];
@@ -76,5 +75,5 @@ export const useChainedSprings = (springs:
 	}
 
 	useChain(refArray, springs.map(x => x.timing));
-	return springArray;
+	return online ? springArray : springs.map(() => undefined);
 };
