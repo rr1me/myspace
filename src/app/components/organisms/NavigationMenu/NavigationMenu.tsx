@@ -8,6 +8,7 @@ import { animationStore, useAnimationStore } from '@/app/components/shared/syncS
 import Button, { ButtonClrVariation } from '@/app/components/atoms/Button/Button';
 import LineLink from '@/app/components/atoms/LineLink/LineLink';
 import { applyProps } from '@/app/components/shared/restyle';
+import React from 'react';
 
 const NavigationMenu = () => {
 	const navMenuOpen = !useAnimationStore(s => s.navMenuOpen);
@@ -21,8 +22,9 @@ const NavigationMenu = () => {
 	const onBreakerClick = () =>
 		animationStore.setState(s => ({ ...s, navMenuOpen: !s.navMenuOpen }));
 
-	const onLinkClick = () => {
-		fetch(process.env.NEXT_PUBLIC_OBSERVER_URL!);
+	const onLinkClick = (e: React.MouseEvent) => {
+		fetch(process.env.NEXT_PUBLIC_OBSERVER_URL! +
+			e.currentTarget.getAttribute('href'));
 
 		animationStore.setStateSilently(s => ({ ...s, pageAnimation: true }));
 	};
