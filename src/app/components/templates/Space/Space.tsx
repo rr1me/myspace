@@ -17,6 +17,8 @@ const Space = ({ children }: {children: ReactNode}) => {
 	const router = useRouter();
 
 	useEffect(() => {
+		fetch(process.env.NEXT_PUBLIC_OBSERVER_URL!);
+
 		router.prefetch('/', { kind: PrefetchKind.FULL });
 		router.prefetch('/projects', { kind: PrefetchKind.FULL });
 		router.prefetch('/experience', { kind: PrefetchKind.FULL });

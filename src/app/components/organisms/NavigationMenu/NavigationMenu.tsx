@@ -21,11 +21,18 @@ const NavigationMenu = () => {
 	const onBreakerClick = () =>
 		animationStore.setState(s => ({ ...s, navMenuOpen: !s.navMenuOpen }));
 
-	const onLinkClick = () =>
+	const onLinkClick = () => {
+		fetch(process.env.NEXT_PUBLIC_OBSERVER_URL!);
+
 		animationStore.setStateSilently(s => ({ ...s, pageAnimation: true }));
+	};
 
 	const ButtonElement = applyProps(Button, {
 		colorVariation: ButtonClrVariation.chosenByLink,
+		onClick: onLinkClick
+	});
+
+	const LineLinkElement = applyProps(LineLink, {
 		onClick: onLinkClick
 	});
 
@@ -34,10 +41,10 @@ const NavigationMenu = () => {
 			<header className={s.lineMenu}>
 				<div className={s.tab} />
 				<nav className={s.lineLinks}>
-					<LineLink onClick={onLinkClick} href='/'>about me</LineLink>
-					<LineLink onClick={onLinkClick} href='/skills'>skills</LineLink>
-					<LineLink onClick={onLinkClick} href='/projects'>projects</LineLink>
-					<LineLink onClick={onLinkClick} href='/experience'>experience</LineLink>
+					<LineLinkElement href='/'>about me</LineLinkElement>
+					<LineLinkElement href='/skills'>skills</LineLinkElement>
+					<LineLinkElement href='/projects'>projects</LineLinkElement>
+					<LineLinkElement href='/experience'>experience</LineLinkElement>
 				</nav>
 				<div className={s.tab} />
 			</header>
