@@ -8,7 +8,8 @@ import SxSC from '@/app/components/atoms/SxSC/SxSC';
 
 const cfg = {
 	config: {
-		easing: easings.easeInOutExpo,
+		duration: 600,
+		easing: easings.easeInOutQuint,
 	}
 };
 
