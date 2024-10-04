@@ -13,7 +13,7 @@ const Lamp = ({ sx, color = '#ffffff', delay = 0, duration, nonAnimated,
 	falloff, ascent = 10, start }:
 	Lamp & {nonAnimated?: boolean, falloff?: number, ascent?: number}) => {
 	const style: CSSObject = {
-		zIndex: -1,
+		// zIndex: -1,
 		background: falloff ?
 			`linear-gradient(transparent 0% ${ascent}%, ${color} ${falloff}% ${100 - falloff}%, transparent ${100 - ascent}%)`
 			:
