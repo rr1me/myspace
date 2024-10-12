@@ -96,6 +96,22 @@ const front = [
 				],
 			},
 			'canvas | webgl',
+			{
+				header: 'testing',
+				content: [
+					{
+						header: 'unit | integration',
+						content: [
+							'jest',
+							'react testing library'
+						]
+					},
+					{
+						header: 'e2e',
+						content: ['playwright']
+					}
+				]
+			}
 		],
 	},
 ];
