@@ -9,6 +9,7 @@ import Button, { ButtonClrVariation } from '@/app/components/atoms/Button/Button
 import LineLink from '@/app/components/atoms/LineLink/LineLink';
 import { applyProps } from '@/app/components/shared/restyle';
 import React from 'react';
+import { usePathname } from 'next/navigation';
 
 const NavigationMenu = () => {
 	const navMenuOpen = !useAnimationStore(s => s.navMenuOpen);
@@ -22,9 +23,14 @@ const NavigationMenu = () => {
 	const onBreakerClick = () =>
 		animationStore.setState(s => ({ ...s, navMenuOpen: !s.navMenuOpen }));
 
+	const pathname = usePathname();
+
 	const onLinkClick = (e: React.MouseEvent) => {
-		fetch(process.env.NEXT_PUBLIC_OBSERVER_URL! +
-			e.currentTarget.getAttribute('href'));
+		const href = e.currentTarget.getAttribute('href');
+
+		if (href === pathname) e.preventDefault();
+
+		fetch(process.env.NEXT_PUBLIC_OBSERVER_URL! + href);
 
 		animationStore.setStateSilently(s => ({ ...s, pageAnimation: true }));
 	};
