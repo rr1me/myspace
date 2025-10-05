@@ -13,7 +13,7 @@ const MenuBorder = () => {
 	return (
 		<div className={s.border}>
 			<svg height='100%' width='100%' fill='none' preserveAspectRatio="none">
-				<svg width='15' fill='none' x='calc(100% - 18px)' className={s.fix} preserveAspectRatio="none">
+				<svg width='15' fill='none' x='calc(100% - 18px)' preserveAspectRatio="none">
 					<svg width='15' height='212' fill='none' preserveAspectRatio="none">
 						<path d='M3 212V209L13.5 198.5V11.5L3 1H0.5'
 							stroke={colorVars.c_main_second} strokeWidth='2' />

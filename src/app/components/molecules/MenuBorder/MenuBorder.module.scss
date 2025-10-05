@@ -8,10 +8,6 @@
 	left: 0;
 }
 
-.fix{
-	transform: translateX(calc(100% - 18px));
-}
-
 @mixin tabText{
 	color: black;
 	font-size: 10px;
